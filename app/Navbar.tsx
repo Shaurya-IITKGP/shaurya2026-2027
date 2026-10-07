@@ -6,7 +6,7 @@ interface NavbarProps {
 
 const defaultLinks = [
   { label: "Home", href: "/" },
-  { label: "Events", href: "/#events" },
+  { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Sponsors", href: "/sponsors" },
   { label: "Matches", href: "/#matches" },
