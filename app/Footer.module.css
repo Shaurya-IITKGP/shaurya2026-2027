@@ -1,0 +1,566 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Footer – Night Voyage Theme
+   Colors: --bg:#030811  --bg2:#071322  --gold:#d4af37  --text:#f0f4f8
+   ═══════════════════════════════════════════════════════════════════ */
+
+.foot {
+  --fbg: #030811;
+  --fbg2: #071322;
+  --fgold: #d4af37;
+  --ftext: #f0f4f8;
+  --fmuted: #a9b6c6;
+  --fline: rgba(212, 175, 55, 0.22);
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 24px 4vw 0;
+  color: var(--ftext);
+  font-family: "Hanken Grotesk", var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.5;
+  background:
+    radial-gradient(650px 340px at 50% 10%, rgba(212, 175, 55, 0.08), transparent 70%),
+    radial-gradient(900px 340px at 100% 0%, rgba(10, 25, 47, 0.25), transparent 70%),
+    linear-gradient(180deg, var(--fbg2), var(--fbg) 95%);
+}
+
+/* ── Rope border at top ───────────────────────────────────────────── */
+.ropeBorder {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 8px;
+  z-index: 2;
+  background: repeating-linear-gradient(118deg,
+      #c79a4a 0 5px,
+      #6f4f1d 5px 8px,
+      #e2bf78 8px 12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Main Footer Row (Balanced 4-column layout) ───────────────────── */
+.footerRow {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1.2fr 1fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+  position: relative;
+  z-index: 6;
+  padding-bottom: 12px;
+}
+
+/* ── Brand Box ────────────────────────────────────────────────────── */
+.brandBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.emblem {
+  display: block;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.28));
+}
+
+.brandText h2 {
+  font-family: var(--font-cinzel), "Cinzel", serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--fgold);
+  margin: 0;
+  line-height: 1.15;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+.brandText p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--fmuted);
+  line-height: 1.45;
+  max-width: 28ch;
+}
+
+/* ── Headings across columns ──────────────────────────────────────── */
+.boxTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-family: var(--font-cinzel), "Cinzel", serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--fgold);
+}
+
+/* ── Quick Links ──────────────────────────────────────────────────── */
+.linksBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.qlinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 14px;
+}
+
+.qlinks a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ftext);
+  transition: color 0.2s;
+}
+
+.qlinks .ico {
+  opacity: 0.7;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.qlinks a:hover {
+  color: var(--fgold);
+}
+
+.qlinks a:hover .ico {
+  opacity: 1;
+  transform: rotate(-12deg) scale(1.15);
+}
+
+/* ── Harbour / Contact ────────────────────────────────────────────── */
+.contactBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mailLink,
+.locationTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fmuted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.mailLink:hover {
+  color: var(--fgold);
+}
+
+.social {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.social a {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--fline);
+  color: var(--fgold);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  background: var(--fgold);
+  color: #1a1205;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+}
+
+.social svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Action / Fleet ───────────────────────────────────────────────── */
+.actionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--fline);
+  color: var(--ftext);
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #ffd873, var(--fgold) 55%, #c48d1e);
+  color: #1a1205;
+  border-color: transparent;
+}
+
+.btnPrimary .ico {
+  stroke: #1a1205;
+}
+
+.btn:hover {
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  border-color: var(--fgold);
+  transform: translateY(-1px);
+}
+
+/* ── Icon base ────────────────────────────────────────────────────── */
+.ico {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--fgold);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+/* ── Spinning animations ──────────────────────────────────────────── */
+.spin {
+  animation: footSpin 120s linear infinite;
+}
+
+.spinR {
+  animation: footSpin 80s linear infinite reverse;
+}
+
+@keyframes footSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Night-Sea Scene (Lighthouse, Moon, Continuous Waves, Boat)
+   ═══════════════════════════════════════════════════════════════════ */
+.sea {
+  position: relative;
+  height: 155px;
+  margin: 16px -4vw 0;
+  overflow: hidden;
+}
+
+/* ── Moon ──────────────────────────────────────────────────────────── */
+.moon {
+  position: absolute;
+  z-index: 1;
+  left: 10%;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 62% 34%, rgba(150, 120, 50, 0.35) 0 5px, transparent 6px),
+    radial-gradient(circle at 36% 62%, rgba(150, 120, 50, 0.30) 0 8px, transparent 9px),
+    radial-gradient(circle at 35% 30%, #fffbea, #f3dfa4 55%, #c9a95c);
+  box-shadow:
+    0 0 30px 8px rgba(255, 230, 160, 0.3),
+    0 0 80px 24px rgba(255, 230, 160, 0.1);
+}
+
+/* ── Moon shimmer rays ────────────────────────────────────────────── */
+.glim {
+  position: absolute;
+  z-index: 2;
+  left: calc(10% + 30px);
+  top: 68px;
+  width: 0;
+  height: 65px;
+  pointer-events: none;
+}
+
+.glim i {
+  position: absolute;
+  left: calc(var(--w) / -2);
+  top: var(--y);
+  width: calc(var(--w) * 0.8);
+  height: 2.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 236, 170, 0.85), transparent);
+  animation: footShim 3.6s ease-in-out var(--d) infinite;
+}
+
+@keyframes footShim {
+
+  0%,
+  100% {
+    opacity: 0.25;
+    translate: -3px 0;
+  }
+
+  50% {
+    opacity: 0.9;
+    translate: 3px 0;
+  }
+}
+
+/* ── Lighthouse ───────────────────────────────────────────────────── */
+.lighthouse {
+  position: absolute;
+  z-index: 2;
+  right: 7%;
+  top: 8px;
+  width: 52px;
+}
+
+.lighthouse>svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.halo {
+  animation: footPulse 3s ease-in-out infinite;
+}
+
+@keyframes footPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.beam {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  margin-top: -18px;
+  width: 480px;
+  height: 42px;
+  transform-origin: 0 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: linear-gradient(90deg, rgba(255, 229, 150, 0.7), rgba(255, 229, 150, 0) 92%);
+  clip-path: polygon(0 42%, 100% 0, 100% 100%, 0 58%);
+  animation: footSweep 10s ease-in-out infinite alternate;
+}
+
+@keyframes footSweep {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(-1);
+  }
+}
+
+/* ── Waves: Seamless & Layered to Bottom ──────────────────────────── */
+.wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat-x;
+  background-size: 240px 100%;
+}
+
+.w1 {
+  z-index: 2;
+  height: 75px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='75' viewBox='0 0 240 75'%3E%3Cpath d='M0 24q30-18 60 0t60 0t60 0t60 0V75H0Z' fill='%230d2a4a' fill-opacity='.92'/%3E%3Cpath d='M0 24q30-18 60 0t60 0t60 0t60 0' fill='none' stroke='%23d4af37' stroke-opacity='.3' stroke-width='1.2'/%3E%3C/svg%3E");
+  animation: footFlow 34s linear infinite;
+}
+
+.w2 {
+  z-index: 3;
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='60' viewBox='0 0 240 60'%3E%3Cpath d='M0 18q30 16 60 0t60 0t60 0t60 0V60H0Z' fill='%23071a30'/%3E%3Cpath d='M0 18q30 16 60 0t60 0t60 0t60 0' fill='none' stroke='%23d4af37' stroke-opacity='.22' stroke-width='1.2'/%3E%3C/svg%3E");
+  animation: footFlow 24s linear infinite reverse;
+}
+
+.w3 {
+  z-index: 4;
+  height: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='44' viewBox='0 0 240 44'%3E%3Cpath d='M0 14q30-14 60 0t60 0t60 0t60 0V44H0Z' fill='%23030811'/%3E%3Cpath d='M0 14q30-14 60 0t60 0t60 0t60 0' fill='none' stroke='%23d4af37' stroke-opacity='.18' stroke-width='1.2'/%3E%3C/svg%3E");
+  animation: footFlow 17s linear infinite;
+}
+
+@keyframes footFlow {
+  to {
+    background-position-x: 240px;
+  }
+}
+
+/* ── Sailing ship ─────────────────────────────────────────────────── */
+.sail {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 22px;
+  width: 125px;
+  animation: footCross 90s linear infinite;
+}
+
+.sail svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 85%;
+  animation: footBob 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+}
+
+@keyframes footCross {
+  from {
+    translate: -140px 0;
+  }
+
+  to {
+    translate: calc(100vw + 30px) 0;
+  }
+}
+
+@keyframes footBob {
+
+  0%,
+  100% {
+    rotate: -1.6deg;
+    translate: 0 0;
+  }
+
+  50% {
+    rotate: 1.6deg;
+    translate: 0 2px;
+  }
+}
+
+/* ── Copyright ────────────────────────────────────────────────────── */
+.copyright {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  text-align: center;
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--fmuted);
+  padding: 0 4vw;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .footerRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .foot {
+    padding-top: 18px;
+  }
+
+  .footerRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .brandBox {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .brandText p {
+    max-width: none;
+  }
+
+  .boxTitle {
+    justify-content: center;
+  }
+
+  .qlinks {
+    justify-content: center;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .contactBox {
+    align-items: center;
+  }
+
+  .actionBox {
+    align-items: center;
+  }
+
+  .sea {
+    height: 125px;
+  }
+
+  .moon {
+    left: 4%;
+    width: 44px;
+    height: 44px;
+  }
+
+  .lighthouse {
+    right: 4%;
+    width: 40px;
+  }
+
+  .sail {
+    width: 95px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .spin,
+  .spinR,
+  .wave,
+  .sail,
+  .sail svg,
+  .beam,
+  .glim i,
+  .halo {
+    animation: none;
+  }
+
+  .sail {
+    left: 45%;
+  }
+
+  .beam {
+    transform: scaleX(0.8);
+  }
+}
