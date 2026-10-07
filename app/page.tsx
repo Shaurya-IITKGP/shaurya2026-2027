@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
 import ContactSection from "./ContactSection";
+import Footer from "./Footer";
 import styles from "./page.module.css";
 
 const ShipCanvas = dynamic(() => import("./ShipCanvas"), { ssr: false });
@@ -58,7 +59,7 @@ function StatCounter({
   );
 }
 
-// 0=Hero  1=About  2=Games  3=Contact
+// 0=Hero  1=About  2=Games  3=Contact+Footer
 const TOTAL_SECTIONS = 4;
 const TRANSITION_MS = 800;
 
@@ -67,6 +68,12 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
   const isAnimatingRef = useRef(false);
   const touchStartY = useRef(0);
+  const contactFooterRef = useRef<HTMLDivElement>(null);
+
+  const activeSectionRef = useRef(0);
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
 
   useEffect(() => {
     setParticles(
@@ -93,9 +100,37 @@ export default function Home() {
     });
   }, []);
 
+  // Always reset contactFooter scroll to top when activeSection changes
+  useEffect(() => {
+    if (contactFooterRef.current) {
+      contactFooterRef.current.scrollTop = 0;
+    }
+  }, [activeSection]);
+
   // Wheel handler
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
+      if (isAnimatingRef.current) {
+        e.preventDefault();
+        return;
+      }
+
+      const currentSection = activeSectionRef.current;
+      const el = contactFooterRef.current;
+
+      if (currentSection === 3 && el) {
+        const atTop = el.scrollTop <= 5;
+        // If scrolling UP while at the top of Section 3, snap back to Games
+        if (e.deltaY < 0 && atTop) {
+          e.preventDefault();
+          navigateSection(-1);
+          return;
+        }
+        // Otherwise, allow natural scrolling inside Section 3 (down to Footer)
+        return;
+      }
+
+      // Sections 0, 1, 2: locked snap navigation
       e.preventDefault();
       if (Math.abs(e.deltaY) < 15) return;
       navigateSection(e.deltaY > 0 ? 1 : -1);
@@ -108,6 +143,18 @@ export default function Home() {
   // Keyboard
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const currentSection = activeSectionRef.current;
+      const el = contactFooterRef.current;
+
+      if (currentSection === 3 && el) {
+        const atTop = el.scrollTop <= 5;
+        if ((e.key === "ArrowUp" || e.key === "PageUp") && atTop) {
+          e.preventDefault();
+          navigateSection(-1);
+        }
+        return;
+      }
+
       if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); navigateSection(1); }
       else if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); navigateSection(-1); }
     };
@@ -121,6 +168,19 @@ export default function Home() {
     const onEnd = (e: TouchEvent) => {
       const delta = touchStartY.current - e.changedTouches[0].clientY;
       if (Math.abs(delta) < 50) return;
+
+      const currentSection = activeSectionRef.current;
+      const el = contactFooterRef.current;
+
+      if (currentSection === 3 && el) {
+        const atTop = el.scrollTop <= 5;
+        // delta < -50 means swipe down (scroll up)
+        if (delta < -50 && atTop) {
+          navigateSection(-1);
+        }
+        return;
+      }
+
       navigateSection(delta > 0 ? 1 : -1);
     };
     window.addEventListener("touchstart", onStart, { passive: true });
@@ -239,18 +299,23 @@ export default function Home() {
           <GamesSection />
         </div>
 
-        {/* SECTION 3 — Contact */}
+        {/* SECTION 3 — Contact + Footer */}
         <div
-          className={styles.contactWrapper}
+          ref={contactFooterRef}
+          className={styles.contactFooterWrapper}
           id="contact"
           style={{
             opacity: contactOpacity,
             transform: `translateY(${contactTranslateY}px)`,
             visibility: s === 3 ? "visible" : "hidden",
+            pointerEvents: s === 3 ? "auto" : "none",
             transition: `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s ${s === 3 ? '0s' : '0.8s'}`,
           }}
         >
-          <ContactSection />
+          <div className={styles.contactContent}>
+            <ContactSection />
+          </div>
+          <Footer />
         </div>
       </section>
     </main>
