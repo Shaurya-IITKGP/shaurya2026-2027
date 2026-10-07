@@ -20,6 +20,8 @@ type ContactLink = {
   href: string;
 };
 
+type Edition = "2024" | "2025" | "2026";
+
 const imageBase = "https://www.shauryaiitkgp.in/images/teams/";
 
 const departments: Department[] = [
@@ -165,6 +167,190 @@ const departments: Department[] = [
     ],
   },
 ];
+
+const historicalDepartments: Department[] = [
+  {
+    name: "Executive Heads",
+    members: [
+      {
+        name: "Tejashwi Kumar Jha",
+        phone: "8102400147",
+        image: `${imageBase}Tejashwi Kumar Jha.jpg`,
+      },
+      {
+        name: "Jival Chorawala",
+        phone: "7378655738",
+        image: `${imageBase}Jival Chorawala.jpeg`,
+      },
+      {
+        name: "Chavi Agarwal",
+        phone: "8801027905",
+        image: `${imageBase}Chavi Agarwal.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Finance Heads",
+    members: [
+      {
+        name: "Brij Patel",
+        phone: "7698817843",
+        image: `${imageBase}Brij Patel.jpeg`,
+      },
+      {
+        name: "Pranjal Paliwal",
+        phone: "7988270765",
+        image: `${imageBase}Pranjal Paliwal.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Event Heads",
+    members: [
+      {
+        name: "Indrajeet Kumar",
+        phone: "7275282141",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Sudhanshu Kumar",
+        phone: "9931682446",
+        image: `${imageBase}Sudhanshu Kumar.jpeg`,
+      },
+      {
+        name: "Matthews Bonthu",
+        phone: "8688324518",
+        image: `${imageBase}Matthews Bonthu.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Publicity & Marketing Heads",
+    members: [
+      {
+        name: "Hemant Kamble",
+        phone: "9372838349",
+        image: `${imageBase}Hemant Kamble.jpeg`,
+      },
+      {
+        name: "Tuhsin Suhana Rahman",
+        phone: "6002515029",
+        image: `${imageBase}Tuhsin Suhana Rahman.jpeg`,
+      },
+      {
+        name: "Rakesh Tella",
+        phone: "9640519184",
+        image: `${imageBase}Rakesh Tella.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Sponsorship Heads",
+    members: [
+      {
+        name: "Shaurya Pratap Singh",
+        phone: "8003192648",
+        image: `${imageBase}Shaurya Pratap Singh.png`,
+      },
+      {
+        name: "Samrat Koushik Shaw",
+        phone: "7047740198",
+        image: `${imageBase}Samrat.jpg`,
+      },
+      {
+        name: "Preet Panchal",
+        phone: "7383456780",
+        image: `${imageBase}Preet.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Logistics Heads",
+    members: [
+      {
+        name: "Ayush Garg",
+        phone: "9461950422",
+        image: `${imageBase}Ayush_Garg.jpg`,
+      },
+      {
+        name: "Kushal Kushwaha",
+        phone: "9594620693",
+        image: `${imageBase}Kushal.jpg`,
+      },
+      {
+        name: "Pranjal Kanodia",
+        phone: "9610978218",
+        image: `${imageBase}Pranjal Kanodia.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Web Heads",
+    members: [
+      {
+        name: "Pranjul Shukla",
+        phone: "6307455279",
+        image: `${imageBase}Pranjul_Shukla.jpg`,
+      },
+      {
+        name: "Sahil Sinha",
+        phone: "7856845083",
+        image: `${imageBase}Sahil_Sinha.jpg`,
+      },
+    ],
+  },
+  {
+    name: "Design and Media Heads",
+    members: [
+      {
+        name: "Bhuvan Raj Guguloth",
+        phone: "9392885490",
+        image: `${imageBase}bhuvan.jpg`,
+      },
+      {
+        name: "Sai Chetan Kumar",
+        phone: "7702026854",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Deepak Mina",
+        phone: "8696784547",
+        image: `${imageBase}Deepak Mina.png`,
+      },
+    ],
+  },
+];
+
+const editionDepartments: Record<Edition, Department[]> = {
+  "2024": historicalDepartments,
+  "2025": departments,
+  "2026": [],
+};
+
+const historicalEmails: Record<string, string> = {
+  "Tejashwi Kumar Jha": "tkjha2468@gmail.com",
+  "Jival Chorawala": "jivalchorawala13@gmail.com",
+  "Chavi Agarwal": "agarwalchavi04@gmail.com",
+  "Brij Patel": "brijpatel475@gmail.com",
+  "Pranjal Paliwal": "pranjalpaliwal.05@kgpian.iitkgp.ac.in",
+  "Indrajeet Kumar": "knp.indrajeetkumar@gmail.com",
+  "Sudhanshu Kumar": "mrsudhanshu756@gmail.com",
+  "Matthews Bonthu": "matthews27@kgpian.iitkgp.ac.in",
+  "Hemant Kamble": "hemantsoham111@gmail.com",
+  "Tuhsin Suhana Rahman": "tuhsin13@gmail.com",
+  "Rakesh Tella": "rakeshtella8@gmail.com",
+  "Shaurya Pratap Singh": "shaurya29@kgpian.iitkgp.ac.in",
+  "Samrat Koushik Shaw": "shawkoushik8776@gmail.com",
+  "Preet Panchal": "panchalpreet090304@gmail.com",
+  "Ayush Garg": "gargayush.2412@gmail.com",
+  "Kushal Kushwaha": "kushalkushwaha96@gmail.com",
+  "Pranjal Kanodia": "pranjalkanodia11@gmail.com",
+  "Pranjul Shukla": "captaincoro444@gmail.com",
+  "Sahil Sinha": "sahilsinha247742@gmail.com",
+  "Bhuvan Raj Guguloth": "bhuvanrajnaik@gmail.com",
+  "Sai Chetan Kumar": "chetankumar10021@gmail.com",
+  "Deepak Mina": "deepak2020ibs@gmail.com",
+};
 
 const contactLinks: Record<string, ContactLink[]> = {
   "Sidharth Reddy": [
@@ -490,10 +676,12 @@ const contactLinks: Record<string, ContactLink[]> = {
 };
 
 export default function TeamsPage() {
+  const [activeEdition, setActiveEdition] = useState<Edition>("2025");
   const [activeDepartment, setActiveDepartment] = useState(departments[0].name);
-  const activeTeam =
-    departments.find((department) => department.name === activeDepartment) ??
-    departments[0];
+  const activeDepartments = editionDepartments[activeEdition];
+  const activeTeam = activeDepartments.find(
+    (department) => department.name === activeDepartment,
+  );
 
   return (
     <main className={styles.page}>
@@ -510,7 +698,7 @@ export default function TeamsPage() {
 
       <div className={styles.pageTexture} aria-hidden="true" />
       <section className={styles.teamHero}>
-        <p className={styles.kicker}>SHAURYA 2026</p>
+        <p className={styles.kicker}>SHAURYA {activeEdition}</p>
         <h1>Our Team</h1>
         <p className={styles.heroCopy}>
           The minds, hands, and hearts behind the biggest sports festival at IIT
@@ -518,8 +706,18 @@ export default function TeamsPage() {
         </p>
         <label className={styles.editionControl}>
           <span>Edition</span>
-          <select aria-label="Team edition" defaultValue="2026">
+          <select
+            aria-label="Team edition"
+            value={activeEdition}
+            onChange={(event) => {
+              const edition = event.target.value as Edition;
+              setActiveEdition(edition);
+              setActiveDepartment(editionDepartments[edition][0]?.name ?? "");
+            }}
+          >
             <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
           </select>
         </label>
       </section>
@@ -530,7 +728,7 @@ export default function TeamsPage() {
           role="tablist"
           aria-label="Choose a department"
         >
-          {departments.map((department) => (
+          {activeDepartments.map((department) => (
             <button
               key={department.name}
               type="button"
@@ -547,52 +745,89 @@ export default function TeamsPage() {
         <div className={styles.sectionHeading}>
           <div>
             <p className={styles.kicker}>
-              2026 / {String(activeTeam.members.length).padStart(2, "0")}{" "}
+              {activeEdition} /{" "}
+              {activeTeam
+                ? String(activeTeam.members.length).padStart(2, "0")
+                : "--"}{" "}
               MEMBERS
             </p>
-            <h2>{activeTeam.name}</h2>
+            <h2>{activeTeam?.name ?? "Roster pending"}</h2>
           </div>
-          <p>Meet the people turning ambition into action.</p>
+          <p>
+            {activeTeam
+              ? "Meet the people turning ambition into action."
+              : "The updated 2026 team will be published here soon."}
+          </p>
         </div>
 
-        <div className={styles.memberGrid} role="tabpanel">
-          {activeTeam.members.map((member, index) => (
-            <article className={styles.memberCard} key={member.name}>
-              <div className={styles.memberImageWrap}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className={styles.memberImage}
-                />
-                <span className={styles.cardNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <div className={styles.memberInfo}>
-                <p className={styles.memberDepartment}>{activeTeam.name}</p>
-                <h3>{member.name}</h3>
-                {member.phone && <p className={styles.phone}>{member.phone}</p>}
-                <div className={styles.contactLinks}>
-                  {(contactLinks[member.name] ?? []).map((link) => (
-                    <a
-                      className={styles.contactLink}
-                      href={link.href}
-                      key={link.label}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {link.label} <span aria-hidden="true">↗</span>
-                    </a>
-                  ))}
+        {activeTeam && (
+          <div className={styles.memberGrid} role="tabpanel">
+            {activeTeam.members.map((member, index) => (
+              <article className={styles.memberCard} key={member.name}>
+                <div className={styles.memberImageWrap}>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className={styles.memberImage}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = `${imageBase}default.png`;
+                    }}
+                  />
+                  <span className={styles.cardNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+                <div className={styles.memberInfo}>
+                  <p className={styles.memberDepartment}>{activeTeam.name}</p>
+                  <h3>{member.name}</h3>
+                  {member.phone && (
+                    <p className={styles.phone}>{member.phone}</p>
+                  )}
+                  <div className={styles.contactLinks}>
+                    {(
+                      contactLinks[member.name] ?? [
+                        { label: "Call", href: `tel:${member.phone}` },
+                        {
+                          label: "WhatsApp",
+                          href: `https://wa.me/${member.phone}`,
+                        },
+                        ...(historicalEmails[member.name]
+                          ? [
+                              {
+                                label: "Email",
+                                href: `https://mail.google.com/mail/?view=cm&to=${historicalEmails[member.name]}`,
+                              },
+                            ]
+                          : []),
+                      ]
+                    ).map((link) => (
+                      <a
+                        className={styles.contactLink}
+                        href={link.href}
+                        key={link.label}
+                        target={
+                          link.href.startsWith("tel:") ? undefined : "_blank"
+                        }
+                        rel={
+                          link.href.startsWith("tel:")
+                            ? undefined
+                            : "noreferrer"
+                        }
+                      >
+                        {link.label} <span aria-hidden="true">↗</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
 
       <footer className={styles.footer}>
-        <span>Shaurya 2026</span>
+        <span>Shaurya {activeEdition}</span>
         <span>IIT Kharagpur</span>
       </footer>
     </main>

@@ -94,22 +94,19 @@ export default function Home() {
     setParticles(generated);
   }, []);
 
-  const navigateSection = useCallback(
-    (direction: 1 | -1) => {
-      if (isAnimatingRef.current) return;
+  const navigateSection = useCallback((direction: 1 | -1) => {
+    if (isAnimatingRef.current) return;
 
-      setActiveSection((prev) => {
-        const next = prev + direction;
-        if (next < 0 || next >= TOTAL_SECTIONS) return prev;
-        isAnimatingRef.current = true;
-        setTimeout(() => {
-          isAnimatingRef.current = false;
-        }, TRANSITION_MS);
-        return next;
-      });
-    },
-    []
-  );
+    setActiveSection((prev) => {
+      const next = prev + direction;
+      if (next < 0 || next >= TOTAL_SECTIONS) return prev;
+      isAnimatingRef.current = true;
+      setTimeout(() => {
+        isAnimatingRef.current = false;
+      }, TRANSITION_MS);
+      return next;
+    });
+  }, []);
 
   // Wheel navigation
   useEffect(() => {
