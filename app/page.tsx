@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
 import ContactSection from "./ContactSection";
-import Footer from "./Footer";
 import styles from "./page.module.css";
 
 const ShipCanvas = dynamic(() => import("./ShipCanvas"), { ssr: false });
@@ -59,7 +58,7 @@ function StatCounter({
   );
 }
 
-// 0=Hero  1=About  2=Games  3=Contact+Footer
+// 0=Hero  1=About  2=Games  3=Contact
 const TOTAL_SECTIONS = 4;
 const TRANSITION_MS = 800;
 
@@ -67,17 +66,7 @@ export default function Home() {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [activeSection, setActiveSection] = useState(0);
   const isAnimatingRef = useRef(false);
-  const lastBlockedTimeRef = useRef(0);
-  const accumulatedDeltaRef = useRef(0);
-  const lastWheelTimeRef = useRef(0);
-  const lastNativeScrollTimeRef = useRef(0);
   const touchStartY = useRef(0);
-  const contactRef = useRef<HTMLDivElement>(null);
-
-  const activeSectionRef = useRef(0);
-  useEffect(() => {
-    activeSectionRef.current = activeSection;
-  }, [activeSection]);
 
   useEffect(() => {
     setParticles(
@@ -104,91 +93,12 @@ export default function Home() {
     });
   }, []);
 
-  // Always reset contact scroll to top when navigating away or entering section 3
-  useEffect(() => {
-    if (contactRef.current) {
-      contactRef.current.scrollTop = 0;
-    }
-  }, [activeSection]);
-
   // Wheel handler
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
-      const el = contactRef.current;
-      const now = Date.now();
-      const currentSection = activeSectionRef.current;
-
-      // Reset accumulation if it's been a while since the last wheel event (new swipe)
-      if (now - lastWheelTimeRef.current > 300) {
-        accumulatedDeltaRef.current = 0;
-      }
-      lastWheelTimeRef.current = now;
-
-      // Always block scroll during transition animation (prevents momentum bleed)
-      if (isAnimatingRef.current) {
-        e.preventDefault();
-        lastBlockedTimeRef.current = now;
-        return;
-      }
-
-      // Momentum bleed check (80ms is enough to catch inertia without blocking fast users)
-      if (now - lastBlockedTimeRef.current < 80) {
-        e.preventDefault();
-        lastBlockedTimeRef.current = now;
-        return;
-      }
-
-      // Section 3: Contact+Footer — allow natural scroll inside
-      if (currentSection === 3 && el) {
-        const atTop = el.scrollTop <= 2;
-        const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
-
-        if (!atTop && !atBottom) {
-          // Scrolling natively inside the footer
-          lastNativeScrollTimeRef.current = now;
-          accumulatedDeltaRef.current = 0;
-          return;
-        }
-
-        // At top, scrolling up → go back to Games
-        if (atTop && e.deltaY < 0) {
-          e.preventDefault();
-
-          // If we JUST reached the top from native scrolling, absorb the leftover momentum
-          // so we lock at the Contact section instead of flying straight into Games.
-          if (now - lastNativeScrollTimeRef.current < 300) {
-            lastNativeScrollTimeRef.current = now; // keep absorbing
-            return;
-          }
-
-          accumulatedDeltaRef.current += e.deltaY;
-          if (accumulatedDeltaRef.current < -40) {
-            navigateSection(-1);
-            accumulatedDeltaRef.current = 0;
-          }
-          return;
-        }
-
-        // At bottom, scrolling down → absorb
-        if (atBottom && e.deltaY > 0) {
-          e.preventDefault();
-          return;
-        }
-
-        // Catch native scrolls that just hit the boundary
-        lastNativeScrollTimeRef.current = now;
-        accumulatedDeltaRef.current = 0;
-        return;
-      }
-
-      // Sections 0–2: fully locked snap
       e.preventDefault();
-      accumulatedDeltaRef.current += e.deltaY;
-
-      if (Math.abs(accumulatedDeltaRef.current) > 40) {
-        navigateSection(accumulatedDeltaRef.current > 0 ? 1 : -1);
-        accumulatedDeltaRef.current = 0;
-      }
+      if (Math.abs(e.deltaY) < 15) return;
+      navigateSection(e.deltaY > 0 ? 1 : -1);
     };
 
     window.addEventListener("wheel", onWheel, { passive: false });
@@ -211,22 +121,6 @@ export default function Home() {
     const onEnd = (e: TouchEvent) => {
       const delta = touchStartY.current - e.changedTouches[0].clientY;
       if (Math.abs(delta) < 50) return;
-
-      const currentSection = activeSectionRef.current;
-
-      // On section 3, let native touch scroll work, unless at the top and scrolling up
-      if (currentSection === 3) {
-        const el = contactRef.current;
-        if (el) {
-          const atTop = el.scrollTop <= 2;
-          // delta < -50 means swipe down (scroll up)
-          if (delta < -50 && atTop) {
-            navigateSection(-1);
-          }
-        }
-        return;
-      }
-
       navigateSection(delta > 0 ? 1 : -1);
     };
     window.addEventListener("touchstart", onStart, { passive: true });
@@ -251,7 +145,7 @@ export default function Home() {
   const gamesTranslateY = s === 2 ? 0 : 40;
 
   const contactOpacity = s === 3 ? 1 : 0;
-  const contactTranslateY = s === 3 ? 0 : 60;
+  const contactTranslateY = s === 3 ? 0 : 40;
 
   const isFullyScrolled = s === 1;
 
@@ -345,10 +239,9 @@ export default function Home() {
           <GamesSection />
         </div>
 
-        {/* SECTION 3 — Contact Us + Footer (scrollable, Contact fills full viewport) */}
+        {/* SECTION 3 — Contact */}
         <div
-          ref={contactRef}
-          className={styles.contactFooterWrapper}
+          className={styles.contactWrapper}
           id="contact"
           style={{
             opacity: contactOpacity,
@@ -357,12 +250,7 @@ export default function Home() {
             transition: `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s ${s === 3 ? '0s' : '0.8s'}`,
           }}
         >
-          {/* Contact fills exactly 100vh — footer completely hidden below */}
-          <div className={styles.contactSlide}>
-            <ContactSection />
-          </div>
-          {/* Footer revealed by scrolling down */}
-          <Footer />
+          <ContactSection />
         </div>
       </section>
     </main>
