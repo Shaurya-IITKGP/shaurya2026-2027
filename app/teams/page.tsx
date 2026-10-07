@@ -499,7 +499,7 @@ export default function TeamsPage() {
     <main className={styles.page}>
       <Navbar
         links={[
-          { label: "Home", href: "/home" },
+          { label: "Home", href: "/" },
           { label: "Events", href: "/#events" },
           { label: "Gallery", href: "/gallery" },
           { label: "Sponsors", href: "/sponsors" },
