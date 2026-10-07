@@ -83,24 +83,6 @@ export default function GamesSection() {
           );
         })}
       </div>
-
-      {/* Dot indicators */}
-      <div className={styles.dotsRow}>
-        {games.map((_, idx) => (
-          <button
-            key={idx}
-            className={`${styles.dot} ${
-              idx === activeIndex ? styles.dotActive : ""
-            }`}
-            onClick={() => {
-              setTimeout(() => {
-                setActiveIndex(idx);
-              }, 400);
-            }}
-            aria-label={`Show game ${idx + 1}`}
-          />
-        ))}
-      </div>
     </section>
   );
 }

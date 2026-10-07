@@ -365,23 +365,6 @@ export default function Home() {
           <Footer />
         </div>
       </section>
-
-      {/* Navigation dots */}
-      <div className={styles.sectionDots}>
-        {Array.from({ length: TOTAL_SECTIONS }, (_, i) => (
-          <button
-            key={i}
-            className={`${styles.sectionDot} ${i === s ? styles.sectionDotActive : ""}`}
-            onClick={() => {
-              if (isAnimatingRef.current) return;
-              isAnimatingRef.current = true;
-              setActiveSection(i);
-              setTimeout(() => { isAnimatingRef.current = false; }, TRANSITION_MS);
-            }}
-            aria-label={`Go to section ${i + 1}`}
-          />
-        ))}
-      </div>
     </main>
   );
 }
