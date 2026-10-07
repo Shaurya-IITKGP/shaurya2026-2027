@@ -1,6 +1,20 @@
 :root {
-  --background: #070b12;
-  --foreground: #f8fafc;
+  --background: #030811;
+  --foreground: #f0f4f8;
+  --font-serif-maritime: var(--font-cinzel), "Times New Roman", Georgia, serif;
+  --font-serif-dec: var(--font-cinzel-dec), var(--font-cinzel), serif;
+  --ocean-navy: #030811;
+  --ocean-deep: #071322;
+  --ocean-midnight: #0a192f;
+  --ocean-abyss: #040d1a;
+  --ocean-teal: #0ea5e9;
+  --ocean-cyan: #22d3ee;
+  --ocean-sea-green: #14b8a6;
+  --gold-antique: #d4af37;
+  --gold-brass: #e6ca65;
+  --gold-highlight: #fbf1c7;
+  --gold-shadow: #8a6c1e;
+  --sand-beige: #e2d9c8;
 }
 
 html {
