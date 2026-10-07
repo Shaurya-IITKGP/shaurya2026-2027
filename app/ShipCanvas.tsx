@@ -138,13 +138,13 @@ export default function ShipCanvas() {
           polar={[-Math.PI / 4, Math.PI / 4]}
           azimuth={[-Math.PI / 2, Math.PI / 2]}
         >
-          <Bounds fit clip margin={0.75}>
+          <Bounds fit margin={1.3}>
             <Center>
               {/* Floating ocean wave buoyancy animation */}
               <Float
                 speed={2.2} // Floating animation speed
-                rotationIntensity={0.6} // Pitch and roll rocking
-                floatIntensity={0.5} // Vertical ocean wave bobbing
+                rotationIntensity={0.5} // Pitch and roll rocking
+                floatIntensity={0.4} // Vertical ocean wave bobbing
               >
                 <Model />
               </Float>
