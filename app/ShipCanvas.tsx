@@ -1,19 +1,28 @@
 "use client";
 
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Center, Bounds, PresentationControls, Float } from "@react-three/drei";
+import {
+  useGLTF,
+  Center,
+  Bounds,
+  PresentationControls,
+  Float,
+} from "@react-three/drei";
 import * as THREE from "three";
 
 function AnimatedLighting() {
   const lanternLightRef = useRef<THREE.PointLight>(null);
   const spotLightRef = useRef<THREE.SpotLight>(null);
+  const elapsed = useRef(0);
 
-  useFrame(({ clock }) => {
-    const time = clock.getElapsedTime();
+  useFrame((_, delta) => {
+    elapsed.current += delta;
+    const time = elapsed.current;
     // Pulsing deck lantern light flickering
     if (lanternLightRef.current) {
-      lanternLightRef.current.intensity = 5 + Math.sin(time * 5) * 2 + Math.cos(time * 8) * 1;
+      lanternLightRef.current.intensity =
+        5 + Math.sin(time * 5) * 2 + Math.cos(time * 8) * 1;
     }
     // Dynamic sweeping spotlight over sails
     if (spotLightRef.current) {
@@ -26,14 +35,33 @@ function AnimatedLighting() {
     <>
       <ambientLight intensity={3.5} />
       {/* Sun / Key Light */}
-      <directionalLight position={[15, 30, 20]} intensity={6.5} color="#fff6e5" castShadow />
+      <directionalLight
+        position={[15, 30, 20]}
+        intensity={6.5}
+        color="#fff6e5"
+        castShadow
+      />
       {/* Orange Rim Light */}
-      <directionalLight position={[-15, 12, -15]} intensity={4} color="#ff6000" />
+      <directionalLight
+        position={[-15, 12, -15]}
+        intensity={4}
+        color="#ff6000"
+      />
       {/* Underglow */}
-      <directionalLight position={[0, -10, 15]} intensity={2.5} color="#ffd166" />
+      <directionalLight
+        position={[0, -10, 15]}
+        intensity={2.5}
+        color="#ffd166"
+      />
 
       {/* Animated Flickering Lantern */}
-      <pointLight ref={lanternLightRef} position={[2, 4, 4]} intensity={6} color="#ff8c00" distance={20} />
+      <pointLight
+        ref={lanternLightRef}
+        position={[2, 4, 4]}
+        intensity={6}
+        color="#ff8c00"
+        distance={20}
+      />
 
       {/* Dynamic Animated Sweeping Spotlight */}
       <spotLight
@@ -71,17 +99,27 @@ function Model() {
 
   const thirtyDegInRad = (45 * Math.PI) / 180;
 
-  return (
-    <primitive
-      object={scene}
-      rotation={[0, thirtyDegInRad, 0]}
-    />
-  );
+  return <primitive object={scene} rotation={[0, thirtyDegInRad, 0]} />;
 }
 
 useGLTF.preload("/ship.glb");
 
 export default function ShipCanvas() {
+  const [webglAvailable, setWebglAvailable] = React.useState<boolean | null>(
+    null,
+  );
+
+  useEffect(() => {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("webgl");
+    const frame = requestAnimationFrame(() =>
+      setWebglAvailable(Boolean(context)),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  if (webglAvailable !== true) return null;
+
   return (
     <Canvas
       camera={{ position: [0, 0, 20], fov: 45 }}

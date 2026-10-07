@@ -5,17 +5,18 @@ interface NavbarProps {
 }
 
 const defaultLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Events", href: "#events" },
-  { label: "Games", href: "#games" },
-  { label: "Sponsors", href: "#sponsors" },
+  { label: "Home", href: "/" },
+  { label: "Events", href: "/#events" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Sponsors", href: "/sponsors" },
+  { label: "Matches", href: "/#matches" },
+  { label: "Teams", href: "/teams" },
 ];
 
 export default function Navbar({ links = defaultLinks }: NavbarProps) {
-  // Split links into 2 on the left of logo, 2 on the right of logo
-  // Layout requested: space space btn btn logo btn btn space space
-  const leftLinks = links.slice(0, 2);
-  const rightLinks = links.slice(2, 4);
+  // Split links into 3 on the left of logo, 3 on the right of logo
+  const leftLinks = links.slice(0, 3);
+  const rightLinks = links.slice(3, 6);
 
   return (
     <header className={styles.headerFixed}>
@@ -30,7 +31,7 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
           </div>
 
           <div className={styles.logoWrap}>
-            <a href="#home" className={styles.logoLink}>
+            <a href={links[0]?.href ?? "/"} className={styles.logoLink}>
               <img src="/logo.png" alt="Shaurya logo" className={styles.logo} />
             </a>
           </div>
