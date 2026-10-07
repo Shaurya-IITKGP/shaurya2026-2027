@@ -26,7 +26,13 @@ interface StatItemProps {
   isFullyScrolled: boolean;
 }
 
-function StatCounter({ prefix = "", targetNumber, suffix = "", label, isFullyScrolled }: StatItemProps) {
+function StatCounter({
+  prefix = "",
+  targetNumber,
+  suffix = "",
+  label,
+  isFullyScrolled,
+}: StatItemProps) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
