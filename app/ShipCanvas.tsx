@@ -8,9 +8,11 @@ import * as THREE from "three";
 function AnimatedLighting() {
   const lanternLightRef = useRef<THREE.PointLight>(null);
   const spotLightRef = useRef<THREE.SpotLight>(null);
+  const elapsed = useRef(0);
 
-  useFrame(({ clock }) => {
-    const time = clock.getElapsedTime();
+  useFrame((_, delta) => {
+    elapsed.current += delta;
+    const time = elapsed.current;
     // Pulsing deck lantern light flickering
     if (lanternLightRef.current) {
       lanternLightRef.current.intensity = 5 + Math.sin(time * 5) * 2 + Math.cos(time * 8) * 1;

@@ -71,6 +71,7 @@ export default function GamesSection() {
                   alt={game.name}
                   width={340}
                   height={300}
+                  style={{ width: "auto", height: "auto" }}
                   className={styles.cardImage}
                 />
               </div>
