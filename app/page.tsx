@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
+import Navbar from "./Navbar";
 import styles from "./page.module.css";
 
-const Navbar = dynamic(() => import("./Navbar"), { ssr: false });
 const ShipCanvas = dynamic(() => import("./ShipCanvas"), { ssr: false });
 const GamesSection = dynamic(() => import("./GamesSection"), { ssr: false });
 
@@ -27,23 +26,7 @@ interface StatItemProps {
   isFullyScrolled: boolean;
 }
 
-const PARTICLES: Particle[] = Array.from({ length: 45 }, (_, i) => ({
-  id: i,
-  left: (i * 37) % 100,
-  size: 2 + ((i * 13) % 30) / 10,
-  duration: 5 + ((i * 17) % 70) / 10,
-  delay: ((i * 19) % 80) / 10,
-  opacity: 0.3 + ((i * 23) % 70) / 100,
-  drift: ((i * 29) % 120) - 60,
-}));
-
-function StatCounter({
-  prefix = "",
-  targetNumber,
-  suffix = "",
-  label,
-  isFullyScrolled,
-}: StatItemProps) {
+function StatCounter({ prefix = "", targetNumber, suffix = "", label, isFullyScrolled }: StatItemProps) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -51,13 +34,16 @@ function StatCounter({
       return;
     }
 
+    // Smooth timer-based count up over 1.5s once fully scrolled to About section
     const startTime = performance.now();
     const duration = 1500;
+
     let animationFrameId: number;
 
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic function for smooth deceleration at the end
       const easeProgress = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(targetNumber * easeProgress));
 
@@ -66,10 +52,7 @@ function StatCounter({
       }
     };
 
-    animationFrameId = requestAnimationFrame(() => {
-      setCount(0);
-      animate(performance.now());
-    });
+    animationFrameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrameId);
   }, [isFullyScrolled, targetNumber]);
 
@@ -85,113 +68,80 @@ function StatCounter({
   );
 }
 
-const TOTAL_SECTIONS = 3; // 0=Hero, 1=About, 2=Games
-const TRANSITION_MS = 800; // matches CSS transition duration
-
 export default function Home() {
-  const [particlesVisible, setParticlesVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState(0);
-  const isAnimatingRef = useRef(false);
-  const touchStartY = useRef(0);
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  const navigateSection = useCallback((direction: 1 | -1) => {
-    if (isAnimatingRef.current) return;
-
-    setActiveSection((prev) => {
-      const next = prev + direction;
-      if (next < 0 || next >= TOTAL_SECTIONS) return prev;
-      isAnimatingRef.current = true;
-      setTimeout(() => {
-        isAnimatingRef.current = false;
-      }, TRANSITION_MS);
-      return next;
-    });
-  }, []);
-
-  // Wheel navigation
   useEffect(() => {
-    const particleFrame = requestAnimationFrame(() =>
-      setParticlesVisible(true),
-    );
+    // Generate static array of ash particles with varying sizes, speeds, and drifts
+    const generated: Particle[] = Array.from({ length: 45 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100, // percentage across width
+      size: Math.random() * 5 + 2, // 2px to 7px size
+      duration: Math.random() * 7 + 5, // 5s to 12s float speed
+      delay: Math.random() * 8, // staggered start delays up to 8s
+      opacity: Math.random() * 0.7 + 0.3,
+      drift: (Math.random() - 0.5) * 120, // horizontal sway px
+    }));
+    const particleFrame = requestAnimationFrame(() => setParticles(generated));
 
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      if (Math.abs(e.deltaY) < 15) return;
-      navigateSection(e.deltaY > 0 ? 1 : -1);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      // Scroll progress: 0→1 (phase 1: hero→about), 1→2 (phase 2: about→games)
+      const progress = Math.min(Math.max(scrollY / (windowHeight * 0.8), 0), 2);
+      setScrollProgress(progress);
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       cancelAnimationFrame(particleFrame);
-      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [navigateSection]);
+  }, []);
 
-  // Keyboard navigation (arrow keys)
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown" || e.key === "PageDown") {
-        e.preventDefault();
-        navigateSection(1);
-      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-        e.preventDefault();
-        navigateSection(-1);
-      }
-    };
+  // --- Phase 1: scrollProgress 0 → 1 (hero image fades, about/ship slide in) ---
+  const phase1 = Math.min(scrollProgress, 1);
 
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [navigateSection]);
+  // --- Phase 2: scrollProgress 1 → 2 (about exits left, ship exits right, games fades in) ---
+  const phase2 = Math.min(Math.max(scrollProgress - 1, 0), 1);
 
-  // Touch swipe navigation
-  useEffect(() => {
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY;
-    };
+  // 1. image.png fade-slide to top (phase 1 only)
+  const imageOpacity = Math.max(1 - phase1 * 1.5, 0);
+  const imageTranslateY = -20 - phase1 * 120;
 
-    const handleTouchEnd = (e: TouchEvent) => {
-      const delta = touchStartY.current - e.changedTouches[0].clientY;
-      if (Math.abs(delta) < 50) return; // minimum swipe distance
-      navigateSection(delta > 0 ? 1 : -1);
-    };
+  // 2. About section: fade in during phase 1, fade out during phase 2
+  const aboutFadeIn = Math.min(Math.max((phase1 - 0.2) * 1.4, 0), 1);
+  const aboutFadeOut = 1 - phase2;
+  const aboutOpacity = aboutFadeIn * aboutFadeOut;
 
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [navigateSection]);
+  // Text: slide in from left (phase 1), slide out to left (phase 2)
+  const textSlideIn = -80 * (1 - aboutFadeIn);
+  const textSlideOut = -150 * phase2;
+  const textTranslateX = textSlideIn + textSlideOut;
 
-  // --- Animation values derived from activeSection ---
+  // Ship: slide in from right (phase 1), slide out to right (phase 2)
+  const shipSlideIn = 100 * (1 - aboutFadeIn);
+  const shipSlideOut = 150 * phase2;
+  const shipTranslateX = shipSlideIn + shipSlideOut;
 
-  // Hero image: visible only on section 0
-  const imageOpacity = activeSection === 0 ? 1 : 0;
-  const imageTranslateY = activeSection === 0 ? -20 : -140;
+  // 3. Games section: fades in during phase 2
+  const gamesOpacity = phase2;
+  const gamesTranslateY = 40 * (1 - phase2); // slides up slightly as it appears
 
-  // About: visible only on section 1
-  const aboutOpacity = activeSection === 1 ? 1 : 0;
-  const textTranslateX =
-    activeSection === 0 ? -80 : activeSection === 1 ? 0 : -150;
-  const shipTranslateX =
-    activeSection === 0 ? 100 : activeSection === 1 ? 0 : 150;
-
-  // Games: visible only on section 2
-  const gamesOpacity = activeSection === 2 ? 1 : 0;
-  const gamesTranslateY = activeSection === 2 ? 0 : 40;
-
-  // Stat counter trigger
-  const isFullyScrolled = activeSection === 1;
+  // Flag indicating when page is fully scrolled to the About section (phase1 >= 0.85)
+  const isFullyScrolled = phase1 >= 0.85 && phase2 < 0.3;
 
   return (
     <main className={styles.heroPage}>
       <Navbar />
 
-      <section className={styles.heroSection}>
-        {/* Ash Particles overlay */}
-        <div className={styles.particlesContainer} aria-hidden="true">
-          {particlesVisible &&
-            PARTICLES.map((p) => (
+      {/* Tall scroll driver — 300vh so we get 2x viewport of scroll distance */}
+      <div className={styles.scrollContainer}>
+        <section className={styles.heroSection}>
+          {/* Ash Particles overlay */}
+          <div className={styles.particlesContainer} aria-hidden="true">
+            {particles.map((p) => (
               <span
                 key={p.id}
                 className={styles.particle}
@@ -208,103 +158,100 @@ export default function Home() {
                 }
               />
             ))}
-        </div>
+          </div>
 
-        {/* Hero image — fades out when leaving section 0 */}
-        <div
-          className={styles.centerImageWrap}
-          style={{
-            opacity: imageOpacity,
-            transform: `translateY(${imageTranslateY}px)`,
-            pointerEvents: activeSection === 0 ? "auto" : "none",
-          }}
-        >
-          <Image
-            src="/image.png"
-            alt="Shaurya"
-            width={650}
-            height={500}
-            className={styles.centerImage}
-          />
-        </div>
+          {/* Floating Center Image: fades out and slides UP to top on scroll */}
+          <div
+            className={styles.centerImageWrap}
+            style={{
+              opacity: imageOpacity,
+              transform: `translateY(${imageTranslateY}px)`,
+              pointerEvents: imageOpacity < 0.1 ? "none" : "auto",
+            }}
+          >
+            <img src="/image.png" alt="Shaurya" className={styles.centerImage} />
+          </div>
 
-        {/* About section — visible on section 1 */}
-        <div
-          className={styles.aboutWrapper}
-          id="about"
-          style={{
-            opacity: aboutOpacity,
-            pointerEvents: activeSection === 1 ? "auto" : "none",
-          }}
-        >
-          <div className={styles.aboutGrid}>
-            <div
-              className={styles.aboutTextContent}
-              style={{ transform: `translateX(${textTranslateX}px)` }}
-            >
-              <h3 className={styles.aboutYellowHeading}>ABOUT US</h3>
-              <h2 className={styles.aboutTitle}>
-                Brave Hearts Write History With Courage
-              </h2>
-              <p className={styles.aboutDescription}>
-                Shaurya is IIT Kharagpur&apos;s premier annual sports festival,
-                bringing together athletes and enthusiasts from across the
-                nation. Celebrating skill, spirit, and sportsmanship, Shaurya
-                provides a high-octane platform to compete, excel, and carve a
-                legacy in gold.
-              </p>
+          {/* About Section Container — exits left/right in phase 2 */}
+          <div
+            className={styles.aboutWrapper}
+            id="about"
+            style={{
+              opacity: aboutOpacity,
+              pointerEvents: aboutOpacity < 0.1 ? "none" : "auto",
+            }}
+          >
+            <div className={styles.aboutGrid}>
+              {/* About Text Content: fades and slides from LEFT, exits LEFT */}
+              <div
+                className={styles.aboutTextContent}
+                style={{
+                  transform: `translateX(${textTranslateX}px)`,
+                }}
+              >
+                <h3 className={styles.aboutYellowHeading}>ABOUT US</h3>
+                <h2 className={styles.aboutTitle}>
+                  Brave Hearts Write History With Courage
+                </h2>
+                <p className={styles.aboutDescription}>
+                  Shaurya is IIT Kharagpur&apos;s premier annual sports festival, bringing together athletes and enthusiasts from across the nation. Celebrating skill, spirit, and sportsmanship, Shaurya provides a high-octane platform to compete, excel, and carve a legacy in gold.
+                </p>
 
-              <div className={styles.statsGrid}>
-                <StatCounter
-                  targetNumber={50}
-                  suffix="+"
-                  label="Colleges Participating"
-                  isFullyScrolled={isFullyScrolled}
-                />
-                <StatCounter
-                  prefix="₹"
-                  targetNumber={5}
-                  suffix="L+"
-                  label="Prize Pool"
-                  isFullyScrolled={isFullyScrolled}
-                />
-                <StatCounter
-                  targetNumber={20}
-                  suffix="+"
-                  label="Sporting Events"
-                  isFullyScrolled={isFullyScrolled}
-                />
-                <StatCounter
-                  targetNumber={10000}
-                  suffix="+"
-                  label="Footfall & Audience"
-                  isFullyScrolled={isFullyScrolled}
-                />
+                <div className={styles.statsGrid}>
+                  <StatCounter
+                    targetNumber={50}
+                    suffix="+"
+                    label="Colleges Participating"
+                    isFullyScrolled={isFullyScrolled}
+                  />
+                  <StatCounter
+                    prefix="₹"
+                    targetNumber={5}
+                    suffix="L+"
+                    label="Prize Pool"
+                    isFullyScrolled={isFullyScrolled}
+                  />
+                  <StatCounter
+                    targetNumber={20}
+                    suffix="+"
+                    label="Sporting Events"
+                    isFullyScrolled={isFullyScrolled}
+                  />
+                  <StatCounter
+                    targetNumber={10000}
+                    suffix="+"
+                    label="Footfall & Audience"
+                    isFullyScrolled={isFullyScrolled}
+                  />
+                </div>
+              </div>
+
+              {/* 3D Pirate Ship canvas: slides from RIGHT, exits RIGHT */}
+              <div
+                className={styles.aboutShipContainer}
+                style={{
+                  transform: `translateX(${shipTranslateX}px)`,
+                }}
+              >
+                <ShipCanvas />
               </div>
             </div>
-
-            <div
-              className={styles.aboutShipContainer}
-              style={{ transform: `translateX(${shipTranslateX}px)` }}
-            >
-              <ShipCanvas />
-            </div>
           </div>
-        </div>
 
-        {/* Games section — visible on section 2 */}
-        <div
-          className={styles.gamesWrapper}
-          id="games"
-          style={{
-            opacity: gamesOpacity,
-            transform: `translateY(${gamesTranslateY}px)`,
-            pointerEvents: activeSection === 2 ? "auto" : "none",
-          }}
-        >
-          <GamesSection />
-        </div>
-      </section>
+          {/* Games Section: fades in during phase 2, inside the fixed hero */}
+          <div
+            className={styles.gamesWrapper}
+            id="games"
+            style={{
+              opacity: gamesOpacity,
+              transform: `translateY(${gamesTranslateY}px)`,
+              pointerEvents: gamesOpacity < 0.1 ? "none" : "auto",
+            }}
+          >
+            <GamesSection />
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

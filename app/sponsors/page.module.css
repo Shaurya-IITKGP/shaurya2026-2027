@@ -1,0 +1,250 @@
+.main {
+  min-height: 100vh;
+  padding-top: 130px; /* Safe padding for fixed Navbar */
+  background-color: #05080c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.25rem;
+  margin-top: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.chartTitle {
+  display: block;
+  font-size: 0.75rem;
+  color: #ffaa00;
+  letter-spacing: 4px;
+  margin-top: 16px;
+  opacity: 0.7;
+}
+
+.mapContainer {
+  position: relative;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto 80px;
+  border-radius: 6px;
+  box-shadow: 
+    0 40px 80px rgba(0,0,0,0.9), 
+    inset 0 0 40px rgba(139, 69, 19, 0.5);
+  border: 1px solid rgba(210, 180, 140, 0.4);
+  transform: perspective(1200px) rotateX(1deg);
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.mapContainer:hover .mapDarkenOverlay {
+  opacity: 1; /* Darkens surrounding regions subtly */
+}
+
+.mapDarkenOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.45);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.mapImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: sepia(30%) contrast(1.15) brightness(0.9);
+}
+
+.sponsorMarker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.crossMark {
+  color: #ffaa00;
+  font-family: 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 170, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sponsorMarker:hover .crossMark {
+  color: #fff;
+  text-shadow: 0 0 20px #ffaa00;
+  transform: scale(1.6);
+}
+
+/* Parchment Card */
+.parchmentCard {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: #f4e8d3; 
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  border: 1px solid #c2a77d;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 30px rgba(139,69,19,0.15);
+  padding: 24px 30px;
+  border-radius: 2px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  min-width: 200px;
+}
+
+/* Parchment Triangle */
+.parchmentCard::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 12px;
+  border-style: solid;
+  border-color: #f4e8d3 transparent transparent transparent;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+}
+
+.sponsorMarker:hover .parchmentCard {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  z-index: 20;
+}
+
+.cardLogo {
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.cardTier {
+  font-size: 0.75rem;
+  color: #8b4513;
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.cardName {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.cardAction {
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: bold;
+  border-bottom: 2px solid #ffaa00;
+  padding-bottom: 2px;
+}
+
+
+/* Standard Information Grid */
+.standardList {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto 100px;
+  text-align: center;
+}
+
+.listHeading {
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 50px;
+}
+
+.tierSection {
+  margin-bottom: 50px;
+}
+
+.tierTitle {
+  font-size: 0.9rem;
+  color: #ffc93d;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.tierGridMain {
+  display: flex;
+  justify-content: center;
+}
+
+.tierGridMain .gridLogo {
+  width: 250px;
+  height: 120px;
+}
+
+.tierGridSecondary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tierGridSecondary .gridLogo {
+  height: 100px;
+}
+
+.tierGridSmall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.tierGridSmall .gridLogo {
+  height: 80px;
+}
+
+.gridLogo {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
