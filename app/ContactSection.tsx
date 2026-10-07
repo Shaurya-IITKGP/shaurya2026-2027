@@ -83,34 +83,34 @@ interface TeamMember {
 
 const team: TeamMember[] = [
   {
-    name: "Rupali Hingankar",
-    phone: "+91 8830220583",
-    tel: "+918830220583",
+    name: "Sutirtha Jana",
+    phone: "+91 9907234970",
+    tel: "+919907234970",
     posX: "17%",
     posY: "34%",
-    instagramUrl: "https://instagram.com",
-    linkedinUrl: "https://linkedin.com",
-    emailUrl: "mailto:shaurya@iitkgp.ac.in",
+    instagramUrl: "https://www.instagram.com/s.jana_107?stkn=MWFxMDJwdzJ3bmg4Yg==",
+    linkedinUrl: "https://www.linkedin.com/in/sutirtha-jana-768548321?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    emailUrl: "mailto:sutirthajana.shaurya.iitkgp@gmail.com",
   },
   {
-    name: "Vangala Akshay Reddy",
-    phone: "+91 8309403808",
-    tel: "+918309403808",
+    name: "Angothu Gopichand",
+    phone: "+91 6300145936",
+    tel: "+916300145936",
     posX: "50%",
     posY: "64%",
-    instagramUrl: "https://instagram.com",
-    linkedinUrl: "https://linkedin.com",
-    emailUrl: "mailto:shaurya@iitkgp.ac.in",
+    instagramUrl: "https://www.instagram.com/mr_gopi_chand9?stkn=MTQ2dnJmeTB2cDJ6eA%3D%3D",
+    linkedinUrl: "https://www.linkedin.com/in/gopichand-angothu-a0a231324/",
+    emailUrl: "mailto:angothugopichand.shaurya.iitkgp@gmail.com",
   },
   {
-    name: "Shivraj Gulve",
-    phone: "+91 8421115807",
-    tel: "+918421115807",
+    name: "Aravind Naik",
+    phone: "+91 8121980076",
+    tel: "+918121980076",
     posX: "83%",
     posY: "32%",
-    instagramUrl: "https://instagram.com",
-    linkedinUrl: "https://linkedin.com",
-    emailUrl: "mailto:shaurya@iitkgp.ac.in",
+    instagramUrl: "https://www.instagram.com/aravindnaik__?stkn=MWJlbDBqZjNobXIxaQ%3D%3D&utm_source=qr",
+    linkedinUrl: "https://www.linkedin.com/in/aravind-naik-kethavath-67a5b835/",
+    emailUrl: "mailto:aravindnaik.shaurya.iitkgp@gmail.com",
   },
 ];
 
@@ -132,12 +132,12 @@ export default function ContactSection() {
 
   useEffect(() => {
     setEmbers(
-      Array.from({ length: 14 }, (_, i) => ({
+      Array.from({ length: 35 }, (_, i) => ({
         id: i,
         left: `${Math.random() * 100}%`,
-        size: 2 + Math.random() * 3,
-        duration: 14 + Math.random() * 16,
-        delay: -(Math.random() * 20),
+        size: Math.random() * 5 + 2,
+        duration: Math.random() * 7 + 5,
+        delay: -(Math.random() * 8),
         driftX: (Math.random() - 0.5) * 120,
       }))
     );

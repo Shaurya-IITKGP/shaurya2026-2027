@@ -195,6 +195,7 @@ function NightSea() {
         </svg>
       </div>
       <div className={`${styles.wave} ${styles.w2}`} />
+      <div className={`${styles.wave} ${styles.w1}`} />
 
       <p className={styles.copyright}>&copy; 2026 Shaurya, IIT Kharagpur. All Rights Reserved.</p>
     </div>
@@ -216,7 +217,7 @@ export default function Footer() {
           <ShauryaEmblem />
           <div className={styles.brandText}>
             <h2>SHAURYA</h2>
-            <p>Annual Inter-Collegiate Sports Fest of IIT Kharagpur</p>
+            <p>Shaurya is a celebration of athleticism and unity, igniting passion across campuses nationwide</p>
           </div>
         </div>
 
