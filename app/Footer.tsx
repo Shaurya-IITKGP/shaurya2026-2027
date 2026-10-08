@@ -229,11 +229,11 @@ export default function Footer() {
           </h4>
           <ul className={styles.qlinks}>
             <li><a href="/"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-anchor" /></svg>Home</a></li>
-            <li><a href="/#events"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-cannon" /></svg>Events</a></li>
+            <li><a href="/events"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-cannon" /></svg>Events</a></li>
             <li><a href="/teams"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-swords" /></svg>Teams</a></li>
             <li><a href="/gallery"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-spyglass" /></svg>Gallery</a></li>
             <li><a href="/sponsors"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-chest" /></svg>Sponsors</a></li>
-            <li><a href="/#matches"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-trident" /></svg>Matches</a></li>
+            <li><a href="/matches"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-trident" /></svg>Matches</a></li>
           </ul>
         </nav>
 

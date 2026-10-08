@@ -111,7 +111,7 @@ export default function EventsPage() {
           { label: "Events", href: "/events" },
           { label: "Gallery", href: "/gallery" },
           { label: "Sponsors", href: "/sponsors" },
-          { label: "Matches", href: "/#matches" },
+          { label: "Matches", href: "/matches" },
           { label: "Teams", href: "/teams" },
         ]}
       />
