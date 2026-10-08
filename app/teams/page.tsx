@@ -20,9 +20,11 @@ type ContactLink = {
   href: string;
 };
 
-type Edition = "2024" | "2025" | "2026";
+type Edition = "2023" | "2024" | "2025" | "2026";
 
-const imageBase = "https://www.shauryaiitkgp.in/images/teams/";
+const imageBase2025 = "/teams/team2025/";
+const imageBase2024 = "/teams/team2024/";
+const imageBase2023 = "/teams/team2023/";
 
 const departments: Department[] = [
   {
@@ -31,14 +33,18 @@ const departments: Department[] = [
       {
         name: "Sidharth Reddy",
         phone: "8639775835",
-        image: `${imageBase}Sidharth Reddy.PNG`,
+        image: `${imageBase2025}Sidharth Reddy.PNG`,
       },
       {
         name: "Mayank Singh",
         phone: "8814943708",
-        image: `${imageBase}Mayank Yadav.webp`,
+        image: `${imageBase2025}Mayank Yadav.webp`,
       },
-      { name: "Jyoti", phone: "6367363093", image: `${imageBase}jyoti.jpg` },
+      {
+        name: "Jyoti",
+        phone: "6367363093",
+        image: `${imageBase2025}jyoti.jpg`,
+      },
     ],
   },
   {
@@ -47,12 +53,12 @@ const departments: Department[] = [
       {
         name: "Namanya Pant",
         phone: "9004487822",
-        image: `${imageBase}Namanya Pant.jpg`,
+        image: `${imageBase2025}Namanya Pant.jpg`,
       },
       {
         name: "Saksham Aggarwal",
         phone: "7304368246",
-        image: `${imageBase}Saksham Aggarwal.jpg`,
+        image: `${imageBase2025}Saksham Aggarwal.jpg`,
       },
     ],
   },
@@ -62,32 +68,32 @@ const departments: Department[] = [
       {
         name: "Navadeep Nandedapu",
         phone: "8179575909",
-        image: `${imageBase}Navadeep.jpg`,
+        image: `${imageBase2025}Navadeep.jpg`,
       },
       {
         name: "Yayavaram Vivekadithya",
         phone: "8328271915",
-        image: `${imageBase}Vivek.jpg`,
+        image: `${imageBase2025}Vivek.jpg`,
       },
       {
         name: "Surekha",
         phone: "6350603609",
-        image: `${imageBase}surekha.jpg`,
+        image: `${imageBase2025}surekha.jpg`,
       },
       {
         name: "Sabita Kumari",
         phone: "7667578864",
-        image: `${imageBase}sabita kumari.jpg`,
+        image: `${imageBase2025}sabita kumari.jpg`,
       },
       {
         name: "Budida Abhinav",
         phone: "6300068771",
-        image: `${imageBase}Budida Abhinav.jpg`,
+        image: `${imageBase2025}Budida Abhinav.jpg`,
       },
       {
         name: "MS Karthik",
         phone: "9845916377",
-        image: `${imageBase}MS Karthik.jpg`,
+        image: `${imageBase2025}MS Karthik.jpg`,
       },
     ],
   },
@@ -97,17 +103,17 @@ const departments: Department[] = [
       {
         name: "Rupali Hingankar",
         phone: "8830220583",
-        image: `${imageBase}rupali.jpg`,
+        image: `${imageBase2025}rupali.jpg`,
       },
       {
         name: "Shivraj Gulve",
         phone: "8421115807",
-        image: `${imageBase}Shivraj.png`,
+        image: `${imageBase2025}Shivraj.png`,
       },
       {
         name: "Vangala Akshay Reddy",
         phone: "8309403808",
-        image: `${imageBase}Akshay.jpg`,
+        image: `${imageBase2025}Akshay.jpg`,
       },
     ],
   },
@@ -117,17 +123,17 @@ const departments: Department[] = [
       {
         name: "Ayush Kumar",
         phone: "9304203012",
-        image: `${imageBase}ayush.webp`,
+        image: `${imageBase2025}ayush.webp`,
       },
       {
         name: "Akash Kolanti",
         phone: "9542309116",
-        image: `${imageBase}Akash Kolanti.jpg`,
+        image: `${imageBase2025}Akash Kolanti.jpg`,
       },
       {
         name: "Sauparna Das",
         phone: "9330578069",
-        image: `${imageBase}sauparnadas.jpg`,
+        image: `${imageBase2025}sauparnadas.jpg`,
       },
     ],
   },
@@ -137,12 +143,12 @@ const departments: Department[] = [
       {
         name: "Ananye Kachhap",
         phone: "9931319395",
-        image: `${imageBase}Ananye Kachhap.jpg`,
+        image: `${imageBase2025}Ananye Kachhap.jpg`,
       },
       {
         name: "Jeet Anand",
         phone: "9122233011",
-        image: `${imageBase}jeet.jpg`,
+        image: `${imageBase2025}jeet.jpg`,
       },
     ],
   },
@@ -152,17 +158,17 @@ const departments: Department[] = [
       {
         name: "Rasamalla Charan Prakash",
         phone: "8309483130",
-        image: `${imageBase}Rasamalla Charan Prakash.png`,
+        image: `${imageBase2025}Rasamalla Charan Prakash.png`,
       },
       {
         name: "Nudvip Tale",
         phone: "8142999166",
-        image: `${imageBase}Nudvip Tale.jpg`,
+        image: `${imageBase2025}Nudvip Tale.jpg`,
       },
       {
         name: "Annangi Neeraj Kumar",
         phone: "8328003149",
-        image: `${imageBase}Annangi Neeraj Kumar.jpg`,
+        image: `${imageBase2025}Annangi Neeraj Kumar.jpg`,
       },
     ],
   },
@@ -175,17 +181,17 @@ const historicalDepartments: Department[] = [
       {
         name: "Tejashwi Kumar Jha",
         phone: "8102400147",
-        image: `${imageBase}Tejashwi Kumar Jha.jpg`,
+        image: `${imageBase2024}Tejashwi Kumar Jha.jpg`,
       },
       {
         name: "Jival Chorawala",
         phone: "7378655738",
-        image: `${imageBase}Jival Chorawala.jpeg`,
+        image: `${imageBase2024}Jival Chorawala.jpeg`,
       },
       {
         name: "Chavi Agarwal",
         phone: "8801027905",
-        image: `${imageBase}Chavi Agarwal.jpeg`,
+        image: `${imageBase2024}Chavi Agarwal.jpeg`,
       },
     ],
   },
@@ -195,12 +201,12 @@ const historicalDepartments: Department[] = [
       {
         name: "Brij Patel",
         phone: "7698817843",
-        image: `${imageBase}Brij Patel.jpeg`,
+        image: `${imageBase2024}Brij Patel.jpeg`,
       },
       {
         name: "Pranjal Paliwal",
         phone: "7988270765",
-        image: `${imageBase}Pranjal Paliwal.jpeg`,
+        image: `${imageBase2024}Pranjal Paliwal.jpeg`,
       },
     ],
   },
@@ -210,17 +216,17 @@ const historicalDepartments: Department[] = [
       {
         name: "Indrajeet Kumar",
         phone: "7275282141",
-        image: `${imageBase}default.png`,
+        image: `${imageBase2024}default.png`,
       },
       {
         name: "Sudhanshu Kumar",
         phone: "9931682446",
-        image: `${imageBase}Sudhanshu Kumar.jpeg`,
+        image: `${imageBase2024}Sudhanshu Kumar.jpeg`,
       },
       {
         name: "Matthews Bonthu",
         phone: "8688324518",
-        image: `${imageBase}Matthews Bonthu.jpeg`,
+        image: `${imageBase2024}Matthews Bonthu.jpeg`,
       },
     ],
   },
@@ -230,17 +236,17 @@ const historicalDepartments: Department[] = [
       {
         name: "Hemant Kamble",
         phone: "9372838349",
-        image: `${imageBase}Hemant Kamble.jpeg`,
+        image: `${imageBase2024}Hemant Kamble.jpeg`,
       },
       {
         name: "Tuhsin Suhana Rahman",
         phone: "6002515029",
-        image: `${imageBase}Tuhsin Suhana Rahman.jpeg`,
+        image: `${imageBase2024}Tuhsin Suhana Rahman.jpeg`,
       },
       {
         name: "Rakesh Tella",
         phone: "9640519184",
-        image: `${imageBase}Rakesh Tella.jpeg`,
+        image: `${imageBase2024}Rakesh Tella.jpeg`,
       },
     ],
   },
@@ -250,17 +256,17 @@ const historicalDepartments: Department[] = [
       {
         name: "Shaurya Pratap Singh",
         phone: "8003192648",
-        image: `${imageBase}Shaurya Pratap Singh.png`,
+        image: `${imageBase2024}Shaurya Pratap Singh.png`,
       },
       {
         name: "Samrat Koushik Shaw",
         phone: "7047740198",
-        image: `${imageBase}Samrat.jpg`,
+        image: `${imageBase2024}Samrat.jpg`,
       },
       {
         name: "Preet Panchal",
         phone: "7383456780",
-        image: `${imageBase}Preet.jpeg`,
+        image: `${imageBase2024}Preet.jpeg`,
       },
     ],
   },
@@ -270,17 +276,17 @@ const historicalDepartments: Department[] = [
       {
         name: "Ayush Garg",
         phone: "9461950422",
-        image: `${imageBase}Ayush_Garg.jpg`,
+        image: `${imageBase2024}Ayush_Garg.jpg`,
       },
       {
         name: "Kushal Kushwaha",
         phone: "9594620693",
-        image: `${imageBase}Kushal.jpg`,
+        image: `${imageBase2024}Kushal.jpg`,
       },
       {
         name: "Pranjal Kanodia",
         phone: "9610978218",
-        image: `${imageBase}Pranjal Kanodia.jpeg`,
+        image: `${imageBase2024}Pranjal Kanodia.jpeg`,
       },
     ],
   },
@@ -290,12 +296,12 @@ const historicalDepartments: Department[] = [
       {
         name: "Pranjul Shukla",
         phone: "6307455279",
-        image: `${imageBase}Pranjul_Shukla.jpg`,
+        image: `${imageBase2024}Pranjul_Shukla.jpg`,
       },
       {
         name: "Sahil Sinha",
         phone: "7856845083",
-        image: `${imageBase}Sahil_Sinha.jpg`,
+        image: `${imageBase2024}Sahil_Sinha.jpg`,
       },
     ],
   },
@@ -305,29 +311,256 @@ const historicalDepartments: Department[] = [
       {
         name: "Bhuvan Raj Guguloth",
         phone: "9392885490",
-        image: `${imageBase}bhuvan.jpg`,
+        image: `${imageBase2024}bhuvan.jpg`,
       },
       {
         name: "Sai Chetan Kumar",
         phone: "7702026854",
-        image: `${imageBase}default.png`,
+        image: `${imageBase2024}default.png`,
       },
       {
         name: "Deepak Mina",
         phone: "8696784547",
-        image: `${imageBase}Deepak Mina.png`,
+        image: `${imageBase2024}Deepak Mina.png`,
       },
     ],
   },
 ];
 
-const editionDepartments: Record<Edition, Department[]> = {
-  "2024": historicalDepartments,
-  "2025": departments,
-  "2026": [],
-};
+const team2023Departments: Department[] = [
+  {
+    name: "Executive Heads",
+    members: [
+      {
+        name: "S S V K S S Jyothiraditya",
+        phone: "7675007236",
+        image: `${imageBase2023}S S V K S S Jyothiraditya.jpeg`,
+      },
+      {
+        name: "Shreya Mishra",
+        phone: "9475621028",
+        image: `${imageBase2023}Shreya Mishra.jpeg`,
+      },
+      {
+        name: "Soujanaya Nayak",
+        phone: "7506136455",
+        image: `${imageBase2023}Soujanaya Nayak.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Finance Heads",
+    members: [
+      {
+        name: "Jatin Motwani",
+        phone: "9424533623",
+        image: `${imageBase2023}Jatin Motwani.jpeg`,
+      },
+      {
+        name: "Lokesh Agarwala",
+        phone: "7728018715",
+        image: `${imageBase2023}Lokesh Agarwala.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Event Heads",
+    members: [
+      {
+        name: "Archie Avirati",
+        phone: "7024385271",
+        image: `${imageBase2023}Archie Avirati.jpeg`,
+      },
+      {
+        name: "Himanshu",
+        phone: "7348701571",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Nikhil Bharat Rajani",
+        phone: "7020096806",
+        image: `${imageBase2023}Nikhil Bharat Rajani.jpeg`,
+      },
+      {
+        name: "Priyanshu Shaw",
+        phone: "9073808624",
+        image: `${imageBase2023}Priyanshu Shaw.jpeg`,
+      },
+      {
+        name: "Rishi Dhoble",
+        phone: "9205704432",
+        image: `${imageBase2023}Rishi Dhoble.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Publicity & Marketing Heads",
+    members: [
+      {
+        name: "Atharva Chilwarwar",
+        phone: "7796557031",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Prashant Tripathi",
+        phone: "7398149866",
+        image: `${imageBase2023}Prashant Tripathi.jpeg`,
+      },
+      {
+        name: "S. Siddharth",
+        phone: "9789422444",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Yashwanth Kumar Kallepalli",
+        phone: "9347865123",
+        image: `${imageBase2023}Yashwanth Kumar.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Sponsorship Heads",
+    members: [
+      {
+        name: "Aditya G Gaikwad",
+        phone: "9980090567",
+        image: `${imageBase2023}Aditya G Gaikwad.png`,
+      },
+      {
+        name: "Akshat Dilip Lade",
+        phone: "9920378336",
+        image: `${imageBase2023}Akshat Dilip Lade.jpeg`,
+      },
+      {
+        name: "Chalamalla Sahithi",
+        phone: "6300290977",
+        image: `${imageBase2023}Chalamalla Sahithi.png`,
+      },
+      {
+        name: "Nimish Gadge",
+        phone: "9819755685",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Prajay",
+        phone: "9391738281",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Raghuvar Srivastava",
+        phone: "9811097343",
+        image: `${imageBase2023}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Logistics Heads",
+    members: [
+      {
+        name: "Akula Tejaswini",
+        phone: "7396066011",
+        image: `${imageBase2023}Akula Tejaswini.jpeg`,
+      },
+      {
+        name: "Neeraj Patel",
+        phone: "7987752913",
+        image: `${imageBase2023}Neeraj Patel.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Web Heads",
+    members: [
+      {
+        name: "Rohan R. Barsagade",
+        phone: "8263932614",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Somyajeet Gupta Chowdhury",
+        phone: "9113340204",
+        image: `${imageBase2023}Somyajeet Gupta Chowdhury.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Design and Media Heads",
+    members: [
+      {
+        name: "Gauransh Agarwal",
+        phone: "7063730072",
+        image: `${imageBase2023}Gauransh Agarwal.jpeg`,
+      },
+      {
+        name: "Malla Harshavardhan",
+        phone: "9392551557",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Shubham Dilawar",
+        phone: "9893662396",
+        image: `${imageBase2023}Shubham Dilawar.jpeg`,
+      },
+      {
+        name: "Vaibhav Joshi",
+        phone: "9535734903",
+        image: `${imageBase2023}Vaibhav Joshi.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Accommodation and Guest Reception Heads",
+    members: [
+      {
+        name: "Anushka Singh",
+        phone: "9335225142",
+        image: `${imageBase2023}Anushka Singh.jpeg`,
+      },
+      {
+        name: "Dhiya Mariam Thomas",
+        phone: "8851996747",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Jayansh Maheshwari",
+        phone: "8655701340",
+        image: `${imageBase2023}default.png`,
+      },
+    ],
+  },
+];
 
 const historicalEmails: Record<string, string> = {
+  "S S V K S S Jyothiraditya": "jyothiradityas@kgpian.iitkgp.ac.in",
+  "Shreya Mishra": "mshreya1210@gmail.com",
+  "Soujanaya Nayak": "soujanya@kgpian.iitkgp.ac.in",
+  "Jatin Motwani": "jatinmotwani000@gmail.com",
+  "Lokesh Agarwala": "lokeshagarwala30@gmail.com",
+  "Archie Avirati": "Aviratiarchie@gmail.com",
+  "Himanshu": "golusai9465@gmail.com",
+  "Nikhil Bharat Rajani": "nikhilrajani309@gmail.com",
+  "Priyanshu Shaw": "priyanshushaw2807@gmail.com",
+  "Rishi Dhoble": "Rishi.dhoble03@gmail.com",
+  "Atharva Chilwarwar": "Chilwarwar.atharva@gmail.com",
+  "Prashant Tripathi": "prashant01510@gmail.com",
+  "S. Siddharth": "Siddharthsabhari@gmail.com",
+  "Yashwanth Kumar Kallepalli": "yashwanth.18.iitkgp@gmail.com",
+  "Aditya G Gaikwad": "adityagaikwad.iitkgp@gmail.com",
+  "Akshat Dilip Lade": "akshatlade@gmail.com",
+  "Chalamalla Sahithi": "sahithi.chalamalla@gmail.com",
+  "Nimish Gadge": "nimishgadge98@gmail.com",
+  "Prajay": "mudavathprajay@gmail.com",
+  "Raghuvar Srivastava": "raghuvarsrivastava@gmail.com",
+  "Akula Tejaswini": "akulatejaswini23@gmail.com",
+  "Neeraj Patel": "neeraj.patel2703@gmail.com",
+  "Rohan R. Barsagade": "therohan84@gmail.com",
+  "Somyajeet Gupta Chowdhury": "isomya13@gmail.com",
+  "Gauransh Agarwal": "gauransh.iitkgp@gmail.com",
+  "Malla Harshavardhan": "harshavardhanmalla1729@gmail.com",
+  "Shubham Dilawar": "shubhamdilawar23@gmail.com",
+  "Anushka Singh": "asingh29052003@gmail.com",
+  "Dhiya Mariam Thomas": "dhiyamt2003@gmail.com",
+  "Jayansh Maheshwari": "jayanshmaheshwari@gmail.com",
   "Tejashwi Kumar Jha": "tkjha2468@gmail.com",
   "Jival Chorawala": "jivalchorawala13@gmail.com",
   "Chavi Agarwal": "agarwalchavi04@gmail.com",
@@ -350,331 +583,957 @@ const historicalEmails: Record<string, string> = {
   "Bhuvan Raj Guguloth": "bhuvanrajnaik@gmail.com",
   "Sai Chetan Kumar": "chetankumar10021@gmail.com",
   "Deepak Mina": "deepak2020ibs@gmail.com",
+  "Sidharth Reddy": "sidharthreddy32@gmail.com",
+  "Mayank Singh": "ms9421837@gmail.com",
+  "Jyoti": "jyotibhamboo2518@gmail.com",
+  "Namanya Pant": "namanyapant2630@gmail.com",
+  "Saksham Aggarwal": "sakshamaggarwal.shaurya.iitkgp@gmail.com",
+  "Navadeep Nandedapu": "navadeepnandedapu@gmail.com",
+  "Yayavaram Vivekadithya": "vivekadithyayayavaram2005@gmail.com",
+  "Surekha": "surekha.shaurya.iitkgp@gmail.com",
+  "Sabita Kumari": "sabita.shauryaiitkgp23@gmail.com",
+  "Budida Abhinav": "abhinavbudida.shaurya.iitkgp@gmail.com",
+  "MS Karthik": "mskarthik.shaurya.iitkgp@gmail.com",
+  "Rupali Hingankar": "rupalihingankar.shaurya.iitkgp@gmail.com",
+  "Shivraj Gulve": "shivrajgulve.shaurya.iitkgp@gmail.com",
+  "Vangala Akshay Reddy": "akshayreddy.shaurya.iitkgp@gmail.com",
+  "Ayush Kumar": "ayushkr092004@gmail.com",
+  "Akash Kolanti": "akash.k2104@gmail.com",
+  "Sauparna Das": "sauparnadas@gmail.com",
+  "Ananye Kachhap": "ajitkachhap005@kgpian.iitkgp.ac.in",
+  "Jeet Anand": "jeetaana123@gmail.com",
+  "Rasamalla Charan Prakash": "rasamallacharanprakash0@gmail.com",
+  "Nudvip Tale": "nudviptale@gmail.com",
+  "Annangi Neeraj Kumar": "neerajannangi4@gmail.com"
 };
 
 const contactLinks: Record<string, ContactLink[]> = {
+  "S S V K S S Jyothiraditya": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7675007236"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=jyothiradityas@kgpian.iitkgp.ac.in"
+    }
+  ],
+  "Shreya Mishra": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9475621028"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=mshreya1210@gmail.com"
+    }
+  ],
+  "Soujanaya Nayak": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7506136455"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=soujanya@kgpian.iitkgp.ac.in"
+    }
+  ],
+  "Jatin Motwani": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9424533623"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=jatinmotwani000@gmail.com"
+    }
+  ],
+  "Lokesh Agarwala": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7728018715"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=lokeshagarwala30@gmail.com"
+    }
+  ],
+  "Archie Avirati": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7024385271"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=Aviratiarchie@gmail.com"
+    }
+  ],
+  "Himanshu": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7348701571"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=golusai9465@gmail.com"
+    }
+  ],
+  "Nikhil Bharat Rajani": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7020096806"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=nikhilrajani309@gmail.com"
+    }
+  ],
+  "Priyanshu Shaw": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9073808624"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=priyanshushaw2807@gmail.com"
+    }
+  ],
+  "Rishi Dhoble": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9205704432"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=Rishi.dhoble03@gmail.com"
+    }
+  ],
+  "Atharva Chilwarwar": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7796557031"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=Chilwarwar.atharva@gmail.com"
+    }
+  ],
+  "Prashant Tripathi": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7398149866"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=prashant01510@gmail.com"
+    }
+  ],
+  "S. Siddharth": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9789422444"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=Siddharthsabhari@gmail.com"
+    }
+  ],
+  "Yashwanth Kumar Kallepalli": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9347865123"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=yashwanth.18.iitkgp@gmail.com"
+    }
+  ],
+  "Aditya G Gaikwad": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9980090567"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=adityagaikwad.iitkgp@gmail.com"
+    }
+  ],
+  "Akshat Dilip Lade": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9920378336"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=akshatlade@gmail.com"
+    }
+  ],
+  "Chalamalla Sahithi": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/6300290977"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=sahithi.chalamalla@gmail.com"
+    }
+  ],
+  "Nimish Gadge": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9819755685"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=nimishgadge98@gmail.com"
+    }
+  ],
+  "Prajay": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9391738281"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=mudavathprajay@gmail.com"
+    }
+  ],
+  "Raghuvar Srivastava": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9811097343"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=raghuvarsrivastava@gmail.com"
+    }
+  ],
+  "Akula Tejaswini": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7396066011"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=akulatejaswini23@gmail.com"
+    }
+  ],
+  "Neeraj Patel": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7987752913"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=neeraj.patel2703@gmail.com"
+    }
+  ],
+  "Rohan R. Barsagade": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8263932614"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=therohan84@gmail.com"
+    }
+  ],
+  "Somyajeet Gupta Chowdhury": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9113340204"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=isomya13@gmail.com"
+    }
+  ],
+  "Gauransh Agarwal": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7063730072"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=gauransh.iitkgp@gmail.com"
+    }
+  ],
+  "Malla Harshavardhan": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9392551557"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=harshavardhanmalla1729@gmail.com"
+    }
+  ],
+  "Shubham Dilawar": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9893662396"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=shubhamdilawar23@gmail.com"
+    }
+  ],
+  "Vaibhav Joshi": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9535734903"
+    }
+  ],
+  "Anushka Singh": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9335225142"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=asingh29052003@gmail.com"
+    }
+  ],
+  "Dhiya Mariam Thomas": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8851996747"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=dhiyamt2003@gmail.com"
+    }
+  ],
+  "Jayansh Maheshwari": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8655701340"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=jayanshmaheshwari@gmail.com"
+    }
+  ],
+  "Tejashwi Kumar Jha": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8102400147"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=tkjha2468@gmail.com"
+    }
+  ],
+  "Jival Chorawala": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7378655738"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=jivalchorawala13@gmail.com"
+    }
+  ],
+  "Chavi Agarwal": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8801027905"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=agarwalchavi04@gmail.com"
+    }
+  ],
+  "Brij Patel": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7698817843"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=brijpatel475@gmail.com"
+    }
+  ],
+  "Pranjal Paliwal": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7988270765"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=pranjalpaliwal.05@kgpian.iitkgp.ac.in"
+    }
+  ],
+  "Indrajeet Kumar": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7275282141"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=knp.indrajeetkumar@gmail.com"
+    }
+  ],
+  "Sudhanshu Kumar": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9931682446"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=mrsudhanshu756@gmail.com"
+    }
+  ],
+  "Matthews Bonthu": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8688324518"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=matthews27@kgpian.iitkgp.ac.in"
+    }
+  ],
+  "Hemant Kamble": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9372838349"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=hemantsoham111@gmail.com"
+    }
+  ],
+  "Tuhsin Suhana Rahman": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/6002515029"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=tuhsin13@gmail.com"
+    }
+  ],
+  "Rakesh Tella": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9640519184"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=rakeshtella8@gmail.com"
+    }
+  ],
+  "Shaurya Pratap Singh": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8003192648"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=shaurya29@kgpian.iitkgp.ac.in"
+    }
+  ],
+  "Samrat Koushik Shaw": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7047740198"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=shawkoushik8776@gmail.com"
+    }
+  ],
+  "Preet Panchal": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7383456780"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=panchalpreet090304@gmail.com"
+    }
+  ],
+  "Ayush Garg": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9461950422"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=gargayush.2412@gmail.com"
+    }
+  ],
+  "Kushal Kushwaha": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9594620693"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=kushalkushwaha96@gmail.com"
+    }
+  ],
+  "Pranjal Kanodia": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9610978218"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=pranjalkanodia11@gmail.com"
+    }
+  ],
+  "Pranjul Shukla": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/6307455279"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=captaincoro444@gmail.com"
+    }
+  ],
+  "Sahil Sinha": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7856845083"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=sahilsinha247742@gmail.com"
+    }
+  ],
+  "Bhuvan Raj Guguloth": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/9392885490"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=bhuvanrajnaik@gmail.com"
+    }
+  ],
+  "Sai Chetan Kumar": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/7702026854"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=chetankumar10021@gmail.com"
+    }
+  ],
+  "Deepak Mina": [
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/8696784547"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=deepak2020ibs@gmail.com"
+    }
+  ],
   "Sidharth Reddy": [
-    { label: "WhatsApp", href: "https://wa.me/8639775835" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/sidharth-reddy-552596336/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8639775835"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/sidharthreddy_32?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/sidharth-reddy-552596336/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=sidharthreddy32@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/sidharthreddy_32?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=sidharthreddy32@gmail.com"
+    }
   ],
   "Mayank Singh": [
-    { label: "WhatsApp", href: "https://wa.me/8814943708" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/mayank-singh-8b9199303/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8814943708"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/mayanksingh_08?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mayank-singh-8b9199303/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=ms9421837@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/mayanksingh_08?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=ms9421837@gmail.com"
+    }
   ],
-  Jyoti: [
-    { label: "WhatsApp", href: "https://wa.me/6367363093" },
+  "Jyoti": [
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/jyoti-bhamboo-8955a5290/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/6367363093"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/__jyoti_bhamboo__/?utm_source=ig_web_button_share_sheet",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/jyoti-bhamboo-8955a5290/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=jyotibhamboo2518@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/__jyoti_bhamboo__/?utm_source=ig_web_button_share_sheet"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=jyotibhamboo2518@gmail.com"
+    }
   ],
   "Namanya Pant": [
-    { label: "WhatsApp", href: "https://wa.me/9004487822" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/namanya-pant/" },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/namanya_1239/?utm_source=ig_web_button_share_sheet",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9004487822"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=namanyapant2630@gmail.com",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/namanya-pant/"
     },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/namanya_1239/?utm_source=ig_web_button_share_sheet"
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=namanyapant2630@gmail.com"
+    }
   ],
   "Saksham Aggarwal": [
-    { label: "WhatsApp", href: "https://wa.me/7304368246" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/saksham-aggarwal-a35648293/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/7304368246"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/sakshamm_1301/?utm_source=ig_web_button_share_sheet",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/saksham-aggarwal-a35648293/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=sakshamaggarwal.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/sakshamm_1301/?utm_source=ig_web_button_share_sheet"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=sakshamaggarwal.shaurya.iitkgp@gmail.com"
+    }
   ],
   "Navadeep Nandedapu": [
-    { label: "WhatsApp", href: "https://wa.me/8179575909" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/navadeep-nandedapu-b7b592291/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8179575909"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/navadeep._.7241?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/navadeep-nandedapu-b7b592291/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=navadeepnandedapu@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/navadeep._.7241?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=navadeepnandedapu@gmail.com"
+    }
   ],
   "Yayavaram Vivekadithya": [
-    { label: "WhatsApp", href: "https://wa.me/8328271915" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/vivekadithya-yayavaram-8002a2291/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8328271915"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/vivekadithya7/?utm_source=ig_web_button_share_sheet",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/vivekadithya-yayavaram-8002a2291/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=vivekadithyayayavaram2005@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/vivekadithya7/?utm_source=ig_web_button_share_sheet"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=vivekadithyayayavaram2005@gmail.com"
+    }
   ],
-  Surekha: [
-    { label: "WhatsApp", href: "https://wa.me/6350603609" },
+  "Surekha": [
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/surekha-b055392ab/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/6350603609"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/surekhabaindha/?utm_source=ig_web_button_share_sheet",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/surekha-b055392ab/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=surekha.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/surekhabaindha/?utm_source=ig_web_button_share_sheet"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=surekha.shaurya.iitkgp@gmail.com"
+    }
   ],
   "Sabita Kumari": [
-    { label: "WhatsApp", href: "https://wa.me/7667578864" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/sabita-marandi-75b06b28b/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/7667578864"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/sabbimarandi/?utm_source=ig_web_button_share_sheet",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/sabita-marandi-75b06b28b/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=sabita.shauryaiitkgp23@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/sabbimarandi/?utm_source=ig_web_button_share_sheet"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=sabita.shauryaiitkgp23@gmail.com"
+    }
   ],
   "Budida Abhinav": [
-    { label: "WhatsApp", href: "https://wa.me/6300068771" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/abhinav-budida-8958492b5/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/6300068771"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/abhinav._.7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/abhinav-budida-8958492b5/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=abhinavbudida.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/abhinav._.7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=abhinavbudida.shaurya.iitkgp@gmail.com"
+    }
   ],
   "MS Karthik": [
-    { label: "WhatsApp", href: "https://wa.me/9845916377" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/ms-karthik-a242b4291/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9845916377"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/ms.karthik_01/?utm_source=ig_web_button_share_sheet",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/ms-karthik-a242b4291/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=mskarthik.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/ms.karthik_01/?utm_source=ig_web_button_share_sheet"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=mskarthik.shaurya.iitkgp@gmail.com"
+    }
   ],
   "Rupali Hingankar": [
-    { label: "WhatsApp", href: "https://wa.me/8830220583" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/rupali-hingankar-7363ba288/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8830220583"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/hingankarrupali?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/rupali-hingankar-7363ba288/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=rupalihingankar.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/hingankarrupali?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=rupalihingankar.shaurya.iitkgp@gmail.com"
+    }
   ],
   "Shivraj Gulve": [
-    { label: "WhatsApp", href: "https://wa.me/8421115807" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/shivraj-gulve-6583952bb/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8421115807"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/_shiv.__07_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/shivraj-gulve-6583952bb/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=shivrajgulve.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/_shiv.__07_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=shivrajgulve.shaurya.iitkgp@gmail.com"
+    }
   ],
   "Vangala Akshay Reddy": [
-    { label: "WhatsApp", href: "https://wa.me/8309403808" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/vangalaakshayreddy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8309403808"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/vangala_akshay_reddy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/vangalaakshayreddy?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=akshayreddy.shaurya.iitkgp@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/vangala_akshay_reddy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=akshayreddy.shaurya.iitkgp@gmail.com"
+    }
   ],
   "Ayush Kumar": [
-    { label: "WhatsApp", href: "https://wa.me/9304203012" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/ayush-kumar-519a6328b/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9304203012"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/ayush018_kr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/ayush-kumar-519a6328b/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=ayushkr092004@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/ayush018_kr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=ayushkr092004@gmail.com"
+    }
   ],
   "Akash Kolanti": [
-    { label: "WhatsApp", href: "https://wa.me/9542309116" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/akash-kolanti-0a063b281/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9542309116"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/akashk__21?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/akash-kolanti-0a063b281/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=akash.k2104@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/akashk__21?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=akash.k2104@gmail.com"
+    }
   ],
   "Sauparna Das": [
-    { label: "WhatsApp", href: "https://wa.me/9330578069" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/sauparnadas/" },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/dassauparna?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9330578069"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=sauparnadas@gmail.com",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/sauparnadas/"
     },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/dassauparna?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+    },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=sauparnadas@gmail.com"
+    }
   ],
   "Ananye Kachhap": [
-    { label: "WhatsApp", href: "https://wa.me/9931319395" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/ananye-kachhap-513263288/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9931319395"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/sh_r_e_dd_e_r?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/ananye-kachhap-513263288/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=ajitkachhap005@kgpian.iitkgp.ac.in",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/sh_r_e_dd_e_r?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=ajitkachhap005@kgpian.iitkgp.ac.in"
+    }
   ],
   "Jeet Anand": [
-    { label: "WhatsApp", href: "https://wa.me/9122233011" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/jeet-anand-950493284/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/9122233011"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/jeetan.and?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/jeet-anand-950493284/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=jeetaana123@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/jeetan.and?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=jeetaana123@gmail.com"
+    }
   ],
   "Rasamalla Charan Prakash": [
-    { label: "WhatsApp", href: "https://wa.me/8309483130" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/rasamalla-charan-prakash-71256728a/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8309483130"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=rasamallacharanprakash0@gmail.com",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/rasamalla-charan-prakash-71256728a/"
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=rasamallacharanprakash0@gmail.com"
+    }
   ],
   "Nudvip Tale": [
-    { label: "WhatsApp", href: "https://wa.me/8142999166" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/nudvip-tale-a9904a312/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8142999166"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/nudvip_tale?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/nudvip-tale-a9904a312/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=nudviptale@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/nudvip_tale?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=nudviptale@gmail.com"
+    }
   ],
   "Annangi Neeraj Kumar": [
-    { label: "WhatsApp", href: "https://wa.me/8328003149" },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/annangi-neeraj-kumar-4ab546259/",
+      "label": "WhatsApp",
+      "href": "https://wa.me/8328003149"
     },
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/neerajkumar_809?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/annangi-neeraj-kumar-4ab546259/"
     },
     {
-      label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=neerajannangi4@gmail.com",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/neerajkumar_809?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     },
-  ],
+    {
+      "label": "Email",
+      "href": "https://mail.google.com/mail/?view=cm&to=neerajannangi4@gmail.com"
+    }
+  ]
 };
 
+const editionDepartments: Record<Edition, Department[]> = {
+  "2023": team2023Departments,
+  "2024": historicalDepartments,
+  "2025": departments,
+  "2026": [],
+};
 
 // Contact SVG Icons
 function PhoneIcon() {
@@ -801,6 +1660,7 @@ export default function TeamsPage() {
             <option value="2026">2026</option>
             <option value="2025">2025</option>
             <option value="2024">2024</option>
+            <option value="2023">2023</option>
           </select>
         </label>
       </section>
@@ -843,7 +1703,7 @@ export default function TeamsPage() {
                               className={styles.memberImage}
                               onError={(event) => {
                                 event.currentTarget.onerror = null;
-                                event.currentTarget.src = `${imageBase}default.png`;
+                                event.currentTarget.src = `/teams/team${activeEdition}/default.png`;
                               }}
                             />
                             <div className={styles.hoverOverlay}>

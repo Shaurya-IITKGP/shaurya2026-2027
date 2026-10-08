@@ -2,14 +2,14 @@ import styles from "./page.module.css";
 import Navbar from "../Navbar";
 
 const images = [
-  { id: 1, src: "/DSC00006.JPG", category: "SPORTS", title: "Action Shot", desc: "Shaurya Highlights" },
-  { id: 2, src: "/C0011T01.JPG", category: "EVENTS", title: "In The Moment", desc: "Capturing the spirit" },
-  { id: 3, src: "/C0138T01.JPG", category: "SPORTS", title: "Game Time", desc: "Fierce competition" },
-  { id: 4, src: "/DSC00114.JPG", category: "CULTURE", title: "Event Night", desc: "Unforgettable memories" },
-  { id: 5, src: "/DSC00089.JPG", category: "SPORTS", title: "The Big Match", desc: "Pushing limits" },
-  { id: 6, src: "/DSC00103.JPG", category: "EVENTS", title: "Team Spirit", desc: "United we stand" },
-  { id: 7, src: "/C0046T01.JPG", category: "SPORTS", title: "Victory", desc: "Celebrating success" },
-  { id: 8, src: "/DSC00122.JPG", category: "CULTURE", title: "Closing Ceremony", desc: "The voyage continues" },
+  { id: 1, src: "/gallery/DSC00006.JPG", category: "SPORTS", title: "Action Shot", desc: "Shaurya Highlights" },
+  { id: 2, src: "/gallery/C0011T01.JPG", category: "EVENTS", title: "In The Moment", desc: "Capturing the spirit" },
+  { id: 3, src: "/gallery/C0138T01.JPG", category: "SPORTS", title: "Game Time", desc: "Fierce competition" },
+  { id: 4, src: "/gallery/DSC00114.JPG", category: "CULTURE", title: "Event Night", desc: "Unforgettable memories" },
+  { id: 5, src: "/gallery/DSC00089.JPG", category: "SPORTS", title: "The Big Match", desc: "Pushing limits" },
+  { id: 6, src: "/gallery/DSC00103.JPG", category: "EVENTS", title: "Team Spirit", desc: "United we stand" },
+  { id: 7, src: "/gallery/C0046T01.JPG", category: "SPORTS", title: "Victory", desc: "Celebrating success" },
+  { id: 8, src: "/gallery/DSC00122.JPG", category: "CULTURE", title: "Closing Ceremony", desc: "The voyage continues" },
 ];
 
 export default function Gallery() {
