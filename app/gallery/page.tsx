@@ -45,12 +45,6 @@ export default function Gallery() {
               <div key={img.id} className={styles.imageCard}>
                 <div className={styles.imageWrapper}>
                   <img src={img.src} alt={img.title} className={styles.galleryImage} />
-                  
-                  <div className={styles.hoverContent}>
-                    <span className={styles.categoryBadge}>{img.category}</span>
-                    <h3 className={styles.cardTitle}>{img.title}</h3>
-                    <p className={styles.cardDesc}>{img.desc}</p>
-                  </div>
                 </div>
               </div>
             ))}
