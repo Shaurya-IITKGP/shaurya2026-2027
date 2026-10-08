@@ -675,13 +675,97 @@ const contactLinks: Record<string, ContactLink[]> = {
   ],
 };
 
+
+// Contact SVG Icons
+function PhoneIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+function EmailIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+function getContactIcon(label: string) {
+  const normalized = label.toLowerCase();
+  if (normalized.includes('whatsapp')) return <WhatsAppIcon />;
+  if (normalized.includes('linkedin')) return <LinkedInIcon />;
+  if (normalized.includes('instagram')) return <InstagramIcon />;
+  if (normalized.includes('email') || normalized.includes('mail')) return <EmailIcon />;
+  if (normalized.includes('call') || normalized.includes('phone')) return <PhoneIcon />;
+  return null;
+}
+
 export default function TeamsPage() {
   const [activeEdition, setActiveEdition] = useState<Edition>("2025");
-  const [activeDepartment, setActiveDepartment] = useState(departments[0].name);
+  const [phoneModal, setPhoneModal] = useState<{ name: string; phone: string } | null>(null);
+  const [copied, setCopied] = useState(false);
   const activeDepartments = editionDepartments[activeEdition];
-  const activeTeam = activeDepartments.find(
-    (department) => department.name === activeDepartment,
+
+  const handlePhoneClick = (e: React.MouseEvent, name: string, phone: string) => {
+    // If on mobile device with touch / tel support, let native tel: handle it if user preferred,
+    // otherwise show popup dialog for laptop / desktop users.
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      typeof navigator !== "undefined" ? navigator.userAgent : ""
+    );
+
+    if (!isMobile) {
+      e.preventDefault();
+      setPhoneModal({ name, phone });
+      setCopied(false);
+    }
+  };
+
+  const copyToClipboard = (text: string) => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+  const totalMembers = activeDepartments.reduce(
+    (acc, dept) => acc + dept.members.length,
+    0,
   );
+
+  let memberGlobalIndex = 0;
 
   return (
     <main className={styles.page}>
@@ -712,7 +796,6 @@ export default function TeamsPage() {
             onChange={(event) => {
               const edition = event.target.value as Edition;
               setActiveEdition(edition);
-              setActiveDepartment(editionDepartments[edition][0]?.name ?? "");
             }}
           >
             <option value="2026">2026</option>
@@ -722,105 +805,108 @@ export default function TeamsPage() {
         </label>
       </section>
 
-      <section className={styles.directory} aria-label="Team departments">
-        <div
-          className={styles.departmentNav}
-          role="tablist"
-          aria-label="Choose a department"
-        >
-          {activeDepartments.map((department) => (
-            <button
-              key={department.name}
-              type="button"
-              role="tab"
-              aria-selected={activeDepartment === department.name}
-              className={`${styles.departmentButton} ${activeDepartment === department.name ? styles.departmentButtonActive : ""}`}
-              onClick={() => setActiveDepartment(department.name)}
-            >
-              {department.name}
-            </button>
-          ))}
-        </div>
-
-        <div className={styles.sectionHeading}>
-          <div>
-            <p className={styles.kicker}>
-              {activeEdition} /{" "}
-              {activeTeam
-                ? String(activeTeam.members.length).padStart(2, "0")
-                : "--"}{" "}
-              MEMBERS
-            </p>
-            <h2>{activeTeam?.name ?? "Roster pending"}</h2>
+      <section className={styles.directory} aria-label="Team members">
+        {activeDepartments.length === 0 ? (
+          <div className={styles.sectionHeading}>
+            <div>
+              <p className={styles.kicker}>{activeEdition} / ROSTER PENDING</p>
+              <h2>Shaurya {activeEdition} Team</h2>
+            </div>
+            <p>The updated 2026 team will be published here soon.</p>
           </div>
-          <p>
-            {activeTeam
-              ? "Meet the people turning ambition into action."
-              : "The updated 2026 team will be published here soon."}
-          </p>
-        </div>
-
-        {activeTeam && (
-          <div className={styles.memberGrid} role="tabpanel">
-            {activeTeam.members.map((member, index) => (
-              <article className={styles.memberCard} key={member.name}>
-                <div className={styles.memberImageWrap}>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className={styles.memberImage}
-                    onError={(event) => {
-                      event.currentTarget.onerror = null;
-                      event.currentTarget.src = `${imageBase}default.png`;
-                    }}
-                  />
-                  <span className={styles.cardNumber}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <div className={styles.memberInfo}>
-                  <p className={styles.memberDepartment}>{activeTeam.name}</p>
-                  <h3>{member.name}</h3>
-                  {member.phone && (
-                    <p className={styles.phone}>{member.phone}</p>
-                  )}
-                  <div className={styles.contactLinks}>
-                    {(
-                      contactLinks[member.name] ?? [
-                        { label: "Call", href: `tel:${member.phone}` },
-                        {
-                          label: "WhatsApp",
-                          href: `https://wa.me/${member.phone}`,
-                        },
-                        ...(historicalEmails[member.name]
-                          ? [
-                              {
-                                label: "Email",
-                                href: `https://mail.google.com/mail/?view=cm&to=${historicalEmails[member.name]}`,
-                              },
-                            ]
-                          : []),
-                      ]
-                    ).map((link) => (
-                      <a
-                        className={styles.contactLink}
-                        href={link.href}
-                        key={link.label}
-                        target={
-                          link.href.startsWith("tel:") ? undefined : "_blank"
-                        }
-                        rel={
-                          link.href.startsWith("tel:")
-                            ? undefined
-                            : "noreferrer"
-                        }
-                      >
-                        {link.label} <span aria-hidden="true">↗</span>
-                      </a>
-                    ))}
+        ) : (
+          <div className={styles.allTeamsContainer}>
+            {activeDepartments.map((department) => (
+              <div key={department.name} className={styles.departmentGroup}>
+                <div className={styles.sectionHeading}>
+                  <div>
+                    {/* <p className={styles.kicker}>
+                      {activeEdition} /{" "}
+                      {String(department.members.length).padStart(2, "0")}{" "}
+                      MEMBERS
+                    </p> */}
+                    <h2>{department.name}</h2>
                   </div>
+                  <p>Meet the people turning ambition into action.</p>
                 </div>
-              </article>
+
+                <div className={styles.memberGrid}>
+                  {department.members.map((member) => {
+                    memberGlobalIndex += 1;
+                    return (
+                      <article className={styles.memberCard} key={member.name}>
+                        <div className={styles.memberImageWrap}>
+                          <div className={styles.imageInner}>
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className={styles.memberImage}
+                              onError={(event) => {
+                                event.currentTarget.onerror = null;
+                                event.currentTarget.src = `${imageBase}default.png`;
+                              }}
+                            />
+                            <div className={styles.hoverOverlay}>
+                              <div className={styles.iconBar}>
+                                {member.phone && (
+                                  <a
+                                    href={`tel:${member.phone}`}
+                                    className={styles.iconBtn}
+                                    title={`Call ${member.name}: ${member.phone}`}
+                                    aria-label={`Call ${member.name}`}
+                                    onClick={(e) => handlePhoneClick(e, member.name, member.phone)}
+                                  >
+                                    <PhoneIcon />
+                                  </a>
+                                )}
+                                {(
+                                  contactLinks[member.name] ?? [
+                                    { label: "WhatsApp", href: `https://wa.me/${member.phone}` },
+                                    ...(historicalEmails[member.name]
+                                      ? [
+                                          {
+                                            label: "Email",
+                                            href: `https://mail.google.com/mail/?view=cm&to=${historicalEmails[member.name]}`,
+                                          },
+                                        ]
+                                      : []),
+                                  ]
+                                )
+                                  .filter((link) => link.label.toLowerCase() !== "call")
+                                  .map((link) => (
+                                    <a
+                                      className={styles.iconBtn}
+                                      href={link.href}
+                                      key={link.label}
+                                      title={`${link.label} - ${member.name}`}
+                                      aria-label={`${link.label} - ${member.name}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {getContactIcon(link.label)}
+                                    </a>
+                                  ))}
+                              </div>
+                            </div>
+                          </div>
+                          <img
+                            src="/cardborder.png"
+                            alt=""
+                            aria-hidden="true"
+                            className={styles.imageBorder}
+                          />
+                        </div>
+                        <div className={styles.memberInfo}>
+                          <p className={styles.memberDepartment}>
+                            {department.name}
+                          </p>
+                          <h3>{member.name}</h3>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
             ))}
           </div>
         )}
@@ -830,6 +916,49 @@ export default function TeamsPage() {
         <span>Shaurya {activeEdition}</span>
         <span>IIT Kharagpur</span>
       </footer>
+
+      {phoneModal && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setPhoneModal(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="phone-modal-title"
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.modalClose}
+              onClick={() => setPhoneModal(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <div className={styles.modalIconWrap}>
+              <PhoneIcon />
+            </div>
+            <h4 id="phone-modal-title">{phoneModal.name}</h4>
+            <p className={styles.modalPhoneNum}>{phoneModal.phone}</p>
+            <div className={styles.modalActions}>
+              <a
+                href={`tel:${phoneModal.phone}`}
+                className={styles.modalCallBtn}
+              >
+                Call Now
+              </a>
+              <button
+                type="button"
+                className={styles.modalCopyBtn}
+                onClick={() => copyToClipboard(phoneModal.phone)}
+              >
+                {copied ? "Copied! ✓" : "Copy Number"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
