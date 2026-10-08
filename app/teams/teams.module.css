@@ -12,7 +12,7 @@
   pointer-events: none;
   background:
     linear-gradient(90deg, rgba(7, 11, 18, 0.9), rgba(7, 11, 18, 0.74)),
-    url("/hero.png") center / cover;
+    url("/teams/bg.jpg") center / cover;
   opacity: 0.72;
 }
 

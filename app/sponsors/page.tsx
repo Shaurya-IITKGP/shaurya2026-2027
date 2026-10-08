@@ -27,7 +27,7 @@ export default function Sponsors() {
 
         <div className={styles.mapContainer}>
           <div className={styles.mapDarkenOverlay}></div>
-          <img src="/spons.jpeg" alt="Sponsors Treasure Map" className={styles.mapImage} />
+          <img src="/sponsors/spons.jpeg" alt="Sponsors Treasure Map" className={styles.mapImage} />
           
           {sponsors.map((sponsor) => (
             <div 

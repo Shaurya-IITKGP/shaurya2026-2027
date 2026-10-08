@@ -20,7 +20,7 @@
       rgba(7, 11, 18, 0.74) 36%,
       rgba(7, 11, 18, 0.55) 100%
     ),
-    url("/hero.png");
+    url("/matches/bg.jpg");
   background-position: center;
   background-size: cover;
 }
