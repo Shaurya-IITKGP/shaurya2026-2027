@@ -195,28 +195,8 @@ export default function ContactSection() {
           </a>
         </div>
 
-        {/* ── Right column — nautical chart ── */}
+        {/* ── Right column — crew contacts ── */}
         <div className={styles.map} role="group" aria-label="Crew contact chart">
-          {/* Gold grid lines */}
-          <div className={styles.grid} aria-hidden="true" />
-
-          {/* Animated dotted route */}
-          <svg className={styles.route} viewBox="0 0 600 540" preserveAspectRatio="none" aria-hidden="true">
-            <path
-              d="M102 195C160 60 230 240 300 356S470 60 498 184"
-              fill="none"
-              stroke="#ffc93d"
-              strokeOpacity=".7"
-              strokeWidth="2.5"
-              strokeDasharray="3 10"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
-
-          {/* Compass */}
-          <Compass />
-
           {/* Crew stops */}
           {team.map((member) => (
             <article
@@ -230,7 +210,6 @@ export default function ContactSection() {
                     <PersonSilhouette />
                   </div>
                 </div>
-                <XMark />
               </div>
 
               <h3 className={styles.memberName}>{member.name}</h3>
