@@ -22,8 +22,16 @@
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(40% 18% at 30% 70%, rgba(34, 211, 238, 0.07), transparent 70%),
-    radial-gradient(35% 16% at 75% 35%, rgba(34, 211, 238, 0.05), transparent 70%);
+    radial-gradient(
+      40% 18% at 30% 70%,
+      rgba(34, 211, 238, 0.07),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 16% at 75% 35%,
+      rgba(34, 211, 238, 0.05),
+      transparent 70%
+    );
   animation: fogDrift 40s linear infinite alternate;
 }
 
@@ -55,8 +63,15 @@
   position: absolute;
   bottom: -20px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 140, 0, 0.9) 0%, rgba(200, 50, 0, 0.7) 40%, rgba(50, 20, 20, 0.3) 100%);
-  box-shadow: 0 0 6px rgba(255, 100, 0, 0.8), 0 0 12px rgba(255, 50, 0, 0.4);
+  background: radial-gradient(
+    circle,
+    rgba(255, 140, 0, 0.9) 0%,
+    rgba(200, 50, 0, 0.7) 40%,
+    rgba(50, 20, 20, 0.3) 100%
+  );
+  box-shadow:
+    0 0 6px rgba(255, 100, 0, 0.8),
+    0 0 12px rgba(255, 50, 0, 0.4);
   opacity: 0;
   animation: riseEmber linear infinite;
   animation-duration: inherit;
@@ -75,7 +90,8 @@
   }
 
   50% {
-    transform: translateY(-50vh) translateX(var(--drift, 0px)) scale(1.2) rotate(180deg);
+    transform: translateY(-50vh) translateX(var(--drift, 0px)) scale(1.2)
+      rotate(180deg);
     opacity: 0.6;
   }
 
@@ -84,7 +100,8 @@
   }
 
   100% {
-    transform: translateY(-110vh) translateX(calc(var(--drift, 0px) * 1.6)) scale(0.6) rotate(360deg);
+    transform: translateY(-110vh) translateX(calc(var(--drift, 0px) * 1.6))
+      scale(0.6) rotate(360deg);
     opacity: 0;
   }
 }
@@ -126,7 +143,13 @@
   line-height: 1.02;
   letter-spacing: -0.025em;
   margin: 0 0 20px;
-  background: linear-gradient(135deg, #ffffff 0%, #fef08a 28%, #ffc93d 60%, #d4af37 100%);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fef08a 28%,
+    #ffc93d 60%,
+    #d4af37 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 2px 16px rgba(255, 201, 61, 0.25));
@@ -150,12 +173,19 @@
   padding: 14px 22px 14px 14px;
   text-decoration: none;
   color: #f0f4f8;
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.18), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(
+    135deg,
+    rgba(20, 184, 166, 0.18),
+    rgba(255, 255, 255, 0.03)
+  );
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 18px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .bottle:hover,
@@ -221,8 +251,16 @@
   inset: 0;
   opacity: 0.5;
   background:
-    repeating-linear-gradient(0deg, rgba(255, 201, 61, 0.07) 0 1px, transparent 1px 60px),
-    repeating-linear-gradient(90deg, rgba(255, 201, 61, 0.07) 0 1px, transparent 1px 60px);
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 201, 61, 0.07) 0 1px,
+      transparent 1px 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 201, 61, 0.07) 0 1px,
+      transparent 1px 60px
+    );
   -webkit-mask: radial-gradient(circle at 50% 50%, #000 30%, transparent 92%);
   mask: radial-gradient(circle at 50% 50%, #000 30%, transparent 92%);
 }
@@ -262,7 +300,6 @@
 }
 
 @keyframes sway {
-
   0%,
   100% {
     rotate: -14deg;
@@ -323,6 +360,12 @@
   color: rgba(34, 211, 238, 0.6);
 }
 
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* X map marker */
 .xmark {
   position: absolute;
@@ -377,7 +420,11 @@
   color: #f0f4f8;
   border: 1px solid rgba(255, 255, 255, 0.14);
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .linkBtn:hover,
@@ -452,7 +499,6 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   .contact::before,
   .contact::after,
   .route,
