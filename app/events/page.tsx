@@ -68,12 +68,12 @@ const sports: Sport[] = [
   {
     name: "Kabaddi",
     category: "Team sport",
-    image: `${sportImageBase}kabaddi.jpg`,
+    image: `${sportImageBase}kabaddi-2026.jpg`,
   },
   {
     name: "Kho Kho",
     category: "Team sport",
-    image: `${sportImageBase}kho-kho.jpg`,
+    image: `${sportImageBase}kho-kho-2026.jpg`,
   },
 ];
 

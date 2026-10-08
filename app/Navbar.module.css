@@ -19,17 +19,31 @@
 
 .navContainer {
   display: grid;
-  grid-template-columns: 1fr auto auto auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: clamp(12px, 2vw, 32px);
+  column-gap: clamp(16px, 2.5vw, 36px);
+}
+
+.instLogoWrap {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.instLogo {
+  display: block;
+  height: clamp(36px, 4vw, 48px);
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .leftGroup {
   grid-column: 2;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: clamp(12px, 2vw, 24px);
+  justify-content: center;
+  gap: clamp(8px, 1.6vw, 20px);
 }
 
 .logoWrap {
@@ -59,8 +73,38 @@
   grid-column: 4;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(12px, 2vw, 24px);
+  justify-content: center;
+  gap: clamp(8px, 1.6vw, 20px);
+}
+
+.registerWrap {
+  grid-column: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.registerBtn {
+  color: #070b12;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #ffc93d;
+  border: 1px solid #ffc93d;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(255, 201, 61, 0.2);
+}
+
+.registerBtn:hover {
+  background: #ffd666;
+  border-color: #ffd666;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 201, 61, 0.4);
 }
 
 .navBtn {
@@ -184,6 +228,37 @@
   transform: scale(1.03);
 }
 
+.mobileRegisterBtn {
+  width: 100%;
+  padding: 14px 24px;
+  color: #070b12;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #ffc93d;
+  border: 1px solid #ffc93d;
+  border-radius: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.25s ease;
+  transition-delay: calc(var(--nav-idx, 0) * 45ms + 80ms);
+}
+
+.mobileDrawerOpen .mobileRegisterBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobileRegisterBtn:hover {
+  background: #ffd666;
+  border-color: #ffd666;
+  color: #070b12;
+  transform: scale(1.03);
+}
+
 /* ── Mobile Breakpoint Query ── */
 @media (max-width: 768px) {
   .headerFixed {
@@ -204,6 +279,11 @@
 
   .logoWrap {
     grid-column: auto;
+  }
+
+  .instLogoWrap,
+  .registerWrap {
+    display: none;
   }
 
   .logo {

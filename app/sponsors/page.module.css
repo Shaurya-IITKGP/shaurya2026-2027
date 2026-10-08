@@ -22,6 +22,7 @@
   font-size: clamp(48px, 5vw, 72px);
   font-weight: 800;
   letter-spacing: -2px;
+  line-height: 1.05;
   color: #ffffff;
   margin: 0;
   text-transform: uppercase;
@@ -33,6 +34,8 @@
   margin-top: 12px;
   font-weight: 500;
   letter-spacing: 0.5px;
+  line-height: 1.6;
+  text-wrap: balance;
 }
 
 .chartTitle {
@@ -115,10 +118,15 @@
   pointer-events: none;
 }
 
+.mapContainer:hover .crossMark {
+  color: #ff3030;
+  text-shadow: 0 0 12px rgba(255, 48, 48, 0.85);
+}
+
 .sponsorMarker:hover .crossMark {
-  color: #ffffff;
-  text-shadow: 0 0 20px #ffaa00;
-  transform: scale(1.5);
+  color: #ff3030;
+  text-shadow: 0 0 20px #ff3030;
+  transform: scale(1.6);
 }
 
 /* ── Parchment Card Popup ── */
@@ -354,6 +362,10 @@
   filter: brightness(1.35) contrast(1.15) drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
 }
 
+.jslLogo {
+  background: #fff;
+}
+
 .gailLogo {
   background: transparent;
   flex-direction: column;
@@ -414,6 +426,20 @@
   margin-bottom: 4px;
 }
 
+.whiteLogo {
+  background: #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.kraftonLogo {
+  width: calc(100% + 16px);
+  height: 70px;
+  max-width: none;
+  margin-left: -8px;
+  padding: 4px 8px;
+}
+
 .networkName {
   color: #fff;
   font-size: 0.8rem;
@@ -445,7 +471,7 @@
   }
 
   .title {
-    font-size: 2.8rem;
+    font-size: clamp(2.8rem, 12vw, 4rem);
   }
 
   .subtitle {

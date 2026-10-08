@@ -815,7 +815,7 @@ const contactLinks: Record<string, ContactLink[]> = {
     },
     {
       label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&to=golusai9465@gmail.com",
+      href: "https://www.shauryaiitkgp.in/",
     },
   ],
   "Nikhil Bharat Rajani": [
@@ -911,7 +911,7 @@ const contactLinks: Record<string, ContactLink[]> = {
   "Chalamalla Sahithi": [
     {
       label: "WhatsApp",
-      href: "https://wa.me/6300290977",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Email",
@@ -991,7 +991,7 @@ const contactLinks: Record<string, ContactLink[]> = {
   "Gauransh Agarwal": [
     {
       label: "WhatsApp",
-      href: "https://wa.me/7063730072",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Email",
@@ -1303,7 +1303,7 @@ const contactLinks: Record<string, ContactLink[]> = {
     },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/mayanksingh_08?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Email",
@@ -1357,7 +1357,7 @@ const contactLinks: Record<string, ContactLink[]> = {
     },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/sakshamm_1301/?utm_source=ig_web_button_share_sheet",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Email",
@@ -1443,7 +1443,7 @@ const contactLinks: Record<string, ContactLink[]> = {
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/abhinav-budida-8958492b5/",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Instagram",
@@ -1501,7 +1501,7 @@ const contactLinks: Record<string, ContactLink[]> = {
     },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/_shiv.__07_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Email",
@@ -1659,7 +1659,7 @@ const contactLinks: Record<string, ContactLink[]> = {
     },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/neerajkumar_809?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      href: "https://www.shauryaiitkgp.in/",
     },
     {
       label: "Email",
@@ -1813,13 +1813,13 @@ function getMemberContactLinks(member: TeamMember) {
     if (!hasLI && !is2026Member) {
       links.push({
         label: "LinkedIn",
-        href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/",
+        href: "https://www.shauryaiitkgp.in/",
       });
     }
     if (!hasIG && !is2026Member) {
       links.push({
         label: "Instagram",
-        href: "https://www.instagram.com/shaurya_iitkgp/",
+        href: "https://www.shauryaiitkgp.in/",
       });
     }
     if (!hasEmail) {

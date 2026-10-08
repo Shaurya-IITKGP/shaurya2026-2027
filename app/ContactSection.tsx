@@ -259,7 +259,7 @@ export default function ContactSection() {
 
           <a
             className={styles.bottle}
-            href="https://chat.whatsapp.com"
+            href="https://chat.whatsapp.com/IOrORTpZLpA3RBAVTI4RJ2"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Join our WhatsApp Community"

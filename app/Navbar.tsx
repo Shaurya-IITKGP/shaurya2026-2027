@@ -46,6 +46,21 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
     <header className={styles.headerFixed}>
       <nav className={styles.navbar} aria-label="Main navigation">
         <div className={styles.navContainer}>
+          <div className={styles.instLogoWrap}>
+            <a
+              href="http://www.iitkgp.ac.in/"
+              className={styles.logoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/iit_kgp.png"
+                alt="IIT Kharagpur logo"
+                className={styles.instLogo}
+              />
+            </a>
+          </div>
+
           {/* Left Desktop Links */}
           <div className={styles.leftGroup}>
             {leftLinks.map((link) => (
@@ -69,6 +84,12 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
                 {link.label}
               </a>
             ))}
+          </div>
+
+          <div className={styles.registerWrap}>
+            <a href="/register" className={styles.registerBtn}>
+              Register
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -102,6 +123,14 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/register"
+              className={styles.mobileRegisterBtn}
+              onClick={() => setIsOpen(false)}
+              style={{ "--nav-idx": links.length } as React.CSSProperties}
+            >
+              Register
+            </a>
           </div>
         </div>
       </nav>

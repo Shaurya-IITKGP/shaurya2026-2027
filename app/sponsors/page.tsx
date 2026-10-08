@@ -3,10 +3,10 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 
 const networkPartners = [
-  { name: "EaseMyTrip", role: "Travel Partner", logo: "/sponsors/EaseMyTrip%20Logo.png" },
-  { name: "JioSaavn", role: "Music Streaming Partner", logo: "/sponsors/Jio%20Saavn%20Logo.png" },
+  { name: "EaseMyTrip", role: "Travel Partner", logo: "/sponsors/EaseMyTrip%20Logo.png", whiteLogo: true },
+  { name: "JioSaavn", role: "Music Streaming Partner", logo: "/sponsors/Jio%20Saavn%20Logo.png", whiteLogo: true },
   { name: "Cubelelo", role: "Cubing Partner", logo: "/sponsors/cubelelo-logo-9_v%3D1791202587.webp" },
-  { name: "Unstop", role: "Campus Ambassador Partner", logo: "/sponsors/unstop.jpeg" },
+  { name: "Unstop", role: "Campus Ambassador Partner", logo: "/sponsors/unstop.jpeg", whiteLogo: true },
   { name: "BK Diagnostics", role: "Medical Partner", logo: "/sponsors/BKdiagnostics%20logo.jpeg" },
   { name: "The Belgian Waffle Co.", role: "Food Partner", logo: "/sponsors/The_Belgian_Waffle_Co_id1EvX9jp7_0.png" },
   { name: "Taco Bell", role: "Food Partner", logo: "/sponsors/taco%20bell.png" },
@@ -14,15 +14,15 @@ const networkPartners = [
 ];
 
 const mediaPartners = [
-  { name: "The Weekly Mail", logo: "/sponsors/The%20Weekly%20Mail.jpg.jpeg" },
-  { name: "Academic Insights", logo: "/sponsors/Acadamic%20insights.jpg.jpeg" },
-  { name: "Career Beacon", logo: "/sponsors/Career%20Beacon.jpg.jpeg" },
-  { name: "PK Media Group", logo: "/sponsors/Pk%20Media%20group%20Logo%20(1).jpg.jpeg" },
+  { name: "The Weekly Mail", logo: "/sponsors/The%20Weekly%20Mail.jpg.jpeg", whiteLogo: true },
+  { name: "Academic Insights", logo: "/sponsors/Acadamic%20insights.jpg.jpeg", whiteLogo: true },
+  { name: "Career Beacon", logo: "/sponsors/Career%20Beacon.jpg.jpeg", whiteLogo: true },
+  { name: "PK Media Group", logo: "/sponsors/Pk%20Media%20group%20Logo%20(1).jpg.jpeg", whiteLogo: true },
   { name: "TT Edugraph", logo: "/sponsors/TT%20Edugraph.png" },
   { name: "Storify News", logo: "/sponsors/Storify%20News.png" },
   { name: "K News", logo: "/sponsors/K%20news.jpg.jpeg" },
-  { name: "Navbharat Times", logo: "/sponsors/Navbharat_Times.webp" },
-  { name: "Jagran Josh", logo: "/sponsors/jagran-josh-logo-freelogovectors.net_.png" },
+  { name: "Navbharat Times", logo: "/sponsors/Navbharat_Times.webp", whiteLogo: true },
+  { name: "Jagran Josh", logo: "/sponsors/jagran-josh-logo-freelogovectors.net_.png", whiteLogo: true },
   { name: "Knowafest", logo: "/sponsors/Knowafest.png" },
 ];
 
@@ -161,7 +161,11 @@ export default function Sponsors() {
               <div className={styles.networkGrid}>
                 {networkPartners.map((partner) => (
                   <div className={`${styles.gridLogo} ${styles.networkCard}`} key={partner.name}>
-                    <img src={partner.logo} alt={`${partner.name} logo`} className={styles.networkLogo} />
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      className={`${styles.networkLogo} ${partner.whiteLogo ? styles.whiteLogo : ""}`}
+                    />
                     <span className={styles.networkName}>{partner.name}</span>
                     <span className={styles.networkRole}>{partner.role}</span>
                   </div>
@@ -174,7 +178,11 @@ export default function Sponsors() {
               <div className={`${styles.networkGrid} ${styles.mediaGrid}`}>
                 {mediaPartners.map((partner) => (
                   <div className={`${styles.gridLogo} ${styles.networkCard}`} key={partner.name}>
-                    <img src={partner.logo} alt={`${partner.name} logo`} className={styles.networkLogo} />
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      className={`${styles.networkLogo} ${partner.whiteLogo ? styles.whiteLogo : ""}`}
+                    />
                     <span className={styles.networkName}>{partner.name}</span>
                     <span className={styles.networkRole}>Media Partner</span>
                   </div>
