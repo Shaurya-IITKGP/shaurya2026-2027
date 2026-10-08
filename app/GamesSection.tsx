@@ -54,19 +54,19 @@ const games: Game[] = [
       "Power serves, baseline rallies, and surgical precision on court as players battle set-by-set for championship glory.",
   },
   {
-    image: "/games/table-tennis.jpg",
+    image: "/games/table-tennis.png",
     name: "Table Tennis",
     description:
       "Rapid spin, split-second reflexes, and tactical counter-attacks on the ping pong tables.",
   },
   {
-    image: "/games/chess.jpg",
+    image: "/games/chess.png",
     name: "Chess",
     description:
       "Grandmaster-level tactical duels, quiet tension, and grand strategic gambits on the 64 squares of the chessboard.",
   },
   {
-    image: "/games/weightlifting.jpg",
+    image: "/games/weightlifting.png",
     name: "Weightlifting",
     description:
       "Raw strength, mental fortitude, and explosive power as lifters conquer heavy barbells in snatch and clean & jerk disciplines.",
