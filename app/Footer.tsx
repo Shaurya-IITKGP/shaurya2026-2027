@@ -45,16 +45,16 @@ export default function Footer() {
             IIT Kharagpur, West Bengal 721302
           </div>
           <div className={styles.social}>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/shaurya.iitkgp/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17" cy="7" r=".6" /></svg>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/shauryaiitkgp/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14C11.8 4.5 10.5 6 10.5 8.2V10.5H8V14h2.5v6H14v-6h2.5l.5-3.5H14V8.5c0-.3.3-.5.5-.5" /></svg>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/shaurya-iit-kharagpur/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24"><path d="M6 10v8M6 6.5v.1M10.5 18v-8m0 3c0-2 1.5-3 3-3s3 1 3 3v5" /></svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a href="https://www.youtube.com/@ShauryaIITKharagpur" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4" /><path d="m10.5 9.5 4 2.5-4 2.5Z" /></svg>
             </a>
           </div>
@@ -65,7 +65,7 @@ export default function Footer() {
           <h4 className={styles.boxTitle}>Get Involved</h4>
           <a
             className={`${styles.btn} ${styles.btnPrimary}`}
-            href="https://chat.whatsapp.com"
+            href="https://chat.whatsapp.com/IOrORTpZLpA3RBAVTI4RJ2"
             target="_blank"
             rel="noopener noreferrer"
           >
