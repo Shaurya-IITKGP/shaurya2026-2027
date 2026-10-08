@@ -538,17 +538,17 @@ const departments2026: Department[] = [
     members: [
       {
         name: "Daksh",
-        phone: "+91 98765 43210",
+        phone: "9306726881",
         image: `${imageBase2026}Daksh.jpg`,
       },
       {
         name: "Aparajita Sarkar",
-        phone: "+91 98765 43211",
+        phone: "8918417982",
         image: `${imageBase2026}Aparajita Sarkar.jpg`,
       },
       {
         name: "Vejendla Vaishnavi",
-        phone: "+91 98765 43212",
+        phone: "6305875179",
         image: `${imageBase2026}Vejendla Vaishnavi.jpg`,
       },
     ],
@@ -558,7 +558,7 @@ const departments2026: Department[] = [
     members: [
       {
         name: "Premnadh Reddy",
-        phone: "+91 98765 43213",
+        phone: "9030044703",
         image: `${imageBase2026}Premnadh Reddy.jpg`,
       },
     ],
@@ -568,17 +568,17 @@ const departments2026: Department[] = [
     members: [
       {
         name: "Angothu Gopichand",
-        phone: "+91 98765 43214",
+        phone: "6300145936",
         image: `${imageBase2026}Angothu Gopichand.jpg`,
       },
       {
         name: "Aravind Naik",
-        phone: "+91 98765 43215",
+        phone: "8121980076",
         image: `${imageBase2026}Aravind Naik.jpg`,
       },
       {
         name: "Sutirtha Jana",
-        phone: "+91 98765 43216",
+        phone: "9907234970",
         image: `${imageBase2026}Sutirtha Jana.jpg`,
       },
     ],
@@ -588,8 +588,13 @@ const departments2026: Department[] = [
     members: [
       {
         name: "Chadaram Mohith",
-        phone: "+91 98765 43217",
+        phone: "7981769594",
         image: `${imageBase2026}Chadaram Mohith.jpg`,
+      },
+      {
+        name: "Abhijit Roy",
+        phone: "9832858255",
+        image: `${imageBase2026}Event head_Abhijit Roy.jpeg`,
       },
     ],
   },
@@ -598,7 +603,7 @@ const departments2026: Department[] = [
     members: [
       {
         name: "Sativada Karthik",
-        phone: "+91 98765 43218",
+        phone: "8121281647",
         image: `${imageBase2026}Sativada Karthik.jpg`,
       },
     ],
@@ -608,12 +613,12 @@ const departments2026: Department[] = [
     members: [
       {
         name: "Ankit Debnath",
-        phone: "+91 98765 43219",
+        phone: "8617746318",
         image: `${imageBase2026}Ankit Debnath.jpg`,
       },
       {
         name: "Rohit Bej",
-        phone: "+91 98765 43220",
+        phone: "7903197215",
         image: `${imageBase2026}Rohit Bej.jpg`,
       },
     ],
@@ -698,6 +703,50 @@ const historicalEmails: Record<string, string> = {
 };
 
 const contactLinks: Record<string, ContactLink[]> = {
+  Daksh: [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=phogatha@gmail.com" },
+  ],
+  "Aparajita Sarkar": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=aparajitasarkar2709@gmail.com" },
+  ],
+  "Vejendla Vaishnavi": [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/vaishnavi-vejendla-194527336?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+    { label: "Instagram", href: "https://www.instagram.com/vaishnavi_3106?stkn=MXY3dzlhc2Y4dTBhOA==" },
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=vejendlavaishnavi15@gmail.com" },
+  ],
+  "Chadaram Mohith": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=Mohithchadaram2@gmail.com" },
+  ],
+  "Abhijit Roy": [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/abhijit-roy-695402326" },
+    { label: "Instagram", href: "https://www.instagram.com/__abhijit.roy__/" },
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=royabhijit59478@gmail.com" },
+  ],
+  "Angothu Gopichand": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=Sirisrinivas464@gmail.com" },
+  ],
+  "Sutirtha Jana": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=sutirthajana107@gmail.com" },
+  ],
+  "Aravind Naik": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=aravindnaikkethavth2@gmail.com" },
+  ],
+  "Premnadh Reddy": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=premnadh.akkala@gmail.com" },
+  ],
+  "Sativada Karthik": [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/karthik-sativada" },
+    { label: "Instagram", href: "https://www.instagram.com/karthik.sativada?stkn=YmN1MHVodTB3b21n" },
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=1647karthik@gmail.com" },
+  ],
+  "Ankit Debnath": [
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=debnathankit52@gmail.com" },
+  ],
+  "Rohit Bej": [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/mr-rohit-/" },
+    { label: "Instagram", href: "https://www.instagram.com/imrohitbej/" },
+    { label: "Email", href: "https://mail.google.com/mail/?view=cm&to=rohit098bej@gmail.com" },
+  ],
   "S S V K S S Jyothiraditya": [
     {
       label: "WhatsApp",
@@ -1736,6 +1785,9 @@ function getContactIcon(label: string) {
 
 function getMemberContactLinks(member: TeamMember) {
   const existing = contactLinks[member.name];
+  const is2026Member = departments2026.some((department) =>
+    department.members.some((candidate) => candidate.name === member.name),
+  );
   const email =
     historicalEmails[member.name] ||
     `${member.name.toLowerCase().replace(/[^a-z0-9]/g, "")}@shauryaiitkgp.in`;
@@ -1757,13 +1809,13 @@ function getMemberContactLinks(member: TeamMember) {
         href: `https://wa.me/${member.phone.replace(/[^0-9]/g, "")}`,
       });
     }
-    if (!hasLI) {
+    if (!hasLI && !is2026Member) {
       links.push({
         label: "LinkedIn",
         href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/",
       });
     }
-    if (!hasIG) {
+    if (!hasIG && !is2026Member) {
       links.push({
         label: "Instagram",
         href: "https://www.instagram.com/shaurya_iitkgp/",
