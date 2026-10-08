@@ -29,17 +29,65 @@ const games: Game[] = [
     description:
       "Fast-paced court action with slam dunks, buzzer-beaters, and fierce inter-college rivalries that keep the crowd roaring.",
   },
+  {
+    image: "/games/athletics.png",
+    name: "Athletics",
+    description:
+      "Sparks on the track and soaring bounds in the field as athletes push peak human endurance in sprints, relays, and field events.",
+  },
+  {
+    image: "/games/badminton.png",
+    name: "Badminton",
+    description:
+      "Lightning-fast smashes, deceptive drops, and intense rally duels on indoor courts in high-octane singles and doubles.",
+  },
+  {
+    image: "/games/volleyball.png",
+    name: "Volleyball",
+    description:
+      "High-flying spikes, rock-solid blocks, and desperate digs in relentless team battles above the net.",
+  },
+  {
+    image: "/games/lawn-tennis.png",
+    name: "Lawn Tennis",
+    description:
+      "Power serves, baseline rallies, and surgical precision on court as players battle set-by-set for championship glory.",
+  },
+  {
+    image: "/games/table-tennis.jpg",
+    name: "Table Tennis",
+    description:
+      "Rapid spin, split-second reflexes, and tactical counter-attacks on the ping pong tables.",
+  },
+  {
+    image: "/games/chess.jpg",
+    name: "Chess",
+    description:
+      "Grandmaster-level tactical duels, quiet tension, and grand strategic gambits on the 64 squares of the chessboard.",
+  },
+  {
+    image: "/games/weightlifting.jpg",
+    name: "Weightlifting",
+    description:
+      "Raw strength, mental fortitude, and explosive power as lifters conquer heavy barbells in snatch and clean & jerk disciplines.",
+  },
 ];
 
 export default function GamesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const totalGames = games.length;
 
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + totalGames) % totalGames);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % totalGames);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % totalGames);
-      }, 500); // matches the CSS transition duration
+      setActiveIndex((prev) => (prev + 1) % totalGames);
     }, 3500);
 
     return () => clearInterval(interval);
@@ -53,6 +101,14 @@ export default function GamesSection() {
       </div>
 
       <div className={styles.carouselTrack}>
+        <button
+          className={`${styles.navBtn} ${styles.prevBtn}`}
+          onClick={handlePrev}
+          aria-label="Previous game"
+        >
+          ‹
+        </button>
+
         {games.map((game, idx) => {
           // Compute slot position (0: Left, 1: Center/Active, 2: Right)
           const position = (idx - activeIndex + 1 + totalGames) % totalGames;
@@ -70,6 +126,7 @@ export default function GamesSection() {
                   src={game.image}
                   alt={game.name}
                   className={styles.cardImage}
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
               <div className={styles.cardInfo}>
@@ -79,6 +136,14 @@ export default function GamesSection() {
             </div>
           );
         })}
+
+        <button
+          className={`${styles.navBtn} ${styles.nextBtn}`}
+          onClick={handleNext}
+          aria-label="Next game"
+        >
+          ›
+        </button>
       </div>
     </section>
   );
