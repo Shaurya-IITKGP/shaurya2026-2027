@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 const sponsors = [
   { id: 1, tier: "TITLE PARTNER", name: "Grand Port Inc.", top: "25%", left: "12%" },
@@ -78,6 +79,7 @@ export default function Sponsors() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

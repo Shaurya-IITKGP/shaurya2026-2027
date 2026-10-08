@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 import styles from "./page.module.css";
 
 /* ──────────────────────────────────────────────
@@ -13,7 +14,7 @@ interface ScheduleEvent {
   sport: string;
   time: string;
   venue: string;
-  tag?: "highlight" | "ceremony"; // special badge
+  tag?: "highlight" | "ceremony";
 }
 
 const schedule: Record<DayKey, ScheduleEvent[]> = {
@@ -63,41 +64,14 @@ const schedule: Record<DayKey, ScheduleEvent[]> = {
 };
 
 const dayLabels: Record<DayKey, { label: string; subtitle: string; date: string }> = {
-  day0: { label: "Day 0", subtitle: "Arrival & Opening", date: "" },
-  day1: { label: "Day 1", subtitle: "The Battle Begins", date: "" },
-  day2: { label: "Day 2", subtitle: "Grand Finale", date: "" },
+  day0: { label: "Day 0", subtitle: "Arrival & Opening", date: "Oct 9, 2026" },
+  day1: { label: "Day 1", subtitle: "The Battle Begins", date: "Oct 10, 2026" },
+  day2: { label: "Day 2", subtitle: "Grand Finale", date: "Oct 11, 2026" },
 };
 
-/* Sport icon map — emoji as lightweight stand-ins */
-const sportIcon: Record<string, string> = {
-  Badminton: "🏸",
-  Basketball: "🏀",
-  Cricket: "🏏",
-  Football: "⚽",
-  Volleyball: "🏐",
-  Esports: "🎮",
-  Athletics: "🏃",
-  "Lawn Tennis": "🎾",
-  "Table Tennis": "🏓",
-  Chess: "♟️",
-  Kabaddi: "🤼",
-  Squash: "🎯",
-  Pickleball: "🏸",
-  "Weightlifting & Powerlifting": "🏋️",
-  "Mr. Shaurya": "🏆",
-  "College Campus Tour Finals": "🏛️",
-  "Campus Clash India Finals": "🎤",
-  Golf: "⛳",
-  "Arena & Funzone": "🎡",
-  "Opening Ceremony": "🎇",
-  "Closing Ceremony": "🎆",
-};
-
-/* ──────────────────────────────────────────────
-   COMPONENT
-─────────────────────────────────────────────── */
 export default function MatchesPage() {
   const [activeDay, setActiveDay] = useState<DayKey>("day0");
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
   const days: DayKey[] = ["day0", "day1", "day2"];
   const events = schedule[activeDay];
@@ -120,17 +94,18 @@ export default function MatchesPage() {
 
       {/* ── Hero ── */}
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>SHAURYA 2026 / SCHEDULE</p>
-        <h1>Matches</h1>
-        <p className={styles.heroCopy}>
-          Three days. Twelve arenas. One legendary voyage. Track every bout,
-          sprint, and showdown across Shaurya&apos;s full schedule.
-        </p>
-        <div className={styles.heroRule} aria-hidden="true" />
+        <div className={styles.heroHeader}>
+          <span className={styles.eyebrow}>SHAURYA 2026 / MATCH TIMELINE</span>
+          <h1>Matches Timeline</h1>
+          <p className={styles.heroCopy}>
+            Explore the chronological timeline of events, matches, and ceremonies across all 12 arenas of Shaurya 2026.
+          </p>
+        </div>
       </section>
 
-      {/* ── Day Tabs ── */}
+      {/* ── Schedule Timeline Section ── */}
       <section className={styles.scheduleSection}>
+        {/* Day Tabs */}
         <div className={styles.tabRow} role="tablist" aria-label="Select day">
           {days.map((d) => (
             <button
@@ -138,61 +113,127 @@ export default function MatchesPage() {
               role="tab"
               aria-selected={activeDay === d}
               className={`${styles.tab} ${activeDay === d ? styles.tabActive : ""}`}
-              onClick={() => setActiveDay(d)}
+              onClick={() => {
+                setActiveDay(d);
+                setHoveredIndex(0);
+              }}
             >
-              <span className={styles.tabLabel}>{dayLabels[d].label}</span>
+              <div className={styles.tabHeader}>
+                <span className={styles.tabLabel}>{dayLabels[d].label}</span>
+                <span className={styles.tabDate}>{dayLabels[d].date}</span>
+              </div>
               <span className={styles.tabSub}>{dayLabels[d].subtitle}</span>
             </button>
           ))}
         </div>
 
-        {/* ── Event Cards Grid ── */}
-        <div className={styles.grid} role="tabpanel">
-          {events.map((ev, i) => (
-            <article
-              key={`${ev.sport}-${i}`}
-              className={`${styles.card} ${ev.tag === "ceremony" ? styles.cardCeremony : ""} ${ev.tag === "highlight" ? styles.cardHighlight : ""}`}
-              style={{ "--card-index": i } as React.CSSProperties}
-            >
-              <div className={styles.cardTop}>
-                <span className={styles.cardIcon} aria-hidden="true">
-                  {sportIcon[ev.sport] ?? "🏅"}
-                </span>
-                {ev.tag && (
-                  <span className={`${styles.badge} ${ev.tag === "ceremony" ? styles.badgeCeremony : styles.badgeHighlight}`}>
-                    {ev.tag === "ceremony" ? "CEREMONY" : "SPECIAL"}
-                  </span>
-                )}
-              </div>
-              <h3 className={styles.cardTitle}>{ev.sport}</h3>
-              <div className={styles.cardMeta}>
-                <div className={styles.metaRow}>
-                  {/* Clock icon */}
-                  <svg className={styles.metaIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 3" />
-                  </svg>
-                  <span>{ev.time}</span>
+        {/* ── Timeline Display ── */}
+        <div className={styles.timelineWrapper}>
+          {/* Continuous Vertical Timeline Line */}
+          <div className={styles.timelineSpine}>
+            <div
+              className={styles.timelineSpineActive}
+              style={{
+                height: `${
+                  hoveredIndex !== null && events.length > 1
+                    ? ((hoveredIndex + 1) / events.length) * 100
+                    : 0
+                }%`,
+              }}
+            />
+          </div>
+
+          {/* List of Timeline Rows */}
+          <div className={styles.timelineList}>
+            {events.map((ev, i) => {
+              const formattedIndex = String(i + 1).padStart(2, "0");
+              const isHovered = hoveredIndex === i;
+
+              return (
+                <div
+                  key={`${ev.sport}-${i}`}
+                  className={`${styles.timelineRow} ${isHovered ? styles.timelineRowActive : ""}`}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  style={{ "--item-index": i } as React.CSSProperties}
+                >
+                  {/* Node on Vertical Line */}
+                  <div className={styles.nodeWrapper}>
+                    <div className={`${styles.nodeCircle} ${isHovered ? styles.nodeCircleActive : ""}`}>
+                      <div className={styles.nodeDot} />
+                    </div>
+                  </div>
+
+                  {/* Timeline Card */}
+                  <article
+                    className={`${styles.card} ${
+                      ev.tag === "ceremony"
+                        ? styles.cardCeremony
+                        : ev.tag === "highlight"
+                        ? styles.cardHighlight
+                        : ""
+                    }`}
+                  >
+                    <div className={styles.cardHeader}>
+                      <span className={styles.numberPrefix}>{formattedIndex}</span>
+                      <div className={styles.cardTitleWrap}>
+                        <h3 className={styles.cardTitle}>{ev.sport}</h3>
+                      </div>
+
+                      {ev.tag && (
+                        <span
+                          className={`${styles.badge} ${
+                            ev.tag === "ceremony" ? styles.badgeCeremony : styles.badgeHighlight
+                          }`}
+                        >
+                          {ev.tag === "ceremony" ? "CEREMONY" : "SPECIAL"}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className={styles.cardBody}>
+                      <div className={styles.metaGroup}>
+                        <div className={styles.metaItem}>
+                          <svg
+                            className={styles.metaIcon}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3 3" />
+                          </svg>
+                          <span className={styles.metaValue}>{ev.time}</span>
+                        </div>
+
+                        <div className={styles.metaItem}>
+                          <svg
+                            className={styles.metaIcon}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" />
+                            <circle cx="12" cy="9.5" r="2.5" />
+                          </svg>
+                          <span className={styles.metaValue}>{ev.venue}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
                 </div>
-                <div className={styles.metaRow}>
-                  {/* Pin icon */}
-                  <svg className={styles.metaIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" />
-                    <circle cx="12" cy="9.5" r="2.5" />
-                  </svg>
-                  <span>{ev.venue}</span>
-                </div>
-              </div>
-            </article>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* ── Bottom footer bar ── */}
-      <footer className={styles.footer}>
-        <span>Shaurya 2026</span>
-        <span>IIT Kharagpur</span>
-      </footer>
+      <Footer />
     </main>
   );
 }

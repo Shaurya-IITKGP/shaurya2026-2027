@@ -193,6 +193,8 @@
   gap: 12px;
   margin-top: 28px;
   z-index: 2;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .dot {
@@ -218,30 +220,55 @@
   transform: scale(1.2);
 }
 
+/* Responsive: ON MOBILE, SHOW ONLY 1 CARD (HIDE SIDE CARDS) */
+@media (max-width: 768px) {
+  .sectionHeader {
+    margin-bottom: 16px;
+  }
 
-
-/* Responsive */
-@media (max-width: 900px) {
   .carouselTrack {
-    flex-direction: column;
-    gap: 24px;
+    height: 380px;
   }
 
-  .gameCard {
-    width: min(340px, 90vw);
+  /* Hide left (pos 0) and right (pos 2) peek cards on mobile */
+  .gameCard[style*="--card-pos: 0"],
+  .gameCard[style*="--card-pos:0"],
+  .gameCard[style*="--card-pos: 2"],
+  .gameCard[style*="--card-pos:2"] {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
-  .gameCard[style*="--card-pos: 0"] {
-    transform: scale(1);
-  }
-
+  /* Single active card in the center */
   .gameCard[style*="--card-pos: 1"],
-  .gameCard[style*="--card-pos: 2"] {
-    transform: scale(0.92);
-    opacity: 0.5;
+  .gameCard[style*="--card-pos:1"] {
+    transform: translate(-50%, 0) scale(1) !important;
+    opacity: 1 !important;
+    width: min(300px, 82vw);
   }
 
-  .gameCard[style*="--card-pos: 0"]:hover {
-    transform: scale(1.03) translateY(-4px);
+  .navBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .prevBtn {
+    left: 4px;
+  }
+
+  .nextBtn {
+    right: 4px;
+  }
+
+  .dotsRow {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
   }
 }

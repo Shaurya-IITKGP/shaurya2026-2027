@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 import styles from "./page.module.css";
 
 type Sport = {
@@ -158,13 +159,9 @@ export default function EventsPage() {
             );
           })}
         </div>
-
       </section>
 
-      <footer className={styles.footer}>
-        <span>Shaurya 2026</span>
-        <span>IIT Kharagpur</span>
-      </footer>
+      <Footer />
     </main>
   );
 }

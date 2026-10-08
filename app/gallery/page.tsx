@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 const images = [
   { id: 1, src: "/gallery/DSC00006.JPG", category: "SPORTS", title: "Action Shot", desc: "Shaurya Highlights" },
@@ -43,6 +44,7 @@ export default function Gallery() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

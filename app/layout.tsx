@@ -31,9 +31,14 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Shaurya IIT Kharagpur",
+  title: "Shaurya 2026 | IIT Kharagpur",
   description:
-    "Shaurya is IIT Kharagpur's premier sports festival celebrating skill, spirit and camaraderie.",
+    "Shaurya is IIT Kharagpur's premier annual sports festival celebrating athletic prowess, team spirit, and sportsmanship.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

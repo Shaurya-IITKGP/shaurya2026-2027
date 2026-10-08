@@ -6,9 +6,9 @@
   z-index: 1000;
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(180deg, rgba(3, 8, 17, 0.85) 0%, rgba(3, 8, 17, 0.4) 70%, transparent 100%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(3, 8, 17, 0.92) 0%, rgba(3, 8, 17, 0.6) 70%, transparent 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar {
@@ -17,14 +17,6 @@
   margin: 0 auto;
 }
 
-/* 
-  Layout: space space btn btn logo btn btn space space
-  Using grid with 5 equal flexible columns or fractional layout:
-  col 1 & col 5 act as the outer spaces.
-  col 2 has 2 buttons on the right edge (btn btn).
-  col 3 centered logo.
-  col 4 has 2 buttons on the left edge (btn btn).
-*/
 .navContainer {
   display: grid;
   grid-template-columns: 1fr auto auto auto 1fr;
@@ -93,31 +85,132 @@
   opacity: 0.85;
 }
 
+/* ── Mobile Hamburger Toggle Button ── */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1002;
+  user-select: none;
+}
+
+.bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #ffc93d;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animated X state */
+.hamburgerActive .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerActive .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburgerActive .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Overlay Drawer ── */
+.mobileDrawer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 11, 18, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobileDrawerOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobileLinksGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: min(320px, calc(100% - 48px));
+}
+
+.mobileNavBtn {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 14px 24px;
+  width: 100%;
+  text-align: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.mobileDrawerOpen .mobileNavBtn {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: calc(var(--nav-idx, 0) * 45ms + 80ms);
+}
+
+.mobileNavBtn:hover {
+  background: rgba(255, 201, 61, 0.15);
+  border-color: #ffc93d;
+  color: #ffc93d;
+  transform: scale(1.03);
+}
+
+/* ── Mobile Breakpoint Query ── */
 @media (max-width: 768px) {
   .headerFixed {
-    padding: 12px 16px;
+    padding: 12px 20px;
   }
 
   .navContainer {
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: auto auto;
-    row-gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .leftGroup,
+  .rightGroup {
+    display: none;
   }
 
   .logoWrap {
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: auto;
   }
 
-  .leftGroup {
-    grid-column: 1 / span 3;
-    grid-row: 2;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+  .logo {
+    height: 44px;
   }
 
-  .rightGroup {
-    display: contents;
+  .hamburger {
+    display: flex;
   }
 }
