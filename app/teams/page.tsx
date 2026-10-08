@@ -327,24 +327,24 @@ const historicalDepartments: Department[] = [
   },
 ];
 
-const team2023Departments: Department[] = [
+const departments2026: Department[] = [
   {
     name: "Executive Heads",
     members: [
       {
-        name: "S S V K S S Jyothiraditya",
-        phone: "7675007236",
-        image: `${imageBase2023}S S V K S S Jyothiraditya.jpeg`,
+        name: "Executive Head 1",
+        phone: "+91 98765 43210",
+        image: `${imageBase}default.png`,
       },
       {
-        name: "Shreya Mishra",
-        phone: "9475621028",
-        image: `${imageBase2023}Shreya Mishra.jpeg`,
+        name: "Executive Head 2",
+        phone: "+91 98765 43211",
+        image: `${imageBase}default.png`,
       },
       {
-        name: "Soujanaya Nayak",
-        phone: "7506136455",
-        image: `${imageBase2023}Soujanaya Nayak.jpeg`,
+        name: "Executive Head 3",
+        phone: "+91 98765 43212",
+        image: `${imageBase}default.png`,
       },
     ],
   },
@@ -352,119 +352,9 @@ const team2023Departments: Department[] = [
     name: "Finance Heads",
     members: [
       {
-        name: "Jatin Motwani",
-        phone: "9424533623",
-        image: `${imageBase2023}Jatin Motwani.jpeg`,
-      },
-      {
-        name: "Lokesh Agarwala",
-        phone: "7728018715",
-        image: `${imageBase2023}Lokesh Agarwala.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Event Heads",
-    members: [
-      {
-        name: "Archie Avirati",
-        phone: "7024385271",
-        image: `${imageBase2023}Archie Avirati.jpeg`,
-      },
-      {
-        name: "Himanshu",
-        phone: "7348701571",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Nikhil Bharat Rajani",
-        phone: "7020096806",
-        image: `${imageBase2023}Nikhil Bharat Rajani.jpeg`,
-      },
-      {
-        name: "Priyanshu Shaw",
-        phone: "9073808624",
-        image: `${imageBase2023}Priyanshu Shaw.jpeg`,
-      },
-      {
-        name: "Rishi Dhoble",
-        phone: "9205704432",
-        image: `${imageBase2023}Rishi Dhoble.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Publicity & Marketing Heads",
-    members: [
-      {
-        name: "Atharva Chilwarwar",
-        phone: "7796557031",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Prashant Tripathi",
-        phone: "7398149866",
-        image: `${imageBase2023}Prashant Tripathi.jpeg`,
-      },
-      {
-        name: "S. Siddharth",
-        phone: "9789422444",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Yashwanth Kumar Kallepalli",
-        phone: "9347865123",
-        image: `${imageBase2023}Yashwanth Kumar.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Sponsorship Heads",
-    members: [
-      {
-        name: "Aditya G Gaikwad",
-        phone: "9980090567",
-        image: `${imageBase2023}Aditya G Gaikwad.png`,
-      },
-      {
-        name: "Akshat Dilip Lade",
-        phone: "9920378336",
-        image: `${imageBase2023}Akshat Dilip Lade.jpeg`,
-      },
-      {
-        name: "Chalamalla Sahithi",
-        phone: "6300290977",
-        image: `${imageBase2023}Chalamalla Sahithi.png`,
-      },
-      {
-        name: "Nimish Gadge",
-        phone: "9819755685",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Prajay",
-        phone: "9391738281",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Raghuvar Srivastava",
-        phone: "9811097343",
-        image: `${imageBase2023}default.png`,
-      },
-    ],
-  },
-  {
-    name: "Logistics Heads",
-    members: [
-      {
-        name: "Akula Tejaswini",
-        phone: "7396066011",
-        image: `${imageBase2023}Akula Tejaswini.jpeg`,
-      },
-      {
-        name: "Neeraj Patel",
-        phone: "7987752913",
-        image: `${imageBase2023}Neeraj Patel.jpeg`,
+        name: "Finance Head 1",
+        phone: "+91 98765 43213",
+        image: `${imageBase}default.png`,
       },
     ],
   },
@@ -472,63 +362,59 @@ const team2023Departments: Department[] = [
     name: "Web Heads",
     members: [
       {
-        name: "Rohan R. Barsagade",
-        phone: "8263932614",
-        image: `${imageBase2023}default.png`,
+        name: "Web Head 1",
+        phone: "+91 98765 43214",
+        image: `${imageBase}default.png`,
       },
       {
-        name: "Somyajeet Gupta Chowdhury",
-        phone: "9113340204",
-        image: `${imageBase2023}Somyajeet Gupta Chowdhury.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Design and Media Heads",
-    members: [
-      {
-        name: "Gauransh Agarwal",
-        phone: "7063730072",
-        image: `${imageBase2023}Gauransh Agarwal.jpeg`,
-      },
-      {
-        name: "Malla Harshavardhan",
-        phone: "9392551557",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Shubham Dilawar",
-        phone: "9893662396",
-        image: `${imageBase2023}Shubham Dilawar.jpeg`,
-      },
-      {
-        name: "Vaibhav Joshi",
-        phone: "9535734903",
-        image: `${imageBase2023}Vaibhav Joshi.jpeg`,
+        name: "Web Head 2",
+        phone: "+91 98765 43215",
+        image: `${imageBase}default.png`,
       },
     ],
   },
   {
-    name: "Accommodation and Guest Reception Heads",
+    name: "Event Heads",
     members: [
       {
-        name: "Anushka Singh",
-        phone: "9335225142",
-        image: `${imageBase2023}Anushka Singh.jpeg`,
+        name: "Event Head 1",
+        phone: "+91 98765 43216",
+        image: `${imageBase}default.png`,
       },
       {
-        name: "Dhiya Mariam Thomas",
-        phone: "8851996747",
-        image: `${imageBase2023}default.png`,
+        name: "Event Head 2",
+        phone: "+91 98765 43217",
+        image: `${imageBase}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Publicity & Marketing Heads",
+    members: [
+      {
+        name: "Publicity & Marketing Head 1",
+        phone: "+91 98765 43218",
+        image: `${imageBase}default.png`,
       },
       {
-        name: "Jayansh Maheshwari",
-        phone: "8655701340",
-        image: `${imageBase2023}default.png`,
+        name: "Publicity & Marketing Head 2",
+        phone: "+91 98765 43219",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Publicity & Marketing Head 3",
+        phone: "+91 98765 43220",
+        image: `${imageBase}default.png`,
       },
     ],
   },
 ];
+
+const editionDepartments: Record<Edition, Department[]> = {
+  "2024": historicalDepartments,
+  "2025": departments,
+  "2026": [],
+};
 
 const historicalEmails: Record<string, string> = {
   "S S V K S S Jyothiraditya": "jyothiradityas@kgpian.iitkgp.ac.in",
@@ -1592,8 +1478,51 @@ function getContactIcon(label: string) {
   return null;
 }
 
+function getMemberContactLinks(member: TeamMember) {
+  const existing = contactLinks[member.name];
+  const email =
+    historicalEmails[member.name] ||
+    `${member.name.toLowerCase().replace(/[^a-z0-9]/g, "")}@shauryaiitkgp.in`;
+
+  if (existing && existing.length > 0) {
+    const hasPhone = existing.some((l) => l.label.toLowerCase() === "call");
+    const hasWA = existing.some((l) => l.label.toLowerCase() === "whatsapp");
+    const hasLI = existing.some((l) => l.label.toLowerCase() === "linkedin");
+    const hasIG = existing.some((l) => l.label.toLowerCase() === "instagram");
+    const hasEmail = existing.some((l) => l.label.toLowerCase() === "email");
+
+    const links = [...existing];
+    if (!hasPhone && member.phone) {
+      links.push({ label: "Call", href: `tel:${member.phone}` });
+    }
+    if (!hasWA && member.phone) {
+      links.push({ label: "WhatsApp", href: `https://wa.me/${member.phone.replace(/[^0-9]/g, "")}` });
+    }
+    if (!hasLI) {
+      links.push({ label: "LinkedIn", href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/" });
+    }
+    if (!hasIG) {
+      links.push({ label: "Instagram", href: "https://www.instagram.com/shaurya_iitkgp/" });
+    }
+    if (!hasEmail) {
+      links.push({ label: "Email", href: `https://mail.google.com/mail/?view=cm&to=${email}` });
+    }
+    return links;
+  }
+
+  // Fallback / 2026 demo template with all 5 links
+  const cleanPhone = member.phone ? member.phone.replace(/[^0-9]/g, "") : "919876543210";
+  return [
+    { label: "Call", href: `tel:${member.phone || "+919876543210"}` },
+    { label: "WhatsApp", href: `https://wa.me/${cleanPhone}` },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/" },
+    { label: "Instagram", href: "https://www.instagram.com/shaurya_iitkgp/" },
+    { label: "Email", href: `https://mail.google.com/mail/?view=cm&to=${email}` },
+  ];
+}
+
 export default function TeamsPage() {
-  const [activeEdition, setActiveEdition] = useState<Edition>("2025");
+  const [activeEdition, setActiveEdition] = useState<Edition>("2026");
   const [phoneModal, setPhoneModal] = useState<{ name: string; phone: string } | null>(null);
   const [copied, setCopied] = useState(false);
   const activeDepartments = editionDepartments[activeEdition];
@@ -1708,44 +1637,27 @@ export default function TeamsPage() {
                             />
                             <div className={styles.hoverOverlay}>
                               <div className={styles.iconBar}>
-                                {member.phone && (
-                                  <a
-                                    href={`tel:${member.phone}`}
-                                    className={styles.iconBtn}
-                                    title={`Call ${member.name}: ${member.phone}`}
-                                    aria-label={`Call ${member.name}`}
-                                    onClick={(e) => handlePhoneClick(e, member.name, member.phone)}
-                                  >
-                                    <PhoneIcon />
-                                  </a>
-                                )}
-                                {(
-                                  contactLinks[member.name] ?? [
-                                    { label: "WhatsApp", href: `https://wa.me/${member.phone}` },
-                                    ...(historicalEmails[member.name]
-                                      ? [
-                                          {
-                                            label: "Email",
-                                            href: `https://mail.google.com/mail/?view=cm&to=${historicalEmails[member.name]}`,
-                                          },
-                                        ]
-                                      : []),
-                                  ]
-                                )
-                                  .filter((link) => link.label.toLowerCase() !== "call")
-                                  .map((link) => (
+                                {getMemberContactLinks(member).map((link) => {
+                                  const isPhone = link.label.toLowerCase() === "call";
+                                  return (
                                     <a
+                                      key={link.label}
                                       className={styles.iconBtn}
                                       href={link.href}
-                                      key={link.label}
                                       title={`${link.label} - ${member.name}`}
                                       aria-label={`${link.label} - ${member.name}`}
-                                      target="_blank"
-                                      rel="noreferrer"
+                                      target={isPhone ? undefined : "_blank"}
+                                      rel={isPhone ? undefined : "noreferrer"}
+                                      onClick={
+                                        isPhone
+                                          ? (e) => handlePhoneClick(e, member.name, member.phone)
+                                          : undefined
+                                      }
                                     >
                                       {getContactIcon(link.label)}
                                     </a>
-                                  ))}
+                                  );
+                                })}
                               </div>
                             </div>
                           </div>
