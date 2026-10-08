@@ -1,0 +1,154 @@
+/* ── Page shell ─────────────────────────────────── */
+.page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 12rem;
+  background: #050D13;
+}
+
+.page ::selection {
+  background: rgba(178, 138, 69, 0.3);
+  color: #ffffff;
+}
+
+/* ── Content wrapper ────────────────────────────── */
+.contentWrap {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  padding: 10rem 1rem 0; /* pt-40 top, px-4 sides */
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .contentWrap {
+    padding-top: 12rem; /* pt-48 */
+  }
+}
+
+/* ── Hero text block ────────────────────────────── */
+.heroText {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #B28A45;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .eyebrow { font-size: 1.25rem; }
+}
+
+.heroTitle {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #F2EEE4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heroTitle { font-size: 3.75rem; }
+}
+
+/* ── Divider row ────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  opacity: 0.8;
+}
+
+.dividerLine {
+  height: 1px;
+  width: 4rem;
+  background: linear-gradient(to right, transparent, rgba(212, 154, 58, 0.6));
+}
+
+.dividerLineReverse {
+  height: 1px;
+  width: 4rem;
+  background: linear-gradient(to left, transparent, rgba(212, 154, 58, 0.6));
+}
+
+@media (min-width: 768px) {
+  .dividerLine,
+  .dividerLineReverse { width: 8rem; }
+}
+
+.dividerIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #D49A3A;
+  flex-shrink: 0;
+}
+
+/* ── Hero sub-copy ──────────────────────────────── */
+.heroCopy {
+  font-family: var(--font-roboto), Roboto, sans-serif;
+  color: rgba(174, 184, 184, 0.8);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heroCopy { font-size: 1rem; }
+}
+
+/* ── Success compass overlay ────────────────────── */
+.successOverlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.successGlow {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: #B28A45;
+  filter: blur(100px);
+}
+
+.compassRose {
+  position: absolute;
+  width: 90vw;
+  max-width: 700px;
+  opacity: 0.15;
+  color: #B28A45;
+}
+
+@media (min-width: 768px) {
+  .compassRose { width: 50vw; }
+}

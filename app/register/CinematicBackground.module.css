@@ -1,0 +1,127 @@
+/* ── Root container ─────────────────────────────── */
+.root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  background: #050D13;
+}
+
+/* ── Layer 1 — BG image ─────────────────────────── */
+.bgLayer {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+}
+
+.bgInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.70;
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 13, 19, 0.6) 0%,
+    transparent 50%,
+    rgba(5, 13, 19, 0.9) 100%
+  );
+}
+
+/* ── Layer 2 — Nautical map ─────────────────────── */
+.mapLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  mix-blend-mode: screen;
+}
+
+.mapSvg {
+  color: #B28A45;
+}
+
+/* ── Layer 3 — Fog ──────────────────────────────── */
+.fog {
+  position: absolute;
+  bottom: 0;
+  width: 150%;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    transparent,
+    rgba(23, 70, 83, 0.30),
+    transparent
+  );
+  filter: blur(48px);
+  mix-blend-mode: screen;
+}
+
+/* ── Layer 4 — Deck overlay ─────────────────────── */
+.deckLayer {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+}
+
+.ropeLeft {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 4rem;
+  height: 100%;
+  color: #0a0a0a;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+  opacity: 0.95;
+}
+
+.ropeRight {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 8%;
+  width: 3rem;
+  height: 100%;
+  color: #0a0a0a;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .ropeLeft,
+  .ropeRight {
+    display: block;
+  }
+}
+
+.lantern {
+  position: absolute;
+  top: 20%;
+  left: 6%;
+  width: 4rem;
+  height: 6rem;
+  background: linear-gradient(to bottom, #FFF3D6, #D49A3A);
+  border-radius: 50%;
+  filter: blur(40px);
+  mix-blend-mode: screen;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, #050D13 100%);
+  pointer-events: none;
+  opacity: 0.90;
+}
