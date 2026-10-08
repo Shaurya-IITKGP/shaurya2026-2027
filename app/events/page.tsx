@@ -9,7 +9,6 @@ type Sport = {
   name: string;
   category: string;
   image: string;
-  description: string;
 };
 
 const sportImageBase = "/events/";
@@ -19,84 +18,61 @@ const sports: Sport[] = [
     name: "Cricket",
     category: "Team sport",
     image: `${sportImageBase}cricket.jpg`,
-    description:
-      "Build an innings, own the pressure, and play every ball with intent.",
   },
   {
     name: "Football",
     category: "Team sport",
     image: `${sportImageBase}football.jpg`,
-    description:
-      "Find space, move as one, and turn every attack into a statement.",
   },
   {
     name: "Basketball",
     category: "Team sport",
     image: `${sportImageBase}basketball.jpg`,
-    description:
-      "Fast breaks, sharp handles, and the final possession under pressure.",
   },
   {
     name: "Table Tennis",
     category: "Racket sport",
     image: `${sportImageBase}tt.jpg`,
-    description: "Read the spin, control the rally, and take the point early.",
   },
   {
     name: "Volleyball",
     category: "Team sport",
     image: `${sportImageBase}volleyball.jpg`,
-    description:
-      "Serve with purpose, defend together, and finish above the net.",
   },
   {
     name: "Athletics",
     category: "Track and field",
     image: `${sportImageBase}athletics.jpg`,
-    description:
-      "Speed, strength, and endurance measured one decisive effort at a time.",
   },
   {
     name: "Badminton",
     category: "Racket sport",
     image: `${sportImageBase}badminton.jpg`,
-    description:
-      "Own the court with quick feet, clean timing, and fearless returns.",
   },
   {
     name: "Lawn Tennis",
     category: "Racket sport",
     image: `${sportImageBase}lawn-tennis.jpg`,
-    description:
-      "Construct the point patiently, then finish it with conviction.",
   },
   {
     name: "Powerlifting",
     category: "Strength sport",
     image: `${sportImageBase}powerlifting.jpg`,
-    description:
-      "Technique meets nerve in a test of control, power, and resolve.",
   },
   {
     name: "Chess",
     category: "Mind sport",
     image: `${sportImageBase}chess.jpg`,
-    description:
-      "See the board differently, calculate further, and make the move count.",
   },
   {
     name: "Kabaddi",
     category: "Team sport",
     image: `${sportImageBase}kabaddi.jpg`,
-    description:
-      "Raid with courage, defend as a unit, and never give the line away.",
   },
   {
     name: "Kho Kho",
     category: "Team sport",
     image: `${sportImageBase}kho-kho.jpg`,
-    description:
-      "Anticipate the turn, chase with discipline, and change the game in a breath.",
   },
 ];
 
@@ -183,29 +159,6 @@ export default function EventsPage() {
           })}
         </div>
 
-        <article className={styles.detailPanel} aria-live="polite">
-          <div className={styles.detailLabel}>
-            <span className={styles.eyebrow}>SELECTED SPORT</span>
-            <span className={styles.detailNumber}>
-              {String(sports.indexOf(activeSport) + 1).padStart(2, "0")} / 12
-            </span>
-          </div>
-          <div className={styles.detailBody}>
-            <div>
-              <p className={styles.detailCategory}>{activeSport.category}</p>
-              <h2>{activeSport.name}</h2>
-            </div>
-            <p className={styles.detailDescription}>
-              {activeSport.description}
-            </p>
-          </div>
-          <div className={styles.detailFooter}>
-            <span>SHAURYA 2026</span>
-            <span>
-              Schedule and registration details will be announced soon.
-            </span>
-          </div>
-        </article>
       </section>
 
       <footer className={styles.footer}>
