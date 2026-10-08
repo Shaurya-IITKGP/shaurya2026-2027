@@ -72,7 +72,6 @@ export default function Sponsors() {
                 </div>
                 <div className={styles.cardTier}>{sponsor.tier}</div>
                 <div className={styles.cardName}>{sponsor.name}</div>
-                <div className={styles.cardAction}>DISCOVER ↗</div>
               </div>
             </div>
           ))}
@@ -136,7 +135,7 @@ export default function Sponsors() {
                 <span className={styles.associateRole}>Educational Partner</span>
               </div>
               <div className={`${styles.gridLogo} ${styles.associateCard}`}>
-                <img src="/sponsors/BGMI_New%20logo_B%26W%26C-02.png" alt="Krafton BGMI logo" className={styles.associateLogo} />
+                <img src="/sponsors/BGMI_New%20logo_B%26W%26C-02.png" alt="Krafton BGMI logo" className={`${styles.associateLogo} ${styles.bgmiLogo}`} />
                 <span className={styles.associateName}>Krafton</span>
                 <span className={styles.associateRole}>Gaming Partner</span>
               </div>

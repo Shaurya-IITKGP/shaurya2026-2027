@@ -44,23 +44,31 @@
   opacity: 0.7;
 }
 
+/* ── Map Container ── */
 .mapContainer {
   position: relative;
   width: 90%;
   max-width: 1300px;
-  margin: 0 auto 80px;
+  margin: 40px auto 80px; /* Extra top margin for popup cards */
+  transform: perspective(1200px) rotateX(1deg);
+  transition: all 0.5s ease;
+  overflow: visible; /* Ensure parchment cards popups are never clipped! */
+  z-index: 10;
+}
+
+.mapImageWrap {
+  position: relative;
+  width: 100%;
   border-radius: 6px;
   box-shadow:
     0 40px 80px rgba(0, 0, 0, 0.9),
     inset 0 0 40px rgba(139, 69, 19, 0.5);
   border: 1px solid rgba(210, 180, 140, 0.4);
-  transform: perspective(1200px) rotateX(1deg);
-  transition: all 0.5s ease;
   overflow: hidden;
 }
 
 .mapContainer:hover .mapDarkenOverlay {
-  opacity: 1; /* Darkens surrounding regions subtly */
+  opacity: 1;
 }
 
 .mapDarkenOverlay {
@@ -80,110 +88,146 @@
   filter: sepia(30%) contrast(1.15) brightness(0.9);
 }
 
+/* ── Sponsor Marker & Hit Target ── */
 .sponsorMarker {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.sponsorMarker:hover {
+  z-index: 100;
+}
+
 .crossMark {
   color: #ffaa00;
   font-family: "Times New Roman", serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   text-shadow: 0 0 8px rgba(255, 170, 0, 0.6);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.25s ease;
+  pointer-events: none;
 }
 
 .sponsorMarker:hover .crossMark {
-  color: #fff;
+  color: #ffffff;
   text-shadow: 0 0 20px #ffaa00;
-  transform: scale(1.6);
+  transform: scale(1.5);
 }
 
-/* Parchment Card */
+/* ── Parchment Card Popup ── */
 .parchmentCard {
   position: absolute;
-  bottom: 150%;
+  bottom: 130%;
   left: 50%;
-  transform: translateX(-50%) translateY(30px);
+  transform: translateX(-50%) translateY(10px);
   background: #f4e8d3;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
   border: 1px solid #c2a77d;
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.8),
     inset 0 0 30px rgba(139, 69, 19, 0.15);
-  padding: 24px 30px;
-  border-radius: 2px;
+  padding: 20px 24px;
+  border-radius: 4px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.25s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: max-content;
   min-width: 200px;
+  z-index: 30;
 }
 
-/* Parchment Triangle */
+/* Parchment Triangle Arrow (Default: pointing down) */
 .parchmentCard::after {
   content: "";
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 12px;
+  border-width: 10px;
   border-style: solid;
   border-color: #f4e8d3 transparent transparent transparent;
-  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* Pop Down Variant for Top Markers */
+.parchmentCardDown {
+  bottom: auto;
+  top: 130%;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.parchmentCardDown::after {
+  top: auto;
+  bottom: 100%;
+  border-color: transparent transparent #f4e8d3 transparent;
+  filter: drop-shadow(0 -4px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* ── Hover on individual marker → show its card ── */
 .sponsorMarker:hover .parchmentCard {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
-  z-index: 20;
 }
 
 .cardLogo {
-  width: 60px;
-  height: 60px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 72px;
+  height: 54px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 800;
-  color: #333;
-  margin-bottom: 12px;
-  background: #fff;
+  margin-bottom: 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+.cardLogoImage {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .cardTier {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #8b4513;
   letter-spacing: 2px;
   font-weight: 800;
   margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .cardName {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #1a1a1a;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .cardAction {
-  font-size: 0.8rem;
-  color: #000;
+  font-size: 0.78rem;
+  color: #000000;
   font-weight: bold;
   border-bottom: 2px solid #ffaa00;
   padding-bottom: 2px;
+  letter-spacing: 0.05em;
 }
 
 /* Standard Information Grid */
@@ -268,6 +312,10 @@
   height: 55px;
   object-fit: contain;
   margin-bottom: 3px;
+}
+
+.bgmiLogo {
+  filter: invert(1);
 }
 
 .associateName {
