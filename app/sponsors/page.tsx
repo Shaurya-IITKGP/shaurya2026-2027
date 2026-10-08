@@ -1,17 +1,41 @@
 import styles from "./page.module.css";
 import Navbar from "../Navbar";
 
+const networkPartners = [
+  { name: "EaseMyTrip", role: "Travel Partner", logo: "/sponsors/EaseMyTrip%20Logo.png" },
+  { name: "JioSaavn", role: "Music Streaming Partner", logo: "/sponsors/Jio%20Saavn%20Logo.png" },
+  { name: "Cubelelo", role: "Cubing Partner", logo: "/sponsors/cubelelo-logo-9_v%3D1791202587.webp" },
+  { name: "Unstop", role: "Campus Ambassador Partner", logo: "/sponsors/unstop.jpeg" },
+  { name: "BK Diagnostics", role: "Medical Partner", logo: "/sponsors/BKdiagnostics%20logo.jpeg" },
+  { name: "The Belgian Waffle Co.", role: "Food Partner", logo: "/sponsors/The_Belgian_Waffle_Co_id1EvX9jp7_0.png" },
+  { name: "Taco Bell", role: "Food Partner", logo: "/sponsors/taco%20bell.png" },
+  { name: "Frooti", role: "Beverage Partner", logo: "/sponsors/frooti.png" },
+];
+
+const mediaPartners = [
+  { name: "The Weekly Mail", logo: "/sponsors/The%20Weekly%20Mail.jpg.jpeg" },
+  { name: "Academic Insights", logo: "/sponsors/Acadamic%20insights.jpg.jpeg" },
+  { name: "Career Beacon", logo: "/sponsors/Career%20Beacon.jpg.jpeg" },
+  { name: "PK Media Group", logo: "/sponsors/Pk%20Media%20group%20Logo%20(1).jpg.jpeg" },
+  { name: "TT Edugraph", logo: "/sponsors/TT%20Edugraph.png" },
+  { name: "Storify News", logo: "/sponsors/Storify%20News.png" },
+  { name: "K News", logo: "/sponsors/K%20news.jpg.jpeg" },
+  { name: "Navbharat Times", logo: "/sponsors/Navbharat_Times.webp" },
+  { name: "Jagran Josh", logo: "/sponsors/jagran-josh-logo-freelogovectors.net_.png" },
+  { name: "Knowafest", logo: "/sponsors/Knowafest.png" },
+];
+
 const sponsors = [
-  { id: 1, tier: "TITLE PARTNER", name: "Grand Port Inc.", top: "25%", left: "12%" },
-  { id: 2, tier: "PRINCIPAL PARTNER", name: "Emerald Corp", top: "15%", left: "44%" },
-  { id: 3, tier: "GOLD PARTNER", name: "Golden Shore Co.", top: "17%", left: "71%" },
-  { id: 4, tier: "SPORTS PARTNER", name: "Athlete's Cove", top: "25%", left: "89%" },
-  { id: 5, tier: "CULTURAL PARTNER", name: "Whisper Studios", top: "53%", left: "19%" },
-  { id: 6, tier: "ASSOCIATE PARTNER", name: "Trading Post LLC", top: "57%", left: "74%" },
-  { id: 7, tier: "MEDIA PARTNER", name: "Mystic Media", top: "72%", left: "39%" },
-  { id: 8, tier: "BANKING PARTNER", name: "Silver Isle Bank", top: "78%", left: "84.5%" },
-  { id: 9, tier: "TRAVEL PARTNER", name: "Voyage Travels", top: "75%", left: "13%" },
-  { id: 10, tier: "BEVERAGE PARTNER", name: "Ocean Drops", top: "85%", left: "22%" },
+  { id: 1, tier: "TITLE PARTNER", name: "JSL", logo: "/sponsors/JSL-White.jpeg", top: "25%", left: "12%" },
+  { id: 2, tier: "CO-TITLE PARTNER", name: "Shyam Steel", logo: "/sponsors/shyam%20steel.png", top: "15%", left: "44%" },
+  { id: 3, tier: "GOLD PARTNER", name: "Edufabrica", logo: "/sponsors/Edufabrica%20logo.png", top: "17%", left: "71%" },
+  { id: 4, tier: "STRATEGIC PARTNER", name: "GAIL", logo: "/sponsors/GAIL%20Logo%20100%20pc%20yellow.png", top: "25%", left: "89%" },
+  { id: 5, tier: "ASSOCIATE PARTNER", name: "Sri Mahavir", logo: "/sponsors/srimahavir.jpeg", top: "53%", left: "19%" },
+  { id: 6, tier: "EDUCATIONAL PARTNER", name: "Top One Percent", logo: "/sponsors/Toponepercentlogo.png", top: "57%", left: "74%" },
+  { id: 7, tier: "GAMING PARTNER", name: "Krafton", logo: "/sponsors/BGMI_New%20logo_B%26W%26C-02.png", top: "72%", left: "39%" },
+  { id: 8, tier: "TECHNOLOGY PARTNER", name: "Arcade X", logo: "/sponsors/arcade%20x%20logo.jpeg", top: "78%", left: "84.5%" },
+  { id: 9, tier: "CHESS PARTNER", name: "Paramount Chess", logo: "/sponsors/PARAMOUNT_CHESS_LOGO.webp", top: "75%", left: "13%" },
+  { id: 10, tier: "CHESS PARTNER", name: "Chess Cafe", logo: "/sponsors/chess_cafe_india_logo.jpeg", top: "85%", left: "22%" },
 ];
 
 export default function Sponsors() {
@@ -38,7 +62,9 @@ export default function Sponsors() {
               <div className={styles.crossMark}>X</div>
               
               <div className={styles.parchmentCard}>
-                <div className={styles.cardLogo}>LOGO</div>
+                <div className={styles.cardLogo}>
+                  <img src={sponsor.logo} alt={`${sponsor.name} logo`} className={styles.cardLogoImage} />
+                </div>
                 <div className={styles.cardTier}>{sponsor.tier}</div>
                 <div className={styles.cardName}>{sponsor.name}</div>
                 <div className={styles.cardAction}>DISCOVER ↗</div>
@@ -53,28 +79,104 @@ export default function Sponsors() {
           
           <div className={styles.tierSection}>
             <h3 className={styles.tierTitle}>TITLE PARTNER</h3>
-            <div className={styles.tierGridMain}><div className={styles.gridLogo}>LOGO</div></div>
+            <div className={styles.tierGridMain}>
+              <div className={`${styles.gridLogo} ${styles.jslLogo}`}>
+                <img src="/sponsors/JSL-White.jpeg" alt="JSL logo" className={styles.logoImage} />
+              </div>
+            </div>
           </div>
 
-          <div className={styles.tierSection}>
-            <h3 className={styles.tierTitle}>PRINCIPAL & GOLD PARTNERS</h3>
-            <div className={styles.tierGridSecondary}>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
+          <div className={styles.partnerRow}>
+            <div className={styles.tierSection}>
+              <h3 className={styles.tierTitle}>CO-TITLE PARTNER</h3>
+              <div className={styles.tierGridMain}>
+                <div className={styles.gridLogo}>
+                  <img src="/sponsors/shyam%20steel.png" alt="Shyam Steel logo" className={styles.logoImage} />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.tierSection}>
+              <h3 className={styles.tierTitle}>GOLD PARTNER</h3>
+              <div className={styles.tierGridMain}>
+                <div className={styles.gridLogo}>
+                  <img src="/sponsors/Edufabrica%20logo.png" alt="Edufabrica logo" className={styles.logoImage} />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.tierSection}>
+              <h3 className={styles.tierTitle}>STRATEGIC PARTNER</h3>
+              <div className={styles.tierGridMain}>
+                <div className={`${styles.gridLogo} ${styles.gailLogo}`}>
+                  <div className={styles.gailImageFrame}>
+                    <img src="/sponsors/GAIL%20Logo%20100%20pc%20yellow.png" alt="GAIL logo" className={styles.gailImage} />
+                  </div>
+                  <span className={styles.gailName}>GAIL (India) Limited</span>
+                </div>
+              </div>
             </div>
           </div>
           
           <div className={styles.tierSection}>
-            <h3 className={styles.tierTitle}>ASSOCIATE PARTNERS</h3>
             <div className={styles.tierGridSmall}>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
-              <div className={styles.gridLogo}>LOGO</div>
+              <div className={`${styles.gridLogo} ${styles.associateCard}`}>
+                <img src="/sponsors/srimahavir.jpeg" alt="Sri Mahavir logo" className={styles.associateLogo} />
+                <span className={styles.associateName}>Sri Mahavir</span>
+                <span className={styles.associateRole}>Associate Partner</span>
+              </div>
+              <div className={`${styles.gridLogo} ${styles.associateCard}`}>
+                <img src="/sponsors/Toponepercentlogo.png" alt="Top One Percent logo" className={styles.associateLogo} />
+                <span className={styles.associateName}>Top One Percent</span>
+                <span className={styles.associateRole}>Educational Partner</span>
+              </div>
+              <div className={`${styles.gridLogo} ${styles.associateCard}`}>
+                <img src="/sponsors/BGMI_New%20logo_B%26W%26C-02.png" alt="Krafton BGMI logo" className={styles.associateLogo} />
+                <span className={styles.associateName}>Krafton</span>
+                <span className={styles.associateRole}>Gaming Partner</span>
+              </div>
+              <div className={`${styles.gridLogo} ${styles.associateCard}`}>
+                <img src="/sponsors/arcade%20x%20logo.jpeg" alt="Arcade X logo" className={styles.associateLogo} />
+                <span className={styles.associateName}>Arcade X</span>
+                <span className={styles.associateRole}>Technology Partner</span>
+              </div>
+              <div className={`${styles.gridLogo} ${styles.associateCard}`}>
+                <img src="/sponsors/PARAMOUNT_CHESS_LOGO.webp" alt="Paramount Chess logo" className={styles.associateLogo} />
+                <span className={styles.associateName}>Paramount Chess</span>
+                <span className={styles.associateRole}>Chess Partner</span>
+              </div>
+              <div className={`${styles.gridLogo} ${styles.associateCard}`}>
+                <img src="/sponsors/chess_cafe_india_logo.jpeg" alt="Chess Cafe logo" className={styles.associateLogo} />
+                <span className={styles.associateName}>Chess Cafe</span>
+                <span className={styles.associateRole}>Chess Partner</span>
+              </div>
             </div>
+
+            <section className={styles.networkSection} aria-labelledby="partner-network-heading">
+              <h2 id="partner-network-heading" className={styles.sectionHeading}>PARTNER NETWORK</h2>
+              <div className={styles.networkGrid}>
+                {networkPartners.map((partner) => (
+                  <div className={`${styles.gridLogo} ${styles.networkCard}`} key={partner.name}>
+                    <img src={partner.logo} alt={`${partner.name} logo`} className={styles.networkLogo} />
+                    <span className={styles.networkName}>{partner.name}</span>
+                    <span className={styles.networkRole}>{partner.role}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className={styles.networkSection} aria-labelledby="media-partners-heading">
+              <h2 id="media-partners-heading" className={styles.sectionHeading}>MEDIA PARTNERS</h2>
+              <div className={`${styles.networkGrid} ${styles.mediaGrid}`}>
+                {mediaPartners.map((partner) => (
+                  <div className={`${styles.gridLogo} ${styles.networkCard}`} key={partner.name}>
+                    <img src={partner.logo} alt={`${partner.name} logo`} className={styles.networkLogo} />
+                    <span className={styles.networkName}>{partner.name}</span>
+                    <span className={styles.networkRole}>Media Partner</span>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </main>
