@@ -96,7 +96,7 @@ export default function EventsPage() {
       <div className={styles.backdrop} aria-hidden="true" />
 
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>SHAURYA 2026 / 12 SPORTS</p>
+        <p className={styles.eyebrow}>SHAURYA 2026 </p>
         <h1>Events</h1>
         <p className={styles.heroCopy}>
           Twelve arenas. One festival. Find the sport that brings your edge to
