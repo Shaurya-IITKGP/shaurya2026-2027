@@ -321,10 +321,93 @@ const historicalDepartments: Department[] = [
   },
 ];
 
+const departments2026: Department[] = [
+  {
+    name: "Executive Heads",
+    members: [
+      {
+        name: "Executive Head 1",
+        phone: "+91 98765 43210",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Executive Head 2",
+        phone: "+91 98765 43211",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Executive Head 3",
+        phone: "+91 98765 43212",
+        image: `${imageBase}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Finance Heads",
+    members: [
+      {
+        name: "Finance Head 1",
+        phone: "+91 98765 43213",
+        image: `${imageBase}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Web Heads",
+    members: [
+      {
+        name: "Web Head 1",
+        phone: "+91 98765 43214",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Web Head 2",
+        phone: "+91 98765 43215",
+        image: `${imageBase}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Event Heads",
+    members: [
+      {
+        name: "Event Head 1",
+        phone: "+91 98765 43216",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Event Head 2",
+        phone: "+91 98765 43217",
+        image: `${imageBase}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Publicity & Marketing Heads",
+    members: [
+      {
+        name: "Publicity & Marketing Head 1",
+        phone: "+91 98765 43218",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Publicity & Marketing Head 2",
+        phone: "+91 98765 43219",
+        image: `${imageBase}default.png`,
+      },
+      {
+        name: "Publicity & Marketing Head 3",
+        phone: "+91 98765 43220",
+        image: `${imageBase}default.png`,
+      },
+    ],
+  },
+];
+
 const editionDepartments: Record<Edition, Department[]> = {
   "2024": historicalDepartments,
   "2025": departments,
-  "2026": [],
+  "2026": departments2026,
 };
 
 const historicalEmails: Record<string, string> = {
@@ -733,8 +816,51 @@ function getContactIcon(label: string) {
   return null;
 }
 
+function getMemberContactLinks(member: TeamMember) {
+  const existing = contactLinks[member.name];
+  const email =
+    historicalEmails[member.name] ||
+    `${member.name.toLowerCase().replace(/[^a-z0-9]/g, "")}@shauryaiitkgp.in`;
+
+  if (existing && existing.length > 0) {
+    const hasPhone = existing.some((l) => l.label.toLowerCase() === "call");
+    const hasWA = existing.some((l) => l.label.toLowerCase() === "whatsapp");
+    const hasLI = existing.some((l) => l.label.toLowerCase() === "linkedin");
+    const hasIG = existing.some((l) => l.label.toLowerCase() === "instagram");
+    const hasEmail = existing.some((l) => l.label.toLowerCase() === "email");
+
+    const links = [...existing];
+    if (!hasPhone && member.phone) {
+      links.push({ label: "Call", href: `tel:${member.phone}` });
+    }
+    if (!hasWA && member.phone) {
+      links.push({ label: "WhatsApp", href: `https://wa.me/${member.phone.replace(/[^0-9]/g, "")}` });
+    }
+    if (!hasLI) {
+      links.push({ label: "LinkedIn", href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/" });
+    }
+    if (!hasIG) {
+      links.push({ label: "Instagram", href: "https://www.instagram.com/shaurya_iitkgp/" });
+    }
+    if (!hasEmail) {
+      links.push({ label: "Email", href: `https://mail.google.com/mail/?view=cm&to=${email}` });
+    }
+    return links;
+  }
+
+  // Fallback / 2026 demo template with all 5 links
+  const cleanPhone = member.phone ? member.phone.replace(/[^0-9]/g, "") : "919876543210";
+  return [
+    { label: "Call", href: `tel:${member.phone || "+919876543210"}` },
+    { label: "WhatsApp", href: `https://wa.me/${cleanPhone}` },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/" },
+    { label: "Instagram", href: "https://www.instagram.com/shaurya_iitkgp/" },
+    { label: "Email", href: `https://mail.google.com/mail/?view=cm&to=${email}` },
+  ];
+}
+
 export default function TeamsPage() {
-  const [activeEdition, setActiveEdition] = useState<Edition>("2025");
+  const [activeEdition, setActiveEdition] = useState<Edition>("2026");
   const [phoneModal, setPhoneModal] = useState<{ name: string; phone: string } | null>(null);
   const [copied, setCopied] = useState(false);
   const activeDepartments = editionDepartments[activeEdition];
@@ -848,44 +974,27 @@ export default function TeamsPage() {
                             />
                             <div className={styles.hoverOverlay}>
                               <div className={styles.iconBar}>
-                                {member.phone && (
-                                  <a
-                                    href={`tel:${member.phone}`}
-                                    className={styles.iconBtn}
-                                    title={`Call ${member.name}: ${member.phone}`}
-                                    aria-label={`Call ${member.name}`}
-                                    onClick={(e) => handlePhoneClick(e, member.name, member.phone)}
-                                  >
-                                    <PhoneIcon />
-                                  </a>
-                                )}
-                                {(
-                                  contactLinks[member.name] ?? [
-                                    { label: "WhatsApp", href: `https://wa.me/${member.phone}` },
-                                    ...(historicalEmails[member.name]
-                                      ? [
-                                          {
-                                            label: "Email",
-                                            href: `https://mail.google.com/mail/?view=cm&to=${historicalEmails[member.name]}`,
-                                          },
-                                        ]
-                                      : []),
-                                  ]
-                                )
-                                  .filter((link) => link.label.toLowerCase() !== "call")
-                                  .map((link) => (
+                                {getMemberContactLinks(member).map((link) => {
+                                  const isPhone = link.label.toLowerCase() === "call";
+                                  return (
                                     <a
+                                      key={link.label}
                                       className={styles.iconBtn}
                                       href={link.href}
-                                      key={link.label}
                                       title={`${link.label} - ${member.name}`}
                                       aria-label={`${link.label} - ${member.name}`}
-                                      target="_blank"
-                                      rel="noreferrer"
+                                      target={isPhone ? undefined : "_blank"}
+                                      rel={isPhone ? undefined : "noreferrer"}
+                                      onClick={
+                                        isPhone
+                                          ? (e) => handlePhoneClick(e, member.name, member.phone)
+                                          : undefined
+                                      }
                                     >
                                       {getContactIcon(link.label)}
                                     </a>
-                                  ))}
+                                  );
+                                })}
                               </div>
                             </div>
                           </div>
