@@ -25,6 +25,7 @@ type Edition = "2023" | "2024" | "2025" | "2026";
 const imageBase2025 = "/teams/team2025/";
 const imageBase2024 = "/teams/team2024/";
 const imageBase2023 = "/teams/team2023/";
+const imageBase = "/teams/team2025/";
 
 const departments: Department[] = [
   {
@@ -327,6 +328,209 @@ const historicalDepartments: Department[] = [
   },
 ];
 
+const team2023Departments: Department[] = [
+  {
+    name: "Executive Heads",
+    members: [
+      {
+        name: "S S V K S S Jyothiraditya",
+        phone: "7675007236",
+        image: `${imageBase2023}S S V K S S Jyothiraditya.jpeg`,
+      },
+      {
+        name: "Shreya Mishra",
+        phone: "9475621028",
+        image: `${imageBase2023}Shreya Mishra.jpeg`,
+      },
+      {
+        name: "Soujanaya Nayak",
+        phone: "7506136455",
+        image: `${imageBase2023}Soujanaya Nayak.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Finance Heads",
+    members: [
+      {
+        name: "Jatin Motwani",
+        phone: "9424533623",
+        image: `${imageBase2023}Jatin Motwani.jpeg`,
+      },
+      {
+        name: "Lokesh Agarwala",
+        phone: "7728018715",
+        image: `${imageBase2023}Lokesh Agarwala.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Event Heads",
+    members: [
+      {
+        name: "Archie Avirati",
+        phone: "7024385271",
+        image: `${imageBase2023}Archie Avirati.jpeg`,
+      },
+      {
+        name: "Himanshu",
+        phone: "7348701571",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Nikhil Bharat Rajani",
+        phone: "7020096806",
+        image: `${imageBase2023}Nikhil Bharat Rajani.jpeg`,
+      },
+      {
+        name: "Priyanshu Shaw",
+        phone: "9073808624",
+        image: `${imageBase2023}Priyanshu Shaw.jpeg`,
+      },
+      {
+        name: "Rishi Dhoble",
+        phone: "9205704432",
+        image: `${imageBase2023}Rishi Dhoble.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Publicity & Marketing Heads",
+    members: [
+      {
+        name: "Atharva Chilwarwar",
+        phone: "7796557031",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Prashant Tripathi",
+        phone: "7398149866",
+        image: `${imageBase2023}Prashant Tripathi.jpeg`,
+      },
+      {
+        name: "S. Siddharth",
+        phone: "9789422444",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Yashwanth Kumar Kallepalli",
+        phone: "9347865123",
+        image: `${imageBase2023}Yashwanth Kumar.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Sponsorship Heads",
+    members: [
+      {
+        name: "Aditya G Gaikwad",
+        phone: "9980090567",
+        image: `${imageBase2023}Aditya G Gaikwad.png`,
+      },
+      {
+        name: "Akshat Dilip Lade",
+        phone: "9920378336",
+        image: `${imageBase2023}Akshat Dilip Lade.jpeg`,
+      },
+      {
+        name: "Chalamalla Sahithi",
+        phone: "6300290977",
+        image: `${imageBase2023}Chalamalla Sahithi.png`,
+      },
+      {
+        name: "Nimish Gadge",
+        phone: "9819755685",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Prajay",
+        phone: "9391738281",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Raghuvar Srivastava",
+        phone: "9811097343",
+        image: `${imageBase2023}default.png`,
+      },
+    ],
+  },
+  {
+    name: "Logistics Heads",
+    members: [
+      {
+        name: "Akula Tejaswini",
+        phone: "7396066011",
+        image: `${imageBase2023}Akula Tejaswini.jpeg`,
+      },
+      {
+        name: "Neeraj Patel",
+        phone: "7987752913",
+        image: `${imageBase2023}Neeraj Patel.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Web Heads",
+    members: [
+      {
+        name: "Rohan R. Barsagade",
+        phone: "8263932614",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Somyajeet Gupta Chowdhury",
+        phone: "9113340204",
+        image: `${imageBase2023}Somyajeet Gupta Chowdhury.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Design and Media Heads",
+    members: [
+      {
+        name: "Gauransh Agarwal",
+        phone: "7063730072",
+        image: `${imageBase2023}Gauransh Agarwal.jpeg`,
+      },
+      {
+        name: "Malla Harshavardhan",
+        phone: "9392551557",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Shubham Dilawar",
+        phone: "9893662396",
+        image: `${imageBase2023}Shubham Dilawar.jpeg`,
+      },
+      {
+        name: "Vaibhav Joshi",
+        phone: "9535734903",
+        image: `${imageBase2023}Vaibhav Joshi.jpeg`,
+      },
+    ],
+  },
+  {
+    name: "Accommodation and Guest Reception Heads",
+    members: [
+      {
+        name: "Anushka Singh",
+        phone: "9335225142",
+        image: `${imageBase2023}Anushka Singh.jpeg`,
+      },
+      {
+        name: "Dhiya Mariam Thomas",
+        phone: "8851996747",
+        image: `${imageBase2023}default.png`,
+      },
+      {
+        name: "Jayansh Maheshwari",
+        phone: "8655701340",
+        image: `${imageBase2023}default.png`,
+      },
+    ],
+  },
+];
+
 const departments2026: Department[] = [
   {
     name: "Executive Heads",
@@ -409,12 +613,6 @@ const departments2026: Department[] = [
     ],
   },
 ];
-
-const editionDepartments: Record<Edition, Department[]> = {
-  "2024": historicalDepartments,
-  "2025": departments,
-  "2026": [],
-};
 
 const historicalEmails: Record<string, string> = {
   "S S V K S S Jyothiraditya": "jyothiradityas@kgpian.iitkgp.ac.in",
@@ -1418,7 +1616,7 @@ const editionDepartments: Record<Edition, Department[]> = {
   "2023": team2023Departments,
   "2024": historicalDepartments,
   "2025": departments,
-  "2026": [],
+  "2026": departments2026,
 };
 
 // Contact SVG Icons
