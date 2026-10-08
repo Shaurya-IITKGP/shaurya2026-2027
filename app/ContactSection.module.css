@@ -197,14 +197,14 @@
 
 .bottleSvg {
   flex: none;
-  width: 56px;
-  height: 56px;
-  transform: rotate(-26deg);
+  width: 50px;
+  height: 50px;
+  transform: translateY(-2px) rotate(0deg);
   transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
 }
 
 .bottle:hover .bottleSvg {
-  transform: rotate(-6deg);
+  transform: translateY(-2px) rotate(-15deg);
 }
 
 .bottleText {
