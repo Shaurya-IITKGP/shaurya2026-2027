@@ -66,12 +66,9 @@ export default function GamesSection() {
               onClick={() => setActiveIndex(idx)}
             >
               <div className={styles.cardImageWrap}>
-                <Image
+                <img
                   src={game.image}
                   alt={game.name}
-                  width={340}
-                  height={300}
-                  style={{ width: "auto", height: "auto" }}
                   className={styles.cardImage}
                 />
               </div>

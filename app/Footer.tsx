@@ -4,39 +4,37 @@ import styles from "./Footer.module.css";
 /* ── Hidden SVG symbol definitions ──────────────────────────────────── */
 function IconDefs() {
   return (
-    <>
-      <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
-        <symbol id="fi-anchor" viewBox="0 0 24 24">
-          <circle cx="12" cy="5" r="2" />
-          <path d="M12 7v14M8 11h8M4.5 14c.5 3.5 3.5 6 7.5 6s7-2.5 7.5-6M4.5 14 3 11.5M19.5 14l1.5-2.5" />
-        </symbol>
-        <symbol id="fi-cannon" viewBox="0 0 24 24">
-          <rect x="2.5" y="8.5" width="13" height="5.5" rx="2.7" transform="rotate(-18 9 11)" />
-          <circle cx="9.5" cy="17" r="3.2" />
-          <circle cx="20" cy="6" r="1.6" />
-        </symbol>
-        <symbol id="fi-swords" viewBox="0 0 24 24">
-          <path d="M4 20 19 5M5 15l4 4M20 20 5 5M15 19l4-4" />
-        </symbol>
-        <symbol id="fi-spyglass" viewBox="0 0 24 24">
-          <rect x="2.5" y="11" width="11" height="5" rx="1" transform="rotate(-28 8 13.5)" />
-          <rect x="12" y="5" width="8" height="6" rx="1" transform="rotate(-28 16 8)" />
-          <path d="m6 19 3-3" />
-        </symbol>
-        <symbol id="fi-chest" viewBox="0 0 24 24">
-          <path d="M4 12c0-4 3.5-7 8-7s8 3 8 7M4 12h16v8H4zM12 14.5v3" />
-        </symbol>
-        <symbol id="fi-trident" viewBox="0 0 24 24">
-          <path d="M12 3v18M7 3v5a5 5 0 0 0 10 0V3M9.5 21h5" />
-        </symbol>
-        <symbol id="fi-flag" viewBox="0 0 24 24">
-          <path d="M5 3v18M5 4.5c3-1.5 5 1.5 8 0s4-1 6 0v8c-2-1-3-1.5-6 0s-5-1.5-8 0" />
-        </symbol>
-        <symbol id="fi-chat" viewBox="0 0 24 24">
-          <path d="M4 5h16v11H11l-5 4v-4H4z" />
-        </symbol>
-      </svg>
-    </>
+    <svg style={{ display: "none" }} aria-hidden="true">
+      <symbol id="fi-anchor" viewBox="0 0 24 24">
+        <circle cx="12" cy="5" r="2" />
+        <path d="M12 7v14M8 11h8M4.5 14c.5 3.5 3.5 6 7.5 6s7-2.5 7.5-6M4.5 14 3 11.5M19.5 14l1.5-2.5" />
+      </symbol>
+      <symbol id="fi-cannon" viewBox="0 0 24 24">
+        <rect x="2.5" y="8.5" width="13" height="5.5" rx="2.7" transform="rotate(-18 9 11)" />
+        <circle cx="9.5" cy="17" r="3.2" />
+        <circle cx="20" cy="6" r="1.6" />
+      </symbol>
+      <symbol id="fi-swords" viewBox="0 0 24 24">
+        <path d="M4 20 19 5M5 15l4 4M20 20 5 5M15 19l4-4" />
+      </symbol>
+      <symbol id="fi-spyglass" viewBox="0 0 24 24">
+        <rect x="2.5" y="11" width="11" height="5" rx="1" transform="rotate(-28 8 13.5)" />
+        <rect x="12" y="5" width="8" height="6" rx="1" transform="rotate(-28 16 8)" />
+        <path d="m6 19 3-3" />
+      </symbol>
+      <symbol id="fi-chest" viewBox="0 0 24 24">
+        <path d="M4 12c0-4 3.5-7 8-7s8 3 8 7M4 12h16v8H4zM12 14.5v3" />
+      </symbol>
+      <symbol id="fi-trident" viewBox="0 0 24 24">
+        <path d="M12 3v18M7 3v5a5 5 0 0 0 10 0V3M9.5 21h5" />
+      </symbol>
+      <symbol id="fi-flag" viewBox="0 0 24 24">
+        <path d="M5 3v18M5 4.5c3-1.5 5 1.5 8 0s4-1 6 0v8c-2-1-3-1.5-6 0s-5-1.5-8 0" />
+      </symbol>
+      <symbol id="fi-chat" viewBox="0 0 24 24">
+        <path d="M4 5h16v11H11l-5 4v-4H4z" />
+      </symbol>
+    </svg>
   );
 }
 
@@ -45,7 +43,7 @@ function ShauryaEmblem() {
   return (
     <svg
       className={styles.emblem}
-      viewBox="-150 -140 300 360"
+      viewBox="-150 -150 300 300"
       role="img"
       aria-label="Shaurya emblem"
     >
@@ -230,12 +228,12 @@ export default function Footer() {
             Quick Links
           </h4>
           <ul className={styles.qlinks}>
-            <li><a href="#home"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-anchor" /></svg>Home</a></li>
-            <li><a href="#events"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-cannon" /></svg>Events</a></li>
-            <li><a href="#teams"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-swords" /></svg>Teams</a></li>
-            <li><a href="#gallery"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-spyglass" /></svg>Gallery</a></li>
-            <li><a href="#sponsors"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-chest" /></svg>Sponsors</a></li>
-            <li><a href="#matches"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-trident" /></svg>Matches</a></li>
+            <li><a href="/"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-anchor" /></svg>Home</a></li>
+            <li><a href="/#events"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-cannon" /></svg>Events</a></li>
+            <li><a href="/teams"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-swords" /></svg>Teams</a></li>
+            <li><a href="/gallery"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-spyglass" /></svg>Gallery</a></li>
+            <li><a href="/sponsors"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-chest" /></svg>Sponsors</a></li>
+            <li><a href="/#matches"><svg className={styles.ico} viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-trident" /></svg>Matches</a></li>
           </ul>
         </nav>
 
