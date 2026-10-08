@@ -26,16 +26,16 @@ const mediaPartners = [
 ];
 
 const sponsors = [
-  { id: 1, tier: "TITLE PARTNER", name: "JSL", logo: "/sponsors/JSL-White.jpeg", top: "25%", left: "12%" },
-  { id: 2, tier: "CO-TITLE PARTNER", name: "Shyam Steel", logo: "/sponsors/shyam%20steel.png", top: "15%", left: "44%" },
-  { id: 3, tier: "GOLD PARTNER", name: "Edufabrica", logo: "/sponsors/Edufabrica%20logo.png", top: "17%", left: "71%" },
-  { id: 4, tier: "STRATEGIC PARTNER", name: "GAIL", logo: "/sponsors/GAIL%20Logo%20100%20pc%20yellow.png", top: "25%", left: "89%" },
-  { id: 5, tier: "ASSOCIATE PARTNER", name: "Sri Mahavir", logo: "/sponsors/srimahavir.jpeg", top: "53%", left: "19%" },
-  { id: 6, tier: "EDUCATIONAL PARTNER", name: "Top One Percent", logo: "/sponsors/Toponepercentlogo.png", top: "57%", left: "74%" },
-  { id: 7, tier: "GAMING PARTNER", name: "Krafton", logo: "/sponsors/BGMI_New%20logo_B%26W%26C-02.png", top: "72%", left: "39%" },
-  { id: 8, tier: "TECHNOLOGY PARTNER", name: "Arcade X", logo: "/sponsors/arcade%20x%20logo.jpeg", top: "78%", left: "84.5%" },
-  { id: 9, tier: "CHESS PARTNER", name: "Paramount Chess", logo: "/sponsors/PARAMOUNT_CHESS_LOGO.webp", top: "75%", left: "13%" },
-  { id: 10, tier: "CHESS PARTNER", name: "Chess Cafe", logo: "/sponsors/chess_cafe_india_logo.jpeg", top: "85%", left: "22%" },
+  { id: 1,  tier: "TITLE PARTNER",       name: "JSL",             logo: "/sponsors/JSL-White.jpeg",                        top: "25%",  left: "12%",   popDown: true  },
+  { id: 2,  tier: "CO-TITLE PARTNER",    name: "Shyam Steel",     logo: "/sponsors/shyam%20steel.png",                    top: "15%",  left: "44%",   popDown: true  },
+  { id: 3,  tier: "GOLD PARTNER",        name: "Edufabrica",      logo: "/sponsors/Edufabrica%20logo.png",                 top: "17%",  left: "71%",   popDown: true  },
+  { id: 4,  tier: "STRATEGIC PARTNER",   name: "GAIL",            logo: "/sponsors/GAIL%20Logo%20100%20pc%20yellow.png",  top: "25%",  left: "89%",   popDown: true  },
+  { id: 5,  tier: "ASSOCIATE PARTNER",   name: "Sri Mahavir",     logo: "/sponsors/srimahavir.jpeg",                      top: "53%",  left: "19%",   popDown: false },
+  { id: 6,  tier: "EDUCATIONAL PARTNER", name: "Top One Percent", logo: "/sponsors/Toponepercentlogo.png",                top: "57%",  left: "74%",   popDown: false },
+  { id: 7,  tier: "GAMING PARTNER",      name: "Krafton",         logo: "/sponsors/BGMI_New%20logo_B%26W%26C-02.png",     top: "72%",  left: "39%",   popDown: false },
+  { id: 8,  tier: "TECHNOLOGY PARTNER",  name: "Arcade X",        logo: "/sponsors/arcade%20x%20logo.jpeg",               top: "78%",  left: "84.5%", popDown: false },
+  { id: 9,  tier: "CHESS PARTNER",       name: "Paramount Chess", logo: "/sponsors/PARAMOUNT_CHESS_LOGO.webp",            top: "75%",  left: "13%",   popDown: false },
+  { id: 10, tier: "CHESS PARTNER",       name: "Chess Cafe",      logo: "/sponsors/chess_cafe_india_logo.jpeg",           top: "85%",  left: "22%",   popDown: false },
 ];
 
 export default function Sponsors() {
@@ -51,17 +51,21 @@ export default function Sponsors() {
 
         <div className={styles.mapContainer}>
           <div className={styles.mapDarkenOverlay}></div>
-          <img src="/sponsors/spons.jpeg" alt="Sponsors Treasure Map" className={styles.mapImage} />
-          
+          <div className={styles.mapImageWrap}>
+            <img src="/sponsors/spons.jpeg" alt="Sponsors Treasure Map" className={styles.mapImage} />
+          </div>
+
           {sponsors.map((sponsor) => (
-            <div 
-              key={sponsor.id} 
-              className={styles.sponsorMarker} 
+            <div
+              key={sponsor.id}
+              className={styles.sponsorMarker}
               style={{ top: sponsor.top, left: sponsor.left }}
             >
               <div className={styles.crossMark}>X</div>
-              
-              <div className={styles.parchmentCard}>
+
+              <div
+                className={`${styles.parchmentCard} ${sponsor.popDown ? styles.parchmentCardDown : ""}`}
+              >
                 <div className={styles.cardLogo}>
                   <img src={sponsor.logo} alt={`${sponsor.name} logo`} className={styles.cardLogoImage} />
                 </div>

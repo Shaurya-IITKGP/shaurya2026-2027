@@ -56,11 +56,20 @@
   border: 1px solid rgba(210, 180, 140, 0.4);
   transform: perspective(1200px) rotateX(1deg);
   transition: all 0.5s ease;
-  overflow: hidden;
+  /* overflow: visible so popup cards are not clipped at the edges/top */
+  overflow: visible;
 }
 
 .mapContainer:hover .mapDarkenOverlay {
-  opacity: 1; /* Darkens surrounding regions subtly */
+  opacity: 1;
+}
+
+/* Wraps only the image — border-radius + overflow clip stays here */
+.mapImageWrap {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  line-height: 0; /* removes gap below inline img */
 }
 
 .mapDarkenOverlay {
@@ -71,6 +80,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
+  border-radius: 6px;
 }
 
 .mapImage {
@@ -88,6 +98,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Lift the active marker above all its siblings */
+.sponsorMarker:hover {
+  z-index: 100;
 }
 
 .crossMark {
@@ -144,6 +159,30 @@
 }
 
 .sponsorMarker:hover .parchmentCard {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  z-index: 20;
+}
+
+/* ── Down variant — card opens below the X mark ── */
+/* Overrides only positioning; all other styles inherited from .parchmentCard */
+.parchmentCardDown {
+  bottom: auto;
+  top: 150%;
+  /* Start slightly above final position, then drop into place on hover */
+  transform: translateX(-50%) translateY(-30px);
+}
+
+/* Flip the triangle to point UP (toward the X mark above) */
+.parchmentCardDown::after {
+  top: auto;
+  bottom: 100%;
+  border-color: transparent transparent #f4e8d3 transparent;
+  filter: drop-shadow(0 -3px 4px rgba(0, 0, 0, 0.25));
+}
+
+.sponsorMarker:hover .parchmentCardDown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
