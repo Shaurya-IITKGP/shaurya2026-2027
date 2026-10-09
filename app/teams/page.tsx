@@ -4,11 +4,18 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import styles from "./teams.module.css";
+import heads2023Data from "@/public/assets/heads2023_24.json";
+import heads2024Data from "@/public/assets/heads2024_25.json";
+import heads2025Data from "@/public/assets/heads2025_26.json";
+import heads2026Data from "@/public/assets/heads2026_27.json";
 
 type TeamMember = {
   name: string;
   phone: string;
   image: string;
+  email?: string;
+  linkedin?: string;
+  instagram?: string;
 };
 
 type Department = {
@@ -23,608 +30,36 @@ type ContactLink = {
 
 type Edition = "2023" | "2024" | "2025" | "2026";
 
-const imageBase2025 = "/teams/team2025/";
-const imageBase2024 = "/teams/team2024/";
-const imageBase2023 = "/teams/team2023/";
-const imageBase2026 = "/teams/team2026/";
-const imageBase = "/teams/team2025/";
+type RawHeadItem = {
+  name: string;
+  number?: string;
+  phone?: string;
+  email?: string;
+  image?: string;
+  photo?: string;
+  linkedin?: string;
+  instagram?: string;
+};
 
-const departments: Department[] = [
-  {
-    name: "Executive Heads",
-    members: [
-      {
-        name: "Sidharth Reddy",
-        phone: "8639775835",
-        image: `${imageBase2025}Sidharth Reddy.PNG`,
-      },
-      {
-        name: "Mayank Singh",
-        phone: "8814943708",
-        image: `${imageBase2025}Mayank Yadav.webp`,
-      },
-      {
-        name: "Jyoti",
-        phone: "6367363093",
-        image: `${imageBase2025}jyoti.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Finance Heads",
-    members: [
-      {
-        name: "Namanya Pant",
-        phone: "9004487822",
-        image: `${imageBase2025}Namanya Pant.jpg`,
-      },
-      {
-        name: "Saksham Aggarwal",
-        phone: "7304368246",
-        image: `${imageBase2025}Saksham Aggarwal.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Event Heads",
-    members: [
-      {
-        name: "Navadeep Nandedapu",
-        phone: "8179575909",
-        image: `${imageBase2025}Navadeep.jpg`,
-      },
-      {
-        name: "Yayavaram Vivekadithya",
-        phone: "8328271915",
-        image: `${imageBase2025}Vivek.jpg`,
-      },
-      {
-        name: "Surekha",
-        phone: "6350603609",
-        image: `${imageBase2025}surekha.jpg`,
-      },
-      {
-        name: "Sabita Kumari",
-        phone: "7667578864",
-        image: `${imageBase2025}sabita kumari.jpg`,
-      },
-      {
-        name: "Budida Abhinav",
-        phone: "6300068771",
-        image: `${imageBase2025}Budida Abhinav.jpg`,
-      },
-      {
-        name: "MS Karthik",
-        phone: "9845916377",
-        image: `${imageBase2025}MS Karthik.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Publicity & Marketing Heads",
-    members: [
-      {
-        name: "Rupali Hingankar",
-        phone: "8830220583",
-        image: `${imageBase2025}rupali.jpg`,
-      },
-      {
-        name: "Shivraj Gulve",
-        phone: "8421115807",
-        image: `${imageBase2025}Shivraj.png`,
-      },
-      {
-        name: "Vangala Akshay Reddy",
-        phone: "8309403808",
-        image: `${imageBase2025}Akshay.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Sponsorship Heads",
-    members: [
-      {
-        name: "Ayush Kumar",
-        phone: "9304203012",
-        image: `${imageBase2025}ayush.webp`,
-      },
-      {
-        name: "Akash Kolanti",
-        phone: "9542309116",
-        image: `${imageBase2025}Akash Kolanti.jpg`,
-      },
-      {
-        name: "Sauparna Das",
-        phone: "9330578069",
-        image: `${imageBase2025}sauparnadas.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Web Heads",
-    members: [
-      {
-        name: "Ananye Kachhap",
-        phone: "9931319395",
-        image: `${imageBase2025}Ananye Kachhap.jpg`,
-      },
-      {
-        name: "Jeet Anand",
-        phone: "9122233011",
-        image: `${imageBase2025}jeet.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Media and Public Relations",
-    members: [
-      {
-        name: "Rasamalla Charan Prakash",
-        phone: "8309483130",
-        image: `${imageBase2025}Rasamalla Charan Prakash.png`,
-      },
-      {
-        name: "Nudvip Tale",
-        phone: "8142999166",
-        image: `${imageBase2025}Nudvip Tale.jpg`,
-      },
-      {
-        name: "Annangi Neeraj Kumar",
-        phone: "8328003149",
-        image: `${imageBase2025}Annangi Neeraj Kumar.jpg`,
-      },
-    ],
-  },
-];
+function parseHeadsJson(jsonData: Record<string, RawHeadItem[]>): Department[] {
+  return Object.entries(jsonData).map(([deptName, members]) => ({
+    name: deptName,
+    members: members.map((m) => ({
+      name: m.name,
+      phone: m.phone || m.number || "",
+      image: m.image || m.photo || "",
+      email: m.email || "",
+      linkedin: m.linkedin || "",
+      instagram: m.instagram || "",
+    })),
+  }));
+}
 
-const historicalDepartments: Department[] = [
-  {
-    name: "Executive Heads",
-    members: [
-      {
-        name: "Tejashwi Kumar Jha",
-        phone: "8102400147",
-        image: `${imageBase2024}Tejashwi Kumar Jha.jpg`,
-      },
-      {
-        name: "Jival Chorawala",
-        phone: "7378655738",
-        image: `${imageBase2024}Jival Chorawala.jpeg`,
-      },
-      {
-        name: "Chavi Agarwal",
-        phone: "8801027905",
-        image: `${imageBase2024}Chavi Agarwal.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Finance Heads",
-    members: [
-      {
-        name: "Brij Patel",
-        phone: "7698817843",
-        image: `${imageBase2024}Brij Patel.jpeg`,
-      },
-      {
-        name: "Pranjal Paliwal",
-        phone: "7988270765",
-        image: `${imageBase2024}Pranjal Paliwal.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Event Heads",
-    members: [
-      {
-        name: "Indrajeet Kumar",
-        phone: "7275282141",
-        image: `${imageBase2024}default.png`,
-      },
-      {
-        name: "Sudhanshu Kumar",
-        phone: "9931682446",
-        image: `${imageBase2024}Sudhanshu Kumar.jpeg`,
-      },
-      {
-        name: "Matthews Bonthu",
-        phone: "8688324518",
-        image: `${imageBase2024}Matthews Bonthu.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Publicity & Marketing Heads",
-    members: [
-      {
-        name: "Hemant Kamble",
-        phone: "9372838349",
-        image: `${imageBase2024}Hemant Kamble.jpeg`,
-      },
-      {
-        name: "Tuhsin Suhana Rahman",
-        phone: "6002515029",
-        image: `${imageBase2024}Tuhsin Suhana Rahman.jpeg`,
-      },
-      {
-        name: "Rakesh Tella",
-        phone: "9640519184",
-        image: `${imageBase2024}Rakesh Tella.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Sponsorship Heads",
-    members: [
-      {
-        name: "Shaurya Pratap Singh",
-        phone: "8003192648",
-        image: `${imageBase2024}Shaurya Pratap Singh.png`,
-      },
-      {
-        name: "Samrat Koushik Shaw",
-        phone: "7047740198",
-        image: `${imageBase2024}Samrat.jpg`,
-      },
-      {
-        name: "Preet Panchal",
-        phone: "7383456780",
-        image: `${imageBase2024}Preet.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Logistics Heads",
-    members: [
-      {
-        name: "Ayush Garg",
-        phone: "9461950422",
-        image: `${imageBase2024}Ayush_Garg.jpg`,
-      },
-      {
-        name: "Kushal Kushwaha",
-        phone: "9594620693",
-        image: `${imageBase2024}Kushal.jpg`,
-      },
-      {
-        name: "Pranjal Kanodia",
-        phone: "9610978218",
-        image: `${imageBase2024}Pranjal Kanodia.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Web Heads",
-    members: [
-      {
-        name: "Pranjul Shukla",
-        phone: "6307455279",
-        image: `${imageBase2024}Pranjul_Shukla.jpg`,
-      },
-      {
-        name: "Sahil Sinha",
-        phone: "7856845083",
-        image: `${imageBase2024}Sahil_Sinha.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Design and Media Heads",
-    members: [
-      {
-        name: "Bhuvan Raj Guguloth",
-        phone: "9392885490",
-        image: `${imageBase2024}bhuvan.jpg`,
-      },
-      {
-        name: "Sai Chetan Kumar",
-        phone: "7702026854",
-        image: `${imageBase2024}saichetan.jpeg`,
-      },
-      {
-        name: "Deepak Mina",
-        phone: "8696784547",
-        image: `${imageBase2024}Deepak Mina.png`,
-      },
-    ],
-  },
-];
+const team2023Departments = parseHeadsJson(heads2023Data as Record<string, RawHeadItem[]>);
+const historicalDepartments = parseHeadsJson(heads2024Data as Record<string, RawHeadItem[]>);
+const departments = parseHeadsJson(heads2025Data as Record<string, RawHeadItem[]>);
+const departments2026 = parseHeadsJson(heads2026Data as Record<string, RawHeadItem[]>);
 
-const team2023Departments: Department[] = [
-  {
-    name: "Executive Heads",
-    members: [
-      {
-        name: "S S V K S S Jyothiraditya",
-        phone: "7675007236",
-        image: `${imageBase2023}S S V K S S Jyothiraditya.jpeg`,
-      },
-      {
-        name: "Shreya Mishra",
-        phone: "9475621028",
-        image: `${imageBase2023}Shreya Mishra.jpeg`,
-      },
-      {
-        name: "Soujanaya Nayak",
-        phone: "7506136455",
-        image: `${imageBase2023}Soujanaya Nayak.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Finance Heads",
-    members: [
-      {
-        name: "Jatin Motwani",
-        phone: "9424533623",
-        image: `${imageBase2023}Jatin Motwani.jpeg`,
-      },
-      {
-        name: "Lokesh Agarwala",
-        phone: "7728018715",
-        image: `${imageBase2023}Lokesh Agarwala.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Event Heads",
-    members: [
-      {
-        name: "Archie Avirati",
-        phone: "7024385271",
-        image: `${imageBase2023}Archie Avirati.jpeg`,
-      },
-      {
-        name: "Himanshu",
-        phone: "7348701571",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Nikhil Bharat Rajani",
-        phone: "7020096806",
-        image: `${imageBase2023}Nikhil Bharat Rajani.jpeg`,
-      },
-      {
-        name: "Priyanshu Shaw",
-        phone: "9073808624",
-        image: `${imageBase2023}Priyanshu Shaw.jpeg`,
-      },
-      {
-        name: "Rishi Dhoble",
-        phone: "9205704432",
-        image: `${imageBase2023}Rishi Dhoble.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Publicity & Marketing Heads",
-    members: [
-      {
-        name: "Atharva Chilwarwar",
-        phone: "7796557031",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Prashant Tripathi",
-        phone: "7398149866",
-        image: `${imageBase2023}Prashant Tripathi.jpeg`,
-      },
-      {
-        name: "S. Siddharth",
-        phone: "9789422444",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Yashwanth Kumar Kallepalli",
-        phone: "9347865123",
-        image: `${imageBase2023}Yashwanth Kumar.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Sponsorship Heads",
-    members: [
-      {
-        name: "Aditya G Gaikwad",
-        phone: "9980090567",
-        image: `${imageBase2023}Aditya G Gaikwad.png`,
-      },
-      {
-        name: "Akshat Dilip Lade",
-        phone: "9920378336",
-        image: `${imageBase2023}Akshat Dilip Lade.jpeg`,
-      },
-      {
-        name: "Chalamalla Sahithi",
-        phone: "6300290977",
-        image: `${imageBase2023}Chalamalla Sahithi.png`,
-      },
-      {
-        name: "Nimish Gadge",
-        phone: "9819755685",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Prajay",
-        phone: "9391738281",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Raghuvar Srivastava",
-        phone: "9811097343",
-        image: `${imageBase2023}default.png`,
-      },
-    ],
-  },
-  {
-    name: "Logistics Heads",
-    members: [
-      {
-        name: "Akula Tejaswini",
-        phone: "7396066011",
-        image: `${imageBase2023}Akula Tejaswini.jpeg`,
-      },
-      {
-        name: "Neeraj Patel",
-        phone: "7987752913",
-        image: `${imageBase2023}Neeraj Patel.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Web Heads",
-    members: [
-      {
-        name: "Rohan R. Barsagade",
-        phone: "8263932614",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Somyajeet Gupta Chowdhury",
-        phone: "9113340204",
-        image: `${imageBase2023}Somyajeet Gupta Chowdhury.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Design and Media Heads",
-    members: [
-      {
-        name: "Gauransh Agarwal",
-        phone: "7063730072",
-        image: `${imageBase2023}Gauransh Agarwal.jpeg`,
-      },
-      {
-        name: "Malla Harshavardhan",
-        phone: "9392551557",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Shubham Dilawar",
-        phone: "9893662396",
-        image: `${imageBase2023}Shubham Dilawar.jpeg`,
-      },
-      {
-        name: "Vaibhav Joshi",
-        phone: "9535734903",
-        image: `${imageBase2023}Vaibhav Joshi.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Accommodation and Guest Reception Heads",
-    members: [
-      {
-        name: "Anushka Singh",
-        phone: "9335225142",
-        image: `${imageBase2023}Anushka Singh.jpeg`,
-      },
-      {
-        name: "Dhiya Mariam Thomas",
-        phone: "8851996747",
-        image: `${imageBase2023}default.png`,
-      },
-      {
-        name: "Jayansh Maheshwari",
-        phone: "8655701340",
-        image: `${imageBase2023}default.png`,
-      },
-    ],
-  },
-];
-
-const departments2026: Department[] = [
-  {
-    name: "Executive Heads",
-    members: [
-      {
-        name: "Daksh",
-        phone: "9306726881",
-        image: `${imageBase2026}Daksh.jpg`,
-      },
-      {
-        name: "Aparajita Sarkar",
-        phone: "8918417982",
-        image: `${imageBase2026}Aparajita Sarkar.jpg`,
-      },
-      {
-        name: "Vejendla Vaishnavi",
-        phone: "6305875179",
-        image: `${imageBase2026}Vejendla Vaishnavi.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Finance Heads",
-    members: [
-      {
-        name: "Premnadh Reddy",
-        phone: "9030044703",
-        image: `${imageBase2026}Premnadh Reddy.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Publicity & Marketing Heads",
-    members: [
-      {
-        name: "Angothu Gopichand",
-        phone: "6300145936",
-        image: `${imageBase2026}Angothu Gopichand.jpg`,
-      },
-      {
-        name: "Aravind Naik",
-        phone: "8121980076",
-        image: `${imageBase2026}Aravind Naik.jpg`,
-      },
-      {
-        name: "Sutirtha Jana",
-        phone: "9907234970",
-        image: `${imageBase2026}Sutirtha Jana.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Event Heads",
-    members: [
-      {
-        name: "Chadaram Mohith",
-        phone: "7981769594",
-        image: `${imageBase2026}Chadaram Mohith.jpg`,
-      },
-      {
-        name: "Abhijit Roy",
-        phone: "9832858255",
-        image: `${imageBase2026}Event head_Abhijit Roy.jpeg`,
-      },
-    ],
-  },
-  {
-    name: "Sponsorship Heads",
-    members: [
-      {
-        name: "Sativada Karthik",
-        phone: "8121281647",
-        image: `${imageBase2026}Sativada Karthik.jpg`,
-      },
-    ],
-  },
-  {
-    name: "Web Heads",
-    members: [
-      {
-        name: "Ankit Debnath",
-        phone: "8617746318",
-        image: `${imageBase2026}Ankit Debnath.jpg`,
-      },
-      {
-        name: "Rohit Bej",
-        phone: "7903197215",
-        image: `${imageBase2026}Rohit Bej.jpg`,
-      },
-    ],
-  },
-];
 
 const historicalEmails: Record<string, string> = {
   "S S V K S S Jyothiraditya": "jyothiradityas@kgpian.iitkgp.ac.in",
@@ -1784,70 +1219,89 @@ function getContactIcon(label: string) {
   return null;
 }
 
+function isValidSocialUrl(url?: string): boolean {
+  if (!url || !url.trim()) return false;
+  const trimmed = url.trim();
+  if (
+    trimmed === "https://www.shauryaiitkgp.in/" ||
+    trimmed === "https://www.shauryaiitkgp.in" ||
+    trimmed === "https://www.linkedin.com/company/shaurya-iit-kharagpur/" ||
+    trimmed === "https://www.instagram.com/shaurya_iitkgp/"
+  ) {
+    return false;
+  }
+  return true;
+}
+
 function getMemberContactLinks(member: TeamMember) {
-  const existing = contactLinks[member.name];
-  const is2026Member = departments2026.some((department) =>
-    department.members.some((candidate) => candidate.name === member.name),
+  const existing = contactLinks[member.name] || [];
+  const links: ContactLink[] = [];
+
+  const phone = member.phone || "";
+  const cleanPhone = phone.replace(/[^0-9]/g, "");
+
+  // 1. Call
+  const existingCall = existing.find(
+    (l) => l.label.toLowerCase() === "call" && isValidSocialUrl(l.href),
   );
-  const email =
-    historicalEmails[member.name] ||
-    `${member.name.toLowerCase().replace(/[^a-z0-9]/g, "")}@shauryaiitkgp.in`;
-
-  if (existing && existing.length > 0) {
-    const hasPhone = existing.some((l) => l.label.toLowerCase() === "call");
-    const hasWA = existing.some((l) => l.label.toLowerCase() === "whatsapp");
-    const hasLI = existing.some((l) => l.label.toLowerCase() === "linkedin");
-    const hasIG = existing.some((l) => l.label.toLowerCase() === "instagram");
-    const hasEmail = existing.some((l) => l.label.toLowerCase() === "email");
-
-    const links = [...existing];
-    if (!hasPhone && member.phone) {
-      links.push({ label: "Call", href: `tel:${member.phone}` });
-    }
-    if (!hasWA && member.phone) {
-      links.push({
-        label: "WhatsApp",
-        href: `https://wa.me/${member.phone.replace(/[^0-9]/g, "")}`,
-      });
-    }
-    if (!hasLI && !is2026Member) {
-      links.push({
-        label: "LinkedIn",
-        href: "https://www.shauryaiitkgp.in/",
-      });
-    }
-    if (!hasIG && !is2026Member) {
-      links.push({
-        label: "Instagram",
-        href: "https://www.shauryaiitkgp.in/",
-      });
-    }
-    if (!hasEmail) {
-      links.push({
-        label: "Email",
-        href: `https://mail.google.com/mail/?view=cm&to=${email}`,
-      });
-    }
-    return links;
+  if (existingCall) {
+    links.push(existingCall);
+  } else if (phone) {
+    links.push({ label: "Call", href: `tel:${phone}` });
   }
 
-  // Fallback / 2026 demo template with all 5 links
-  const cleanPhone = member.phone
-    ? member.phone.replace(/[^0-9]/g, "")
-    : "919876543210";
-  return [
-    { label: "Call", href: `tel:${member.phone || "+919876543210"}` },
-    { label: "WhatsApp", href: `https://wa.me/${cleanPhone}` },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/company/shaurya-iit-kharagpur/",
-    },
-    { label: "Instagram", href: "https://www.instagram.com/shaurya_iitkgp/" },
-    {
+  // 2. WhatsApp
+  const existingWA = existing.find(
+    (l) => l.label.toLowerCase() === "whatsapp" && isValidSocialUrl(l.href),
+  );
+  if (existingWA) {
+    links.push(existingWA);
+  } else if (cleanPhone) {
+    links.push({
+      label: "WhatsApp",
+      href: `https://wa.me/${cleanPhone}`,
+    });
+  }
+
+  // 3. LinkedIn
+  const existingLI = existing.find(
+    (l) => l.label.toLowerCase() === "linkedin" && isValidSocialUrl(l.href),
+  );
+  if (isValidSocialUrl(member.linkedin)) {
+    links.push({ label: "LinkedIn", href: member.linkedin!.trim() });
+  } else if (existingLI) {
+    links.push(existingLI);
+  }
+
+  // 4. Instagram
+  const existingIG = existing.find(
+    (l) => l.label.toLowerCase() === "instagram" && isValidSocialUrl(l.href),
+  );
+  if (isValidSocialUrl(member.instagram)) {
+    links.push({ label: "Instagram", href: member.instagram!.trim() });
+  } else if (existingIG) {
+    links.push(existingIG);
+  }
+
+  // 5. Email
+  const existingEmail = existing.find(
+    (l) => l.label.toLowerCase() === "email" && isValidSocialUrl(l.href),
+  );
+  const emailAddr =
+    (isValidSocialUrl(member.email) ? member.email!.trim() : "") ||
+    historicalEmails[member.name] ||
+    "";
+
+  if (existingEmail) {
+    links.push(existingEmail);
+  } else if (emailAddr && emailAddr.includes("@")) {
+    links.push({
       label: "Email",
-      href: `https://mail.google.com/mail/?view=cm&to=${email}`,
-    },
-  ];
+      href: `https://mail.google.com/mail/?view=cm&to=${emailAddr}`,
+    });
+  }
+
+  return links;
 }
 
 export default function TeamsPage() {

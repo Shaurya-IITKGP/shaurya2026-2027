@@ -1,0 +1,94 @@
+{
+  "Executive Heads": [
+    {
+      "name": "Daksh",
+      "number": "9306726881",
+      "email": "phogatha@gmail.com",
+      "image": "/teams/team2026/Daksh.jpg"
+    },
+    {
+      "name": "Aparajita Sarkar",
+      "number": "8918417982",
+      "email": "aparajitasarkar2709@gmail.com",
+      "image": "/teams/team2026/Aparajita Sarkar.jpg"
+    },
+    {
+      "name": "Vejendla Vaishnavi",
+      "number": "6305875179",
+      "email": "vejendlavaishnavi15@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/vaishnavi-vejendla-194527336?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      "instagram": "https://www.instagram.com/vaishnavi_3106?stkn=MXY3dzlhc2Y4dTBhOA==",
+      "image": "/teams/team2026/Vejendla Vaishnavi.jpg"
+    }
+  ],
+  "Finance Heads": [
+    {
+      "name": "Premnadh Reddy",
+      "number": "9030044703",
+      "email": "premnadh.akkala@gmail.com",
+      "image": "/teams/team2026/Premnadh Reddy.jpg"
+    }
+  ],
+  "Publicity & Marketing Heads": [
+    {
+      "name": "Angothu Gopichand",
+      "number": "6300145936",
+      "email": "Sirisrinivas464@gmail.com",
+      "image": "/teams/team2026/Angothu Gopichand.jpg"
+    },
+    {
+      "name": "Aravind Naik",
+      "number": "8121980076",
+      "email": "aravindnaikkethavth2@gmail.com",
+      "image": "/teams/team2026/Aravind Naik.jpg"
+    },
+    {
+      "name": "Sutirtha Jana",
+      "number": "9907234970",
+      "email": "sutirthajana107@gmail.com",
+      "image": "/teams/team2026/Sutirtha Jana.jpg"
+    }
+  ],
+  "Event Heads": [
+    {
+      "name": "Chadaram Mohith",
+      "number": "7981769594",
+      "email": "Mohithchadaram2@gmail.com",
+      "image": "/teams/team2026/Chadaram Mohith.jpg"
+    },
+    {
+      "name": "Abhijit Roy",
+      "number": "9832858255",
+      "email": "royabhijit59478@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/abhijit-roy-695402326",
+      "instagram": "https://www.instagram.com/__abhijit.roy__/",
+      "image": "/teams/team2026/Event head_Abhijit Roy.jpeg"
+    }
+  ],
+  "Sponsorship Heads": [
+    {
+      "name": "Sativada Karthik",
+      "number": "8121281647",
+      "email": "1647karthik@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/karthik-sativada",
+      "instagram": "https://www.instagram.com/karthik.sativada?stkn=YmN1MHVodTB3b21n",
+      "image": "/teams/team2026/Sativada Karthik.jpg"
+    }
+  ],
+  "Web Heads": [
+    {
+      "name": "Ankit Debnath",
+      "number": "8617746318",
+      "email": "debnathankit52@gmail.com",
+      "image": "/teams/team2026/Ankit Debnath.jpg"
+    },
+    {
+      "name": "Rohit Bej",
+      "number": "7903197215",
+      "email": "rohit098bej@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/mr-rohit-/",
+      "instagram": "https://www.instagram.com/imrohitbej/",
+      "image": "/teams/team2026/Rohit Bej.jpg"
+    }
+  ]
+}

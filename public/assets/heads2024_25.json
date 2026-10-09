@@ -1,0 +1,150 @@
+{
+  "Executive Heads": [
+    {
+      "name": "Tejashwi Kumar Jha",
+      "number": "8102400147",
+      "email": "tkjha2468@gmail.com",
+      "image": "/teams/team2024/Tejashwi Kumar Jha.jpg"
+    },
+    {
+      "name": "Jival Chorawala",
+      "number": "7378655738",
+      "email": "jivalchorawala13@gmail.com",
+      "image": "/teams/team2024/Jival Chorawala.jpeg"
+    },
+    {
+      "name": "Chavi Agarwal",
+      "number": "8801027905",
+      "email": "agarwalchavi04@gmail.com",
+      "image": "/teams/team2024/Chavi Agarwal.jpeg"
+    }
+  ],
+  "Finance Heads": [
+    {
+      "name": "Brij Patel",
+      "number": "7698817843",
+      "email": "brijpatel475@gmail.com",
+      "image": "/teams/team2024/Brij Patel.jpeg"
+    },
+    {
+      "name": "Pranjal Paliwal",
+      "number": "7988270765",
+      "email": "pranjalpaliwal.05@kgpian.iitkgp.ac.in",
+      "image": "/teams/team2024/Pranjal Paliwal.jpeg"
+    }
+  ],
+  "Event Heads": [
+    {
+      "name": "Indrajeet Kumar",
+      "number": "7275282141",
+      "email": "knp.indrajeetkumar@gmail.com",
+      "image": "/teams/team2024/default.png"
+    },
+    {
+      "name": "Sudhanshu Kumar",
+      "number": "9931682446",
+      "email": "mrsudhanshu756@gmail.com",
+      "image": "/teams/team2024/Sudhanshu Kumar.jpeg"
+    },
+    {
+      "name": "Matthews Bonthu",
+      "number": "8688324518",
+      "email": "matthews27@kgpian.iitkgp.ac.in",
+      "image": "/teams/team2024/Matthews Bonthu.jpeg"
+    }
+  ],
+  "Publicity & Marketing Heads": [
+    {
+      "name": "Hemant Kamble",
+      "number": "9372838349",
+      "email": "hemantsoham111@gmail.com",
+      "image": "/teams/team2024/Hemant Kamble.jpeg"
+    },
+    {
+      "name": "Tuhsin Suhana Rahman",
+      "number": "6002515029",
+      "email": "tuhsin13@gmail.com",
+      "image": "/teams/team2024/Tuhsin Suhana Rahman.jpeg"
+    },
+    {
+      "name": "Rakesh Tella",
+      "number": "9640519184",
+      "email": "rakeshtella8@gmail.com",
+      "image": "/teams/team2024/Rakesh Tella.jpeg"
+    }
+  ],
+  "Sponsorship Heads": [
+    {
+      "name": "Shaurya Pratap Singh",
+      "number": "8003192648",
+      "email": "shaurya29@kgpian.iitkgp.ac.in",
+      "image": "/teams/team2024/Shaurya Pratap Singh.png"
+    },
+    {
+      "name": "Samrat Koushik Shaw",
+      "number": "7047740198",
+      "email": "shawkoushik8776@gmail.com",
+      "image": "/teams/team2024/Samrat.jpg"
+    },
+    {
+      "name": "Preet Panchal",
+      "number": "7383456780",
+      "email": "panchalpreet090304@gmail.com",
+      "image": "/teams/team2024/Preet.jpeg"
+    }
+  ],
+  "Logistics Heads": [
+    {
+      "name": "Ayush Garg",
+      "number": "9461950422",
+      "email": "gargayush.2412@gmail.com",
+      "image": "/teams/team2024/Ayush_Garg.jpg"
+    },
+    {
+      "name": "Kushal Kushwaha",
+      "number": "9594620693",
+      "email": "kushalkushwaha96@gmail.com",
+      "image": "/teams/team2024/Kushal.jpg"
+    },
+    {
+      "name": "Pranjal Kanodia",
+      "number": "9610978218",
+      "email": "pranjalkanodia11@gmail.com",
+      "image": "/teams/team2024/Pranjal Kanodia.jpeg"
+    }
+  ],
+  "Web Heads": [
+    {
+      "name": "Pranjul Shukla",
+      "number": "6307455279",
+      "email": "captaincoro444@gmail.com",
+      "image": "/teams/team2024/Pranjul_Shukla.jpg"
+    },
+    {
+      "name": "Sahil Sinha",
+      "number": "7856845083",
+      "email": "sahilsinha247742@gmail.com",
+      "image": "/teams/team2024/Sahil_Sinha.jpg"
+    }
+  ],
+  "Design and Media Heads": [
+    {
+      "name": "Bhuvan Raj Guguloth",
+      "number": "9392885490",
+      "email": "bhuvanrajnaik@gmail.com",
+      "image": "/teams/team2024/bhuvan.jpg"
+    },
+    {
+      "name": "Sai Chetan Kumar",
+      "number": "7702026854",
+      "email": "chetankumar10021@gmail.com",
+      "image": "/teams/team2024/saichetan.jpeg"
+    },
+    {
+      "name": "Deepak Mina",
+      "number": "8696784547",
+      "email": "deepak2020ibs@gmail.com",
+      "image": "/teams/team2024/Deepak Mina.png"
+    }
+  ]
+}
