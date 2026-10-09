@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { registerParticipant } from "./actions";
 import styles from "./RegistrationForm.module.css";
 
 interface RegistrationFormProps {
@@ -12,17 +13,43 @@ interface RegistrationFormProps {
 export default function RegistrationForm({ onFocusChange, onSubmitStart }: RegistrationFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Controlled form fields
+  const [name, setName] = useState("");
+  const [college, setCollege] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg(null);
     setIsSubmitting(true);
-    onSubmitStart();
-    setTimeout(() => setIsSuccess(true), 2000);
+
+    const result = await registerParticipant({
+      name,
+      college,
+      mobile: phone,
+      email,
+    });
+
+    if (result.success) {
+      onSubmitStart();
+      setIsSuccess(true);
+    } else {
+      setErrorMsg(result.message);
+      setIsSubmitting(false);
+    }
   };
 
   const resetForm = () => {
     setIsSuccess(false);
     setIsSubmitting(false);
+    setErrorMsg(null);
+    setName("");
+    setCollege("");
+    setPhone("");
+    setEmail("");
   };
 
   return (
@@ -62,6 +89,17 @@ export default function RegistrationForm({ onFocusChange, onSubmitStart }: Regis
               transition={{ duration: 0.5 }}
               className={styles.form}
             >
+              {/* Server error banner */}
+              {errorMsg && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={styles.errorBanner}
+                >
+                  {errorMsg}
+                </motion.div>
+              )}
+
               {/* Full Name */}
               <div className={styles.fieldGroup}>
                 <label className={styles.label}>Full Name</label>
@@ -69,6 +107,8 @@ export default function RegistrationForm({ onFocusChange, onSubmitStart }: Regis
                   required
                   type="text"
                   placeholder="Enter your full name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   onFocus={() => onFocusChange("name")}
                   onBlur={() => onFocusChange(null)}
                   disabled={isSubmitting}
@@ -79,15 +119,33 @@ export default function RegistrationForm({ onFocusChange, onSubmitStart }: Regis
               {/* College */}
               <div className={styles.fieldGroup}>
                 <label className={styles.label}>College / Institute</label>
-                <input
+                <select
                   required
-                  type="text"
-                  placeholder="Enter your institution"
+                  value={college}
+                  onChange={(e) => setCollege(e.target.value)}
                   onFocus={() => onFocusChange("college")}
                   onBlur={() => onFocusChange(null)}
                   disabled={isSubmitting}
-                  className={styles.input}
-                />
+                  className={`${styles.input} ${styles.selectInput}`}
+                >
+                  <option value="" disabled>Select your institution</option>
+                  <option value="IIT Kharagpur">IIT Kharagpur</option>
+                  <option value="IIT Bhubaneswar">IIT Bhubaneswar</option>
+                  <option value="IIT (ISM) Dhanbad">IIT (ISM) Dhanbad</option>
+                  <option value="NIT Rourkela">NIT Rourkela</option>
+                  <option value="BIT Sindri">BIT Sindri, Dhanbad</option>
+                  <option value="GITA Autonomous, Bhubaneswar">GITA Autonomous, Bhubaneswar</option>
+                  <option value="Arka Jain University, Jamshedpur">Arka Jain University, Jamshedpur</option>
+                  <option value="St. Xavier's University, Kolkata">St. Xavier&apos;s University, Kolkata</option>
+                  <option value="St. Xavier's College">St. Xavier&apos;s College</option>
+                  <option value="Heritage Institute of Technology, Kolkata">Heritage Institute of Technology, Kolkata</option>
+                  <option value="IEM, Kolkata">Institute of Engineering & Management (IEM), Kolkata</option>
+                  <option value="Sarala Birla University, Ranchi">Sarala Birla University, Ranchi</option>
+                  <option value="Birla Global University, Bhubaneswar">Birla Global University, Bhubaneswar</option>
+                  <option value="Netaji Subhas University, Jamshedpur">Netaji Subhas University (NSU), Jamshedpur</option>
+                  <option value="Bengal College of Engineering & Technology, Durgapur">Bengal College of Engineering & Technology (BCET), Durgapur</option>
+                  <option value="Shershah Engineering College, Sasaram">Shershah Engineering College (SERSA), Sasaram</option>
+                </select>
               </div>
 
               {/* Phone */}
@@ -100,6 +158,8 @@ export default function RegistrationForm({ onFocusChange, onSubmitStart }: Regis
                   maxLength={10}
                   minLength={10}
                   placeholder="9876543210"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ""))}
                   onFocus={() => onFocusChange("phone")}
                   onBlur={() => onFocusChange(null)}
                   disabled={isSubmitting}
@@ -114,6 +174,8 @@ export default function RegistrationForm({ onFocusChange, onSubmitStart }: Regis
                   required
                   type="email"
                   placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   onFocus={() => onFocusChange("email")}
                   onBlur={() => onFocusChange(null)}
                   disabled={isSubmitting}
@@ -206,7 +268,9 @@ export default function RegistrationForm({ onFocusChange, onSubmitStart }: Regis
               >
                 <h3 className={styles.successTitle}>Crew Roster Updated</h3>
                 <div className={styles.successRule} />
-                <p className={styles.successCopy}>Welcome aboard the Shaurya expedition.</p>
+                <p className={styles.successCopy}>
+                  Welcome aboard the Shaurya expedition. Visit the Shaurya counter with your College ID to collect your QR pass.
+                </p>
 
                 <button onClick={resetForm} className={styles.resetBtn}>
                   <svg className={styles.resetIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
