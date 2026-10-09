@@ -19,8 +19,6 @@ const images = [
   { id: 11, src: "/gallery/DSC00098.JPG", category: "EVENTS", title: "Crowd Roar", desc: "The energy goes wild" },
   { id: 12, src: "/gallery/DSC00107.JPG", category: "SPORTS", title: "Winning Strike", desc: "The ultimate goal" },
   { id: 13, src: "/gallery/DSC00111.JPG", category: "CULTURE", title: "Rhythm & Soul", desc: "Lost in the music" },
-  { id: 14, src: "/gallery/DSC00134.JPG", category: "EVENTS", title: "Night Magic", desc: "Sparkling festivities" },
-  { id: 15, src: "/gallery/DSC09997.JPG", category: "SPORTS", title: "Unstoppable", desc: "Relentless energy" },
   // Final 3 Added Photos
   { id: 16, src: "/gallery/C0207T01.JPG", category: "EVENTS", title: "Memories Created", desc: "Bonds of a lifetime" },
   { id: 17, src: "/gallery/C0210T01.JPG", category: "SPORTS", title: "Peak Condition", desc: "Beyond the limits" },
