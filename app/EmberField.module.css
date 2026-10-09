@@ -1,0 +1,62 @@
+.field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.viewport {
+  position: fixed;
+}
+
+.ember {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 140, 0, 0.9) 0%,
+    rgba(200, 50, 0, 0.7) 40%,
+    rgba(50, 20, 20, 0.3) 100%
+  );
+  box-shadow:
+    0 0 6px rgba(255, 100, 0, 0.8),
+    0 0 12px rgba(255, 50, 0, 0.4);
+  opacity: 0;
+  animation: riseEmber linear infinite;
+  filter: blur(0.5px);
+}
+
+@keyframes riseEmber {
+  0% {
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(-50vh) translateX(var(--drift, 0px)) scale(1.2)
+      rotate(180deg);
+    opacity: 0.6;
+  }
+
+  85% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-110vh) translateX(calc(var(--drift, 0px) * 1.6))
+      scale(0.6) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field {
+    display: none;
+  }
+}

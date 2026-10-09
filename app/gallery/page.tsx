@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import EmberField from "../EmberField";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 
@@ -33,6 +34,7 @@ export default function Gallery() {
       <main className={styles.main}>
         {/* Animated background overlay */}
         <div className={styles.bgOverlay}></div>
+        <EmberField viewport />
 
         <div className={styles.contentWrapper}>
           <div className={styles.header}>

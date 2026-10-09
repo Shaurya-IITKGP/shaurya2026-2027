@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import EmberField from "./EmberField";
 import styles from "./ContactSection.module.css";
 
 // ─── SVG Icons ───────────────────────────────────────────────────────────────
@@ -187,60 +187,16 @@ const team: TeamMember[] = [
   },
 ];
 
-// ─── Ember particle type ──────────────────────────────────────────────────────
-
-interface Ember {
-  id: number;
-  left: string;
-  size: number;
-  duration: number;
-  delay: number;
-  driftX: number;
-}
-
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function ContactSection() {
-  const [embers, setEmbers] = useState<Ember[]>([]);
-
-  useEffect(() => {
-    setEmbers(
-      Array.from({ length: 35 }, (_, i) => ({
-        id: i,
-        left: `${Math.random() * 100}%`,
-        size: Math.random() * 5 + 2,
-        duration: Math.random() * 7 + 5,
-        delay: -(Math.random() * 8),
-        driftX: (Math.random() - 0.5) * 120,
-      })),
-    );
-  }, []);
-
   return (
     <section
       className={styles.contact}
       id="contact"
       aria-labelledby="ct-heading"
     >
-      {/* Embers */}
-      <div className={styles.embers} aria-hidden="true">
-        {embers.map((e) => (
-          <span
-            key={e.id}
-            className={styles.ember}
-            style={
-              {
-                left: e.left,
-                width: `${e.size}px`,
-                height: `${e.size}px`,
-                animationDuration: `${e.duration}s`,
-                animationDelay: `${e.delay}s`,
-                "--drift": `${e.driftX}px`,
-              } as React.CSSProperties
-            }
-          />
-        ))}
-      </div>
+      <EmberField />
 
       <div className={styles.wrap}>
         {/* ── Left column ── */}
