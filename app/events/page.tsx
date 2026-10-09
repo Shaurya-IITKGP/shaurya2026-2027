@@ -116,9 +116,7 @@ export default function EventsPage() {
             <p className={styles.eyebrow}>THE LINEUP</p>
             <h2 id="sport-directory-title">Choose your arena</h2>
           </div>
-          <p className={styles.sectionNote}>
-            Select a sport to see its character and follow the 2026 programme.
-          </p>
+
         </div>
 
         <div
@@ -153,9 +151,7 @@ export default function EventsPage() {
                 <span className={styles.cardContent}>
                   <span className={styles.cardCategory}>{sport.category}</span>
                   <span className={styles.cardName}>{sport.name}</span>
-                  <span className={styles.cardArrow} aria-hidden="true">
-                    ↗
-                  </span>
+
                 </span>
               </button>
             );
