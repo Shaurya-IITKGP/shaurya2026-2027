@@ -319,7 +319,7 @@ const historicalDepartments: Department[] = [
       {
         name: "Sai Chetan Kumar",
         phone: "7702026854",
-        image: `${imageBase2024}default.png`,
+        image: `${imageBase2024}saichetan.jpeg`,
       },
       {
         name: "Deepak Mina",
