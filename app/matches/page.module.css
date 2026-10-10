@@ -487,3 +487,52 @@
     font-size: 0.8rem;
   }
 }
+
+/* ──────────────────────────────────────────────────────
+   COMING SOON CONTAINER
+─────────────────────────────────────────────────────── */
+.comingSoonCard {
+  width: 100%;
+  padding: 64px 32px;
+  background: rgba(13, 19, 31, 0.72);
+  border: 1px dashed rgba(255, 201, 61, 0.4);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: rowReveal 0.45s ease backwards;
+  margin-top: 24px;
+}
+
+.comingSoonBadge {
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffc93d;
+  background: rgba(255, 201, 61, 0.12);
+  border: 1px solid rgba(255, 201, 61, 0.35);
+  border-radius: 999px;
+}
+
+.comingSoonTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.comingSoonCopy {
+  max-width: 480px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
